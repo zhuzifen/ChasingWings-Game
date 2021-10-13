@@ -101,7 +101,13 @@ public class characterMove : MonoBehaviour
     {
         if (Input.GetKeyDown("e"))
         {
-            startGame();
+            if (characterMode == "Stop")
+            {
+                startGame();
+            } else
+            {
+                restart();
+            }
         }
         if (transform.position.y < -30)
         {

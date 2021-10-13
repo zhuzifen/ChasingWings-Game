@@ -8,8 +8,8 @@ public class characterMove : MonoBehaviour
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
     public Vector3 fanLeft = new Vector3(-1, 0, 0);
-    public const float jumpForce = 1f;
-    public const float movementSpeed = 5;
+    public const float jumpForce = 1.5f;
+    public const float movementSpeed = 3.5f;
     private platformControl platformControl;
 
     public string characterMode = "Stop";
@@ -120,7 +120,7 @@ public class characterMove : MonoBehaviour
     {
         if (characterMode == "Stop")
         {
-            rb.constraints = RigidbodyConstraints.FreezePosition;
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
         if (characterMode == "Running")
         {

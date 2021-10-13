@@ -23,6 +23,8 @@ public class characterMove : MonoBehaviour
 
     private SetupCameraLogic cameraLogic;
     public Vector3 setCameraPos = new Vector3(10, 2, 10);
+
+    public int bonus = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,11 +77,11 @@ public class characterMove : MonoBehaviour
             }
             if (fanRotation == new Vector3(0f, 180f, 180f))
             {
-                rb.velocity = new Vector3(0, 0, -10);
+                rb.velocity = new Vector3(0, 0, -7);
             }
             if (fanRotation == new Vector3(0f, 0f, 0f))
             {
-                rb.velocity = new Vector3(0, 0, 10);
+                rb.velocity = new Vector3(0, 0, 7);
             }
             if (fanRotation == new Vector3(90f, 0f, 0f))
             {
@@ -143,17 +145,20 @@ public class characterMove : MonoBehaviour
     // restart the game
     void restart()
     {
+        _animator.Play("New State", 0, 0f);
         _animator.enabled = false;
         transform.position = new Vector3(0, 0, 0);
         rb.velocity = new Vector3(0, 0, 0);
         characterMode = "Stop";
         cameraLogic.moveCamera(setCameraPos);
         switchCamera.setGameCamera();
+        platformControl.resetSpring();
     }
 
     // when you lose all your life
     void gameOver()
     {
+        _animator.Play("New State", 0, 0f);
         _animator.enabled = false;
         transform.position = new Vector3(0, 0, 0);
         rb.velocity = new Vector3(0, 0, 0);

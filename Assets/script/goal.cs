@@ -19,7 +19,6 @@ public class goal : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hint!!!!!");
         Destroy(g);
         EndGame();
     }

@@ -7,7 +7,6 @@ public class platformControl : MonoBehaviour
     public GameObject character;
     public GameObject springPlatform;
     public GameObject fanPlatform;
-    public GameObject fanPlatformLeft;
 
     private GameObject nowSelected;
     private int nowSelectedIndex;
@@ -17,6 +16,12 @@ public class platformControl : MonoBehaviour
 
     private characterMove characterMove;
     private SetupCameraLogic cameraLogic;
+
+    public const int springLimit = 2;
+    public int springCount = 0;
+
+    public const int fanLimit = 4;
+    public int fanCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +37,7 @@ public class platformControl : MonoBehaviour
         if (characterMove.characterMode == "Stop")
         {
             // add platform
-            if (Input.GetKeyDown("1"))
+            if (Input.GetKeyDown("1") && springCount < springLimit)
             {
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
                 Vector3 mousePosOnScreen = Input.mousePosition;
@@ -43,8 +48,9 @@ public class platformControl : MonoBehaviour
                 nowSelected = GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
                 objectList.Add(nowSelected);
                 nowSelectedIndex = objectList.Count - 1;
+                springCount += 1;
             }
-            if (Input.GetKeyDown("2"))
+            if (Input.GetKeyDown("2") && fanCount < fanLimit)
             {
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
                 Vector3 mousePosOnScreen = Input.mousePosition;
@@ -55,6 +61,7 @@ public class platformControl : MonoBehaviour
                 nowSelected = GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
                 objectList.Add(nowSelected);
                 nowSelectedIndex = objectList.Count - 1;
+                fanCount += 1;
             }
 
             // rotate logic
@@ -132,6 +139,13 @@ public class platformControl : MonoBehaviour
                     nowSelected = null;
                     nowSelectedIndex = -1;
                 }
+                if (lastObject.tag == "Fan")
+                {
+                    fanCount -= 1;
+                } else if (nowSelected.tag == "SpringPlatform")
+                {
+                    springCount -= 1;
+                }
                 objectList.RemoveAt(objectList.Count - 1);
                 GameObject.Destroy(lastObject);
             } 
@@ -145,6 +159,14 @@ public class platformControl : MonoBehaviour
                     if (cameraPos.y - 5 <= nowSelected.transform.position.y && cameraPos.y + 5 >= nowSelected.transform.position.y &&
                         cameraPos.z - 5 <= nowSelected.transform.position.z && cameraPos.z + 5 >= nowSelected.transform.position.z)
                     {
+                        if (nowSelected.tag == "Fan")
+                        {
+                            fanCount -= 1;
+                        }
+                        else if (nowSelected.tag == "SpringPlatform")
+                        {
+                            springCount -= 1;
+                        }
                         objectList.Remove(nowSelected);
                         GameObject.Destroy(nowSelected);
                         nowSelected = null;
@@ -167,5 +189,21 @@ public class platformControl : MonoBehaviour
         objectList.Clear();
         nowSelected = null;
         nowSelectedIndex = -1;
+        fanCount = 0;
+        springCount = 0;
+    }
+
+    public void resetSpring()
+    {
+        foreach (GameObject gameObject in objectList)
+        {
+            if (gameObject.tag == "SpringPlatform")
+            {
+                Animator springAnimator = gameObject.GetComponent<Animator>();
+                springAnimator.Play("New State", 0, 0f);
+                springAnimator.Update(0);
+                springAnimator.enabled = false;
+            }
+        }
     }
 }

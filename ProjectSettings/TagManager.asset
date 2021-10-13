@@ -5,11 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spring
-  - SpringSmall
   - addNew
   - Fan
   - Running
-  - FanLeft
+  - SpringPlatform
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,13 @@ public class animation : MonoBehaviour
         _animator.enabled = true;
     }
 
+    public void resetAni()
+    {
+        _animator.Play("New State");
+        _animator.Update(0);
+        _animator.enabled = false;
+    }
+
 
     // Update is called once per frame
     void Update()

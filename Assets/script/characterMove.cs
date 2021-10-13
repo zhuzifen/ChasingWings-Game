@@ -22,7 +22,7 @@ public class characterMove : MonoBehaviour
     public int remainLife;
 
     private SetupCameraLogic cameraLogic;
-    public Vector3 setCameraPos = new Vector3(10, 2, 10);
+    public Vector3 setCameraPos = new Vector3(15, 2, 10);
 
     public int bonus = 0;
     // Start is called before the first frame update

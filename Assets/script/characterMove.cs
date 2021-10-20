@@ -9,7 +9,7 @@ public class characterMove : MonoBehaviour
     public Vector3 move = new Vector3(0, 0, 1);
     public Vector3 fanLeft = new Vector3(-1, 0, 0);
     public const float jumpForce = 1.5f;
-    public const float movementSpeed = 3.5f;
+    public const float movementSpeed = 5;
     private platformControl platformControl;
 
     public string characterMode = "Stop";

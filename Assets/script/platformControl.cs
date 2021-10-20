@@ -133,21 +133,25 @@ public class platformControl : MonoBehaviour
             // remove the last object when playing
             if (characterMove.characterMode != "Stop")
             {
-                GameObject lastObject = objectList[objectList.Count - 1];
-                if (nowSelected == lastObject)
+                if (objectList.Count != 0)
                 {
-                    nowSelected = null;
-                    nowSelectedIndex = -1;
+                    GameObject lastObject = objectList[objectList.Count - 1];
+                    if (nowSelected == lastObject)
+                    {
+                        nowSelected = null;
+                        nowSelectedIndex = -1;
+                    }
+                    if (lastObject.tag == "Fan")
+                    {
+                        fanCount -= 1;
+                    }
+                    else if (lastObject.tag == "SpringPlatform")
+                    {
+                        springCount -= 1;
+                    }
+                    objectList.RemoveAt(objectList.Count - 1);
+                    GameObject.Destroy(lastObject);
                 }
-                if (lastObject.tag == "Fan")
-                {
-                    fanCount -= 1;
-                } else if (nowSelected.tag == "SpringPlatform")
-                {
-                    springCount -= 1;
-                }
-                objectList.RemoveAt(objectList.Count - 1);
-                GameObject.Destroy(lastObject);
             } 
             // remove selected object
             else

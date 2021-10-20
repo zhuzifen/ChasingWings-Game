@@ -25,6 +25,8 @@ public class characterMove : MonoBehaviour
     public Vector3 setCameraPos = new Vector3(15, 2, 10);
 
     public int bonus = 0;
+
+    private EnvironmentControl environmentControl;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class characterMove : MonoBehaviour
         platformControl = GameObject.FindObjectOfType<platformControl>();
         switchCamera = GameObject.FindObjectOfType<switchCamera>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
+        environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
 
         _animator.enabled = false;
         remainLife = totalLife;
@@ -153,6 +156,10 @@ public class characterMove : MonoBehaviour
         cameraLogic.moveCamera(setCameraPos);
         switchCamera.setGameCamera();
         platformControl.resetSpring();
+
+        environmentControl.resetPosition();
+        characterHasKey = false;
+        bonus = 0;
     }
 
     // when you lose all your life
@@ -167,5 +174,9 @@ public class characterMove : MonoBehaviour
         cameraLogic.moveCamera(setCameraPos);
         switchCamera.setGameCamera();
         Time.timeScale = 0;
+
+        environmentControl.resetPosition();
+        characterHasKey = false;
+        bonus = 0;
     }
 }

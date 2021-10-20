@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class goal : MonoBehaviour
 {
-    public GameObject g;
     public bool GameEnded;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,7 @@ public class goal : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(g);
+        Destroy(this.gameObject);
         EndGame();
     }
     private void EndGame()

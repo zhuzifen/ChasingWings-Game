@@ -78,7 +78,7 @@ public class platformControl : MonoBehaviour
                     }
                     else
                     {
-                        cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                        cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                     }
                 }
             }
@@ -95,12 +95,12 @@ public class platformControl : MonoBehaviour
                         nowSelectedIndex = objectList.Count - 1;
                     }
                     nowSelected = objectList[nowSelectedIndex];
-                    cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                    cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 } else if (objectList.Count != 0)
                 {
                     nowSelectedIndex = objectList.Count - 1;
                     nowSelected = objectList[nowSelectedIndex];
-                    cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                    cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
             }
             if (Input.GetKeyDown("d"))
@@ -116,13 +116,13 @@ public class platformControl : MonoBehaviour
                         nowSelectedIndex = 0;
                     }
                     nowSelected = objectList[nowSelectedIndex];
-                    cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                    cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
                 else if (objectList.Count != 0)
                 {
                     nowSelectedIndex = objectList.Count - 1;
                     nowSelected = objectList[nowSelectedIndex];
-                    cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                    cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
             }
         }
@@ -177,7 +177,7 @@ public class platformControl : MonoBehaviour
                         nowSelectedIndex = -1;
                     } else
                     {
-                        cameraLogic.moveCamera(new Vector3(10, nowSelected.transform.position.y, nowSelected.transform.position.z));
+                        cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                     }
                 }
             }

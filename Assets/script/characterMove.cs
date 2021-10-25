@@ -67,6 +67,14 @@ public class characterMove : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit(Collision coll)
+    {
+        if (characterMode != "Stop" && coll.gameObject.tag == "Running")
+        {
+            footStep.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Fan")
@@ -79,6 +87,7 @@ public class characterMove : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerStay(Collider other)
     {
         // running = true;
@@ -163,6 +172,7 @@ public class characterMove : MonoBehaviour
     // restart the game
     void restart()
     {
+        footStep.enabled = false;
         _animator.Play("New State", 0, 0f);
         _animator.enabled = false;
         transform.position = new Vector3(0, 0, 0);

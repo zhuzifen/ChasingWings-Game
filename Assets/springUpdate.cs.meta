@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 1a498abe4dde9c44e9addf24ae4a3806
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SpringLogic: {instanceID: 0}
+  - spring0: {fileID: 21300000, guid: ab4032eaf5b8a2844ba2d34112cadd1c, type: 3}
+  - spring1: {fileID: 21300000, guid: e12391c73bfeae24a87bd87e6f1e4d5e, type: 3}
+  - spring2: {fileID: 21300000, guid: c06958ad5f17b5547b5162f33a5ddac9, type: 3}
+  - spring3: {fileID: 21300000, guid: 007470f227daed34e8f687e4e4d90c16, type: 3}
+  - spring4: {fileID: 21300000, guid: d8a0e14c8659f1544ba5571b0201d9f8, type: 3}
+  - spring5: {fileID: 21300000, guid: f2095cc9f6e742f438a39565afef1b7c, type: 3}
+  - spring6: {fileID: 21300000, guid: 75b6016fb96c589468988b19a2f59ae4, type: 3}
+  - spring7: {fileID: 21300000, guid: deeba086c0f327545aeef9dfb1cf9ec0, type: 3}
+  - spring8: {fileID: 21300000, guid: 6a9e7d85e77c8d44fa54d8ba09d2ef57, type: 3}
+  - spring9: {fileID: 21300000, guid: d47b83a15785278448d0d6035c12c82a, type: 3}
+  - spring10: {fileID: 21300000, guid: ff83c9294317cbe41a48b9105ecade15, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

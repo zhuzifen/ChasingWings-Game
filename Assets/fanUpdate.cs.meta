@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0e422573c1e75f9428636711b8b4d7aa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fan0: {fileID: 21300000, guid: 33b166f907aee32498c764ef1f6e342f, type: 3}
+  - fan1: {fileID: 21300000, guid: c2f880f2be6aa8c4fbdb9122410fdf2c, type: 3}
+  - fan2: {fileID: 21300000, guid: 3463e2f256419824993191de103a62f9, type: 3}
+  - fan3: {fileID: 21300000, guid: 4ed0257dbde8389479a83f4e5fc22cc0, type: 3}
+  - fan4: {fileID: 21300000, guid: 1c574447e564ad4428913a204de85986, type: 3}
+  - fan5: {fileID: 21300000, guid: 6adaf7eb3467834498115e2664b9f41b, type: 3}
+  - fan6: {fileID: 21300000, guid: 8dcdc1001a693d54dbc7e36ec7a3da42, type: 3}
+  - fan7: {fileID: 21300000, guid: 850f6e7a54474c245877bba8971bf1ef, type: 3}
+  - fan8: {fileID: 21300000, guid: 96555062ee2a6c2438207dfb12463aba, type: 3}
+  - fan9: {fileID: 21300000, guid: 76dbcc570d9719b43b6b4b451ef96977, type: 3}
+  - fan10: {fileID: 21300000, guid: 97c265c00266e6c46ac4085df8872e15, type: 3}
+  - fanLogic: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

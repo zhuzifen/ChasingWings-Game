@@ -27,6 +27,9 @@ public class characterMove : MonoBehaviour
     public int bonus = 0;
 
     private EnvironmentControl environmentControl;
+
+    // audio
+    private AudioSource footStep;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,9 @@ public class characterMove : MonoBehaviour
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
 
+        footStep = GetComponent<AudioSource>();
+        footStep.enabled = false;
+
         _animator.enabled = false;
         //remainLife = totalLife;
     }
@@ -46,6 +52,7 @@ public class characterMove : MonoBehaviour
         if (coll.gameObject.tag == "Spring")
         {
             characterMode = "Running";
+            footStep.enabled = false;
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             animation animation = coll.gameObject.GetComponent<animation>();
             animation.startAni();
@@ -53,6 +60,10 @@ public class characterMove : MonoBehaviour
         if (characterMode == "OnWind" && coll.gameObject.tag == "Running")
         {
             characterMode = "Running";
+        }
+        if (characterMode != "Stop" && coll.gameObject.tag == "Running")
+        {
+            footStep.enabled = true;
         }
     }
 
@@ -63,6 +74,7 @@ public class characterMove : MonoBehaviour
             if (characterMode == "Running")
             {
                 characterMode = "OnWind";
+                footStep.enabled = false;
                 transform.position += move * Time.deltaTime * movementSpeed * 5;
             }
         }
@@ -97,6 +109,7 @@ public class characterMove : MonoBehaviour
     private void startGame()
     {
         characterMode = "Running";
+        footStep.enabled = true;
         _animator.enabled = true;
         switchCamera.startGameCamera();
     }

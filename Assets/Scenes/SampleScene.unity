@@ -1556,6 +1556,9 @@ MonoBehaviour:
   objectList: []
   springCount: 0
   fanCount: 0
+  normal: {fileID: 2100000, guid: 181c556c17d5500428f7617c61873ba2, type: 2}
+  fanSelected: {fileID: 2100000, guid: 661266b8810986349b3b4774fbfa9dc8, type: 2}
+  springSelected: {fileID: 2100000, guid: a2a42aee8b5e605419184f1f268833c0, type: 2}
 --- !u!4 &560949841
 Transform:
   m_ObjectHideFlags: 0
@@ -1750,8 +1753,7 @@ MonoBehaviour:
   fanLeft: {x: -1, y: 0, z: 0}
   characterMode: Stop
   characterHasKey: 0
-  remainLife: 0
-  setCameraPos: {x: 10, y: 2, z: 10}
+  setCameraPos: {x: 15, y: 2, z: 10}
   bonus: 0
 --- !u!95 &770461158
 Animator:
@@ -2479,23 +2481,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.70441604
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.06162845
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.70441604
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.06162845
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850810, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

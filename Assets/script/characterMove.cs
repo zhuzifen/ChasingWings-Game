@@ -18,8 +18,8 @@ public class characterMove : MonoBehaviour
     
     public bool characterHasKey = false;
 
-    public const int totalLife = 4;
-    public int remainLife;
+    //public const int totalLife = 4;
+    //public int remainLife;
 
     private SetupCameraLogic cameraLogic;
     public Vector3 setCameraPos = new Vector3(15, 2, 10);
@@ -38,7 +38,7 @@ public class characterMove : MonoBehaviour
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
 
         _animator.enabled = false;
-        remainLife = totalLife;
+        //remainLife = totalLife;
     }
 
     void OnCollisionStay(Collision coll)
@@ -109,6 +109,7 @@ public class characterMove : MonoBehaviour
             if (characterMode == "Stop")
             {
                 startGame();
+                platformControl.startGame();
             } else
             {
                 restart();
@@ -116,14 +117,15 @@ public class characterMove : MonoBehaviour
         }
         if (transform.position.y < -30)
         {
-            remainLife -= 1;
-            if (remainLife == 0)
-            {
-                gameOver();
-            } else
-            {
-                restart();
-            }
+            //remainLife -= 1;
+            //if (remainLife == 0)
+            //{
+            //    gameOver();
+            //} else
+            //{
+            //    restart();
+            //}
+            restart();
         }
     }
 
@@ -155,7 +157,7 @@ public class characterMove : MonoBehaviour
         characterMode = "Stop";
         cameraLogic.moveCamera(setCameraPos);
         switchCamera.setGameCamera();
-        platformControl.resetSpring();
+        platformControl.restart();
 
         environmentControl.resetPosition();
         characterHasKey = false;
@@ -163,20 +165,20 @@ public class characterMove : MonoBehaviour
     }
 
     // when you lose all your life
-    void gameOver()
-    {
-        _animator.Play("New State", 0, 0f);
-        _animator.enabled = false;
-        transform.position = new Vector3(0, 0, 0);
-        rb.velocity = new Vector3(0, 0, 0);
-        characterMode = "Stop";
-        platformControl.destroyAll();
-        cameraLogic.moveCamera(setCameraPos);
-        switchCamera.setGameCamera();
-        Time.timeScale = 0;
+    //void gameOver()
+    //{
+    //    _animator.Play("New State", 0, 0f);
+    //    _animator.enabled = false;
+    //    transform.position = new Vector3(0, 0, 0);
+    //    rb.velocity = new Vector3(0, 0, 0);
+    //    characterMode = "Stop";
+    //    platformControl.destroyAll();
+    //    cameraLogic.moveCamera(setCameraPos);
+    //    switchCamera.setGameCamera();
+    //    Time.timeScale = 0;
 
-        environmentControl.resetPosition();
-        characterHasKey = false;
-        bonus = 0;
-    }
+    //    environmentControl.resetPosition();
+    //    characterHasKey = false;
+    //    bonus = 0;
+    //}
 }

@@ -22,12 +22,18 @@ public class platformControl : MonoBehaviour
 
     public const int fanLimit = 4;
     public int fanCount = 0;
+
+    public Material normal;
+    public Material fanSelected;
+    public Material springSelected;
     // Start is called before the first frame update
     void Start()
     {
         objectList = new List<GameObject>();
         characterMove = GameObject.FindObjectOfType<characterMove>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
+
+        
     }
 
     // Update is called once per frame
@@ -45,7 +51,11 @@ public class platformControl : MonoBehaviour
                 Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
                 mousePosInWorld.x = 0;
                 mousePosInWorld.z += 2;
+
+                GameObject previousSelected = nowSelected;
                 nowSelected = GameObject.Instantiate(springPlatform, mousePosInWorld, Quaternion.identity);
+                updateSelectMat(previousSelected, nowSelected);
+
                 objectList.Add(nowSelected);
                 nowSelectedIndex = objectList.Count - 1;
                 springCount += 1;
@@ -58,7 +68,11 @@ public class platformControl : MonoBehaviour
                 Vector3 mousePosInWorld = Camera.main.ScreenToWorldPoint(mousePosOnScreen);
                 mousePosInWorld.x = 0;
                 mousePosInWorld.z += 0;
+
+                GameObject previousSelected = nowSelected;
                 nowSelected = GameObject.Instantiate(fanPlatform, mousePosInWorld, Quaternion.identity);
+                updateSelectMat(previousSelected, nowSelected);
+
                 objectList.Add(nowSelected);
                 nowSelectedIndex = objectList.Count - 1;
                 fanCount += 1;
@@ -94,12 +108,16 @@ public class platformControl : MonoBehaviour
                     {
                         nowSelectedIndex = objectList.Count - 1;
                     }
+                    GameObject previousSelected = nowSelected;
                     nowSelected = objectList[nowSelectedIndex];
+                    updateSelectMat(previousSelected, nowSelected);
                     cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 } else if (objectList.Count != 0)
                 {
                     nowSelectedIndex = objectList.Count - 1;
+                    GameObject previousSelected = nowSelected;
                     nowSelected = objectList[nowSelectedIndex];
+                    updateSelectMat(previousSelected, nowSelected);
                     cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
             }
@@ -115,13 +133,17 @@ public class platformControl : MonoBehaviour
                     {
                         nowSelectedIndex = 0;
                     }
+                    GameObject previousSelected = nowSelected;
                     nowSelected = objectList[nowSelectedIndex];
+                    updateSelectMat(previousSelected, nowSelected);
                     cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
                 else if (objectList.Count != 0)
                 {
                     nowSelectedIndex = objectList.Count - 1;
+                    GameObject previousSelected = nowSelected;
                     nowSelected = objectList[nowSelectedIndex];
+                    updateSelectMat(previousSelected, nowSelected);
                     cameraLogic.moveCamera(new Vector3(15, nowSelected.transform.position.y, nowSelected.transform.position.z));
                 }
             }
@@ -151,6 +173,10 @@ public class platformControl : MonoBehaviour
                     }
                     objectList.RemoveAt(objectList.Count - 1);
                     GameObject.Destroy(lastObject);
+                    if (objectList.Count != 0)
+                    {
+                        updateSelectMat(null, objectList[objectList.Count - 1]);
+                    }
                 }
             } 
             // remove selected object
@@ -184,6 +210,27 @@ public class platformControl : MonoBehaviour
         }
     }
 
+    // update select outline
+    private void updateSelectMat(GameObject previousSelect, GameObject nowSelect)
+    {
+        if (previousSelect && previousSelect.tag == "Fan")
+        {
+            previousSelect.transform.Find("FRAME").GetComponent<Renderer>().material = normal;
+        }
+        else if (previousSelect && previousSelect.tag == "SpringPlatform")
+        {
+            previousSelect.transform.Find("Platform").GetComponent<Renderer>().material = normal;
+        }
+        if (nowSelect && nowSelect.tag == "Fan")
+        {
+            nowSelect.transform.Find("FRAME").GetComponent<Renderer>().material = fanSelected;
+        }
+        else if (nowSelect && nowSelect.tag == "SpringPlatform")
+        {
+            nowSelect.transform.Find("Platform").GetComponent<Renderer>().material = springSelected;
+        }
+    }
+
     public void destroyAll()
     {
         foreach (GameObject gameObject in objectList)
@@ -197,7 +244,28 @@ public class platformControl : MonoBehaviour
         springCount = 0;
     }
 
-    public void resetSpring()
+    public void startGame()
+    {
+        if (objectList.Count != 0)
+        {
+            updateSelectMat(nowSelected, objectList[objectList.Count - 1]);
+        }
+    }
+
+    public void restart()
+    {
+        resetSpring();
+        if (objectList.Count != 0)
+        {
+            updateSelectMat(objectList[objectList.Count - 1], nowSelected);
+        }
+        else
+        {
+            updateSelectMat(null, nowSelected);
+        }
+    }
+
+    private void resetSpring()
     {
         foreach (GameObject gameObject in objectList)
         {

@@ -17,10 +17,10 @@ public class platformControl : MonoBehaviour
     private characterMove characterMove;
     private SetupCameraLogic cameraLogic;
 
-    public const int springLimit = 2;
+    public int springLimit = 2;
     public int springCount = 0;
 
-    public const int fanLimit = 4;
+    public int fanLimit = 4;
     public int fanCount = 0;
 
     public Material normal;

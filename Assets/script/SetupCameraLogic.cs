@@ -9,22 +9,24 @@ public class SetupCameraLogic : MonoBehaviour
     public int rightEdge = 50;
     public int topEdge = 14;
     public int bottomEdge = -7;
+    public int mouseEdgeBuffer = 50;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow) && getCameraPos().z <= rightEdge)
+        Vector3 mousePos = Input.mousePosition;
+        if ((Input.GetKey(KeyCode.RightArrow) || Screen.width - mousePos.x < mouseEdgeBuffer) && getCameraPos().z <= rightEdge)
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && getCameraPos().z >= leftEdge)
+        if ((Input.GetKey(KeyCode.LeftArrow) || mousePos.x < mouseEdgeBuffer) && getCameraPos().z >= leftEdge)
         {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.DownArrow) && getCameraPos().y >= bottomEdge)
+        if ((Input.GetKey(KeyCode.DownArrow) || mousePos.y < mouseEdgeBuffer) && getCameraPos().y >= bottomEdge)
         {
             transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
         }
-        if (Input.GetKey(KeyCode.UpArrow) && getCameraPos().y <= topEdge)
+        if ((Input.GetKey(KeyCode.UpArrow) || Screen.height - mousePos.y < mouseEdgeBuffer) && getCameraPos().y <= topEdge)
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }

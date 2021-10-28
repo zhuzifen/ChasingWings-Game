@@ -28,6 +28,8 @@ public class characterMove : MonoBehaviour
 
     private EnvironmentControl environmentControl;
 
+    private goal goal;
+
     // audio
     private AudioSource footStep;
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class characterMove : MonoBehaviour
         switchCamera = GameObject.FindObjectOfType<switchCamera>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
+        goal = GameObject.FindObjectOfType<goal>();
 
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;
@@ -126,7 +129,7 @@ public class characterMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && !goal.GameEnded)
         {
             if (characterMode == "Stop")
             {
@@ -148,6 +151,10 @@ public class characterMove : MonoBehaviour
             //    restart();
             //}
             restart();
+        }
+        if (goal.GameEnded)
+        {
+            footStep.enabled = false;
         }
     }
 

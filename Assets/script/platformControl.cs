@@ -26,13 +26,15 @@ public class platformControl : MonoBehaviour
     public Material normal;
     public Material fanSelected;
     public Material springSelected;
+
+    private goal goal;
     // Start is called before the first frame update
     void Start()
     {
         objectList = new List<GameObject>();
         characterMove = GameObject.FindObjectOfType<characterMove>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
-
+        goal = GameObject.FindObjectOfType<goal>();
         
     }
 
@@ -40,7 +42,7 @@ public class platformControl : MonoBehaviour
     void Update()
     {
         // we can only add platform in stop mode
-        if (characterMove.characterMode == "Stop")
+        if (characterMove.characterMode == "Stop" && !goal.GameEnded)
         {
             // add platform
             if (Input.GetKeyDown("1") && springCount < springLimit)
@@ -150,7 +152,7 @@ public class platformControl : MonoBehaviour
         }
 
         // delete logic
-        if (Input.GetKeyDown("q"))
+        if (Input.GetKeyDown("q") && !goal.GameEnded)
         {
             // remove the last object when playing
             if (characterMove.characterMode != "Stop")

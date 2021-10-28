@@ -5,27 +5,28 @@ using UnityEngine;
 public class SetupCameraLogic : MonoBehaviour
 {
     public int speed = 50;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int leftEdge = -12;
+    public int rightEdge = 50;
+    public int topEdge = 14;
+    public int bottomEdge = -7;
+    public int mouseEdgeBuffer = 50;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        Vector3 mousePos = Input.mousePosition;
+        if ((Input.GetKey(KeyCode.RightArrow) || Screen.width - mousePos.x < mouseEdgeBuffer) && getCameraPos().z <= rightEdge)
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if ((Input.GetKey(KeyCode.LeftArrow) || mousePos.x < mouseEdgeBuffer) && getCameraPos().z >= leftEdge)
         {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if ((Input.GetKey(KeyCode.DownArrow) || mousePos.y < mouseEdgeBuffer) && getCameraPos().y >= bottomEdge)
         {
             transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if ((Input.GetKey(KeyCode.UpArrow) || Screen.height - mousePos.y < mouseEdgeBuffer) && getCameraPos().y <= topEdge)
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }

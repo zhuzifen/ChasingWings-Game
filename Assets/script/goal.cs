@@ -24,7 +24,6 @@ public class goal : MonoBehaviour
     private void EndGame()
     {
         GameEnded = true;
-        Time.timeScale = 0;
         Debug.Log("Game has ended.");
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - Fan
   - Running
   - SpringPlatform
+  - springUI
+  - fanUI
   layers:
   - Default
   - TransparentFX

@@ -26,6 +26,7 @@ public class WinningLogic : MonoBehaviour
     public void Win()
     {
         WinScreenUI.SetActive(true);
+        Time.timeScale = 0f;
         hasWon = true;
     }
 }

@@ -104,11 +104,11 @@ public class characterMove : MonoBehaviour
             }
             if (fanRotation == new Vector3(0f, 180f, 180f))
             {
-                rb.velocity = new Vector3(0, 0, -7);
+                rb.velocity = new Vector3(0, -3, -7);
             }
             if (fanRotation == new Vector3(0f, 0f, 0f))
             {
-                rb.velocity = new Vector3(0, 0, 7);
+                rb.velocity = new Vector3(0, -3, 7);
             }
             if (fanRotation == new Vector3(90f, 0f, 0f))
             {

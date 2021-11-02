@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using script.Chara;
 using script.User_Control;
 using UnityEngine;
 
@@ -13,7 +15,7 @@ public class characterMove : MonoBehaviour
     public const float movementSpeed = 5;
     private UserControl platformControl;
 
-    public string characterMode = "Stop";
+    public CharaStates characterMode = CharaStates.Stop;
     private Animator _animator;
     private switchCamera switchCamera;
     
@@ -31,6 +33,8 @@ public class characterMove : MonoBehaviour
 
     private goal goal;
 
+    private CharaFootDetect Foot;
+
     // audio
     private AudioSource footStep;
     // Start is called before the first frame update
@@ -43,6 +47,7 @@ public class characterMove : MonoBehaviour
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
         goal = GameObject.FindObjectOfType<goal>();
+        Foot = GameObject.FindObjectOfType<CharaFootDetect>();
 
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;
@@ -53,75 +58,20 @@ public class characterMove : MonoBehaviour
 
     void OnCollisionStay(Collision coll)
     {
-        if (coll.gameObject.tag == "Spring")
+        if (characterMode != CharaStates.Stop && coll.gameObject.tag == "Spring")
         {
-            characterMode = "Running";
             footStep.enabled = false;
             rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             animation animation = coll.gameObject.GetComponent<animation>();
             animation.startAni();
         }
-        if (characterMode == "OnWind" && coll.gameObject.tag == "Running")
-        {
-            characterMode = "Running";
-        }
-        if (characterMode != "Stop" && coll.gameObject.tag == "Running")
-        {
-            footStep.enabled = true;
-        }
     }
 
-    private void OnCollisionExit(Collision coll)
-    {
-        if (characterMode != "Stop" && coll.gameObject.tag == "Running")
-        {
-            footStep.enabled = false;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Fan")
-        {
-            if (characterMode == "Running")
-            {
-                characterMode = "OnWind";
-                footStep.enabled = false;
-                transform.position += move * Time.deltaTime * movementSpeed * 5;
-            }
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        // running = true;
-        if (other.gameObject.tag == "Fan" && characterMode != "Stop")
-        {
-            characterMode = "OnWind";
-            Vector3 fanRotation = other.gameObject.transform.rotation.eulerAngles;
-            if (fanRotation == new Vector3(270f, 0f, 0f))
-            {
-                rb.velocity = new Vector3(0, 10, 0);
-            }
-            if (fanRotation == new Vector3(0f, 180f, 180f))
-            {
-                rb.velocity = new Vector3(0, -3, -7);
-            }
-            if (fanRotation == new Vector3(0f, 0f, 0f))
-            {
-                rb.velocity = new Vector3(0, -3, 7);
-            }
-            if (fanRotation == new Vector3(90f, 0f, 0f))
-            {
-                rb.velocity = new Vector3(0, -10, 0);
-            }
-        }
-    }
 
     // start the game play
     private void startGame()
     {
-        characterMode = "Running";
+        characterMode = CharaStates.Running;
         footStep.enabled = true;
         _animator.enabled = true;
         switchCamera.startGameCamera();
@@ -132,7 +82,7 @@ public class characterMove : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && !goal.GameEnded)
         {
-            if (characterMode == "Stop")
+            if (characterMode == CharaStates.Stop)
             {
                 startGame();
                 platformControl.startGame();
@@ -143,32 +93,32 @@ public class characterMove : MonoBehaviour
         }
         if (transform.position.y < -30)
         {
-            //remainLife -= 1;
-            //if (remainLife == 0)
-            //{
-            //    gameOver();
-            //} else
-            //{
-            //    restart();
-            //}
             restart();
         }
         if (goal.GameEnded)
         {
             footStep.enabled = false;
+            characterMode = CharaStates.Stop;
         }
     }
 
     void FixedUpdate()
     {
-        if (characterMode == "Stop")
+        footStep.enabled = Foot.IsTouchingGround;
+        if (characterMode == CharaStates.Stop)
         {
+            footStep.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
-        if (characterMode == "Running")
+        else
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX;
-            transform.position += move * Time.deltaTime * movementSpeed;
+            // transform.position += move * Time.deltaTime * movementSpeed;
+            if (Vector3.Dot(rb.velocity, move.normalized) < movementSpeed && Foot.IsTouchingGround)
+            {
+                rb.velocity += move * (movementSpeed - (Vector3.Dot(rb.velocity, move.normalized)));
+            }
+            // this.rb.AddForce(move * movementSpeed * Time.fixedDeltaTime * (Foot.IsTouchingGround?1:0), ForceMode.Impulse);
         }
     }
     
@@ -185,7 +135,7 @@ public class characterMove : MonoBehaviour
         _animator.enabled = false;
         transform.position = new Vector3(0, 0, 0);
         rb.velocity = new Vector3(0, 0, 0);
-        characterMode = "Stop";
+        characterMode = CharaStates.Stop;
         cameraLogic.moveCamera(setCameraPos);
         switchCamera.setGameCamera();
         platformControl.restart();
@@ -195,21 +145,11 @@ public class characterMove : MonoBehaviour
         bonus = 0;
     }
 
-    // when you lose all your life
-    //void gameOver()
-    //{
-    //    _animator.Play("New State", 0, 0f);
-    //    _animator.enabled = false;
-    //    transform.position = new Vector3(0, 0, 0);
-    //    rb.velocity = new Vector3(0, 0, 0);
-    //    characterMode = "Stop";
-    //    platformControl.destroyAll();
-    //    cameraLogic.moveCamera(setCameraPos);
-    //    switchCamera.setGameCamera();
-    //    Time.timeScale = 0;
 
-    //    environmentControl.resetPosition();
-    //    characterHasKey = false;
-    //    bonus = 0;
-    //}
+}
+
+public enum CharaStates
+{
+    Stop,
+    Running,
 }

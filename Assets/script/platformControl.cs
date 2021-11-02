@@ -42,7 +42,7 @@ public class platformControl : MonoBehaviour
     void Update()
     {
         // we can only add platform in stop mode
-        if (characterMove.characterMode == "Stop" && !goal.GameEnded)
+        if (characterMove.characterMode == CharaStates.Stop && !goal.GameEnded)
         {
             // add platform
             if (Input.GetKeyDown("1") && springCount < springLimit)
@@ -155,7 +155,7 @@ public class platformControl : MonoBehaviour
         if (Input.GetKeyDown("q") && !goal.GameEnded)
         {
             // remove the last object when playing
-            if (characterMove.characterMode != "Stop")
+            if (characterMove.characterMode != CharaStates.Stop)
             {
                 if (objectList.Count != 0)
                 {

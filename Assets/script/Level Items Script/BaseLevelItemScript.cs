@@ -50,7 +50,7 @@ namespace script.Level_Items_Script
 
         protected virtual void Update()
         {
-            if (control.characterMove.characterMode == "Stop")
+            if (control.characterMove.characterMode == CharaStates.Stop)
             {
                 if (MeTempRemoved)
                 {

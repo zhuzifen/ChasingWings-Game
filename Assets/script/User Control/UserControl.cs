@@ -44,13 +44,13 @@ namespace script.User_Control
         void Update()
         {
             if(goal.GameEnded) return;
-            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            isDragging = !(nowSelected == null) && isDragging; 
             nowSelected = isDragging ? nowSelected : null;
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
             {
                 BaseLevelItemScript baseLevelItemScript = hitt.collider.gameObject.GetComponent<BaseLevelItemScript>();
-                if (baseLevelItemScript != null)
+                if (baseLevelItemScript != null && !isDragging)
                 {
                     // DisHighLight the previous selection
                     if(nowSelected) nowSelected.DisHighlightMe();
@@ -67,7 +67,7 @@ namespace script.User_Control
             }
             
             // we can only add platform in stop mode
-            if (characterMove.characterMode == "Stop" && (nowSelected != null))
+            if (characterMove.characterMode == CharaStates.Stop && (nowSelected != null))
             {
                 if (Input.GetMouseButton(0))
                 {
@@ -94,13 +94,13 @@ namespace script.User_Control
             // delete logic
             if (Input.GetKeyDown("q") && (nowSelected != null) )
             {
-                if (characterMove.characterMode == "Stop")
+                if (characterMove.characterMode == CharaStates.Stop)
                 {
                     nowSelected.RemoveMe(this);
                 }
                 else
                 {
-                    nowSelected.RemoveMeInGame(this);
+                    // nowSelected.RemoveMeInGame(this);
                 }
             }
         }

@@ -75,6 +75,7 @@ public class characterMove : MonoBehaviour
         footStep.enabled = true;
         _animator.enabled = true;
         switchCamera.startGameCamera();
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame

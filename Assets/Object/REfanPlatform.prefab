@@ -285,7 +285,7 @@ MonoBehaviour:
   TempLocalScale: {x: 0, y: 0, z: 0}
   ForceStrength: 15
   ManualGravity: {x: 0, y: -2, z: 0}
-  ManualDrag: 0.98
+  ManualDrag: 0.99
 --- !u!65 &7193030835731245112
 BoxCollider:
   m_ObjectHideFlags: 0

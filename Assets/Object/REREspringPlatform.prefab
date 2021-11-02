@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -7772542252981034063}
   - component: {fileID: 4151717131553483990}
   - component: {fileID: 5618772003237022843}
+  - component: {fileID: 714330807905786664}
+  - component: {fileID: 7469424065167796409}
   m_Layer: 0
   m_Name: REREspringPlatform
   m_TagString: SpringPlatform
@@ -171,6 +173,7 @@ MonoBehaviour:
   ToBeSwitchedRenderers:
   - {fileID: 9010696436665133827}
   control: {fileID: 0}
+  TempLocalScale: {x: 0, y: 0, z: 0}
 --- !u!65 &5618772003237022843
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -179,11 +182,37 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032573403298640363}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 6.5}
-  m_Center: {x: 0, y: -0.34, z: -3.17}
+  m_Size: {x: 3, y: 0.25337481, z: 1.2124262}
+  m_Center: {x: 0, y: -0.22417247, z: -4.7070117}
+--- !u!65 &714330807905786664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032573403298640363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.3261056, z: 1.2815027}
+  m_Center: {x: 0, y: -0.18780708, z: -0.65031004}
+--- !u!65 &7469424065167796409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032573403298640363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.8911855, z: 1.5347986}
+  m_Center: {x: 0, y: -0.5010947, z: -2.726975}
 --- !u!1 &1196419649849450552
 GameObject:
   m_ObjectHideFlags: 0

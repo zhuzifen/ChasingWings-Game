@@ -8,7 +8,7 @@ public class EnvironmentControl : MonoBehaviour
     public GameObject memoryPiece;
 
     private Vector3 keyPosition = new Vector3(0, -1, 24);
-    private Vector3 keyRoation = new Vector3(50, 0, -53);
+    private Vector3 keyRoation = new Vector3(0, 50, 0);
 
     private Vector3 memoryPiecePosition = new Vector3(0, -8, 21);
     private Vector3 memoryPieceRotation = new Vector3(37, 0, 0);

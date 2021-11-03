@@ -23,7 +23,7 @@ namespace script.User_Control
         public int springLimit = 2;
         public int springCount = 0;
 
-        public int fanLimit = 4;
+        public int fanLimit = 3;
         public int fanCount = 0;
         
         private Vector3 DraggingOffset = Vector3.zero;

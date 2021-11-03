@@ -8,7 +8,7 @@ public class charSimulate : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
-    public const float jumpForce = 1.5f;
+    public const float jumpForce = 1.6f;
     public const float movementSpeed = 5;
 
     public GameObject shadowPlatform;
@@ -16,6 +16,8 @@ public class charSimulate : MonoBehaviour
     private Animator _animator;
 
     private TutoralManagement tutoralManagement;
+
+    private CharaFootDetect Foot;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class charSimulate : MonoBehaviour
         _animator.enabled = true;
 
         tutoralManagement = GameObject.FindObjectOfType<TutoralManagement>();
+        Foot = GetComponentInChildren<CharaFootDetect>();
     }
 
     void OnCollisionStay(Collision coll)
@@ -44,6 +47,10 @@ public class charSimulate : MonoBehaviour
         {
             tutoralManagement.shadowCheckPoint1();
         }
+        if (coll.gameObject.name == "checkPoint2")
+        {
+            tutoralManagement.shadowCheckPoint2();
+        }
     }
     // Update is called once per frame
     private void Update()
@@ -53,7 +60,7 @@ public class charSimulate : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Vector3.Dot(rb.velocity, move.normalized) < movementSpeed)
+        if (Vector3.Dot(rb.velocity, move.normalized) < movementSpeed && Foot.IsTouchingGround)
         {
             rb.velocity += move * (movementSpeed - (Vector3.Dot(rb.velocity, move.normalized)));
         }

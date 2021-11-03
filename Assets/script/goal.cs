@@ -18,8 +18,11 @@ public class goal : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this.gameObject);
-        EndGame();
+        if (collision.gameObject.tag == "player")
+        {
+            Destroy(this.gameObject);
+            EndGame();
+        }
     }
     private void EndGame()
     {

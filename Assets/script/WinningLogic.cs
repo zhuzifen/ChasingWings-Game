@@ -7,6 +7,13 @@ public class WinningLogic : MonoBehaviour
     public static bool hasWon = false;
     public GameObject WinScreenUI;
 
+    private AudioSource footStep;
+
+    private void Start()
+    {
+        footStep = GetComponent<AudioSource>();
+    }
+
     // Update is called once per frame
     void OnCollisionEnter(Collision collision)
     { 
@@ -26,6 +33,7 @@ public class WinningLogic : MonoBehaviour
     public void Win()
     {
         WinScreenUI.SetActive(true);
+        footStep.enabled = false;
         Time.timeScale = 0f;
         hasWon = true;
     }

@@ -10,7 +10,7 @@ public class characterMove : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
-    public const float jumpForce = 1.5f;
+    public const float jumpForce = 1.6f;
     public const float movementSpeed = 5;
     private UserControl platformControl;
 
@@ -46,7 +46,7 @@ public class characterMove : MonoBehaviour
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
         goal = GameObject.FindObjectOfType<goal>();
-        Foot = GameObject.FindObjectOfType<CharaFootDetect>();
+        Foot = GetComponentInChildren<CharaFootDetect>();
 
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;

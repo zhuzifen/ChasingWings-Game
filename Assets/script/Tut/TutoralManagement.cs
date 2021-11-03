@@ -17,6 +17,7 @@ public class TutoralManagement : MonoBehaviour
 
     private switchCamera switchCamera;
     private SetupCameraLogic setupCameraLogic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,5 +64,12 @@ public class TutoralManagement : MonoBehaviour
         characterMove.setPause();
         shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 3.2f, 16), Quaternion.identity);
         shadowPlatformNow = GameObject.Instantiate(shadowFan, new Vector3(0, 1, 30), Quaternion.Euler(-90, 0, 0));
+    }
+
+    public void shadowCheckPoint2()
+    {
+        GameObject.Destroy(shadowCharNow);
+        GameObject.Destroy(shadowPlatformNow);
+        characterMove.resumePause();
     }
 }

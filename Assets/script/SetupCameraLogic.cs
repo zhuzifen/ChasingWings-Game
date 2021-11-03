@@ -9,6 +9,11 @@ public class SetupCameraLogic : MonoBehaviour
     public float Ratio = 0.01f;
     public bool isDragging;
 
+    public int maxY = 20;
+    public int minY = -8;
+    public int maxZ = 75;
+    public int minZ = -40;
+        
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;
@@ -30,7 +35,7 @@ public class SetupCameraLogic : MonoBehaviour
         //     transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         // }
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButton(2) || Input.GetMouseButton(1))
         {
             
             if (isDragging == false)
@@ -41,8 +46,10 @@ public class SetupCameraLogic : MonoBehaviour
             }
 
             Vector3 diff = mousePos - MouseStartPos;
-
-            this.transform.position = CamStartPos - new Vector3(0, diff.y * Ratio, diff.x * Ratio);
+            Vector3 trans = CamStartPos - new Vector3(0, diff.y * Ratio, diff.x * Ratio);
+            float newY = Mathf.Min(Mathf.Max(trans.y, minY), maxY);
+            float newZ = Mathf.Min(Mathf.Max(trans.z, minZ), maxZ);
+            this.transform.position = new Vector3(trans.x, newY, newZ);
         }                                                                                        
         else                                                                                     
         {                                                                                        

@@ -50,7 +50,7 @@ namespace script.Level_Items_Script
 
         protected virtual void Update()
         {
-            if (control.characterMove.characterMode == CharaStates.Stop)
+            if (control && control.characterMove.characterMode == CharaStates.Stop)
             {
                 if (MeTempRemoved)
                 {
@@ -68,7 +68,7 @@ namespace script.Level_Items_Script
                 }
             }
 
-            if (control.nowSelected != this)
+            if (control && control.nowSelected != this)
             {
                 this.DisHighlightMe();
             }

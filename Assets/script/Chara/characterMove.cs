@@ -10,7 +10,6 @@ public class characterMove : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
-    public Vector3 fanLeft = new Vector3(-1, 0, 0);
     public const float jumpForce = 1.5f;
     public const float movementSpeed = 5;
     private UserControl platformControl;
@@ -106,12 +105,12 @@ public class characterMove : MonoBehaviour
     void FixedUpdate()
     {
         footStep.enabled = Foot.IsTouchingGround;
-        if (characterMode == CharaStates.Stop)
+        if (characterMode != CharaStates.Running)
         {
             footStep.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         }
-        else
+        else if (characterMode == CharaStates.Running)
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX;
             // transform.position += move * Time.deltaTime * movementSpeed;
@@ -141,16 +140,30 @@ public class characterMove : MonoBehaviour
         switchCamera.setGameCamera();
         platformControl.restart();
 
-        environmentControl.resetPosition();
+        if (environmentControl)
+        {
+            environmentControl.resetPosition();
+        }
         characterHasKey = false;
         bonus = 0;
     }
+    
+    public void setPause()
+    {
+        characterMode = CharaStates.Pause;
+        footStep.enabled = false;
+        _animator.enabled = false;
+    }
 
-
+    public void resumePause()
+    {
+        characterMode = CharaStates.Stop;
+    }
 }
 
 public enum CharaStates
 {
     Stop,
     Running,
+    Pause
 }

@@ -12,10 +12,17 @@ public class NextPage : MonoBehaviour
     public GameObject deleteUI;
     public GameObject startUI;
 
+    private TutoralManagement tutoralManagement;
+
+    private void Start()
+    {
+        tutoralManagement = GameObject.FindObjectOfType<TutoralManagement>();
+    }
+
     public void springClickNext()
     {
         springTutUI.SetActive(false);
-        fanTutUI.SetActive(true);
+        tutoralManagement.stage1();
     }
     
     public void fanClickNext()
@@ -27,7 +34,7 @@ public class NextPage : MonoBehaviour
     public void rotateClickNext()
     {
         rotateUI.SetActive(false);
-        deleteUI.SetActive(true);
+        tutoralManagement.stage2();
     }
     
     public void deleteClickNext()

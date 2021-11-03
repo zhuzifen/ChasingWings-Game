@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4364.8555, g: 3184.5332, b: 3333.3477, a: 1}
+  m_IndirectSpecularColor: {r: 4358.4873, g: 3181.6328, b: 3332.4102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 137785245}
   - component: {fileID: 137785244}
   - component: {fileID: 137785243}
-  - component: {fileID: 137785246}
+  - component: {fileID: 137785247}
   m_Layer: 5
   m_Name: spring
   m_TagString: Untagged
@@ -542,7 +542,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137785241}
   m_CullTransparentMesh: 1
---- !u!114 &137785246
+--- !u!114 &137785247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 137785241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f40d2003c4f41feb5e1bd7bb6aaac94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 298486125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f40d2003c4f41feb5e1bd7bb6aaac94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:

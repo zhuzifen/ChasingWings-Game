@@ -1,16 +1,20 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace script.User_Control
 {
-    public class DragDeployment : MonoBehaviour
+    public class DragDeployment : Button
     {
-        public Button HostButton;
-
-        private void Update()
+        public override void OnPointerDown(PointerEventData eventData)
         {
-            // if(HostButton.)
+            base.OnPointerClick(eventData);
+        }
+
+        public override void OnPointerClick(PointerEventData eventData)
+        {
+            return;
         }
     }
 }

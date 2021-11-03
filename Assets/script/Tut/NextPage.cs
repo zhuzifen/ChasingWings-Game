@@ -22,7 +22,7 @@ public class NextPage : MonoBehaviour
     public void springClickNext()
     {
         springTutUI.SetActive(false);
-        tutoralManagement.stage1();
+        startUI.SetActive(true);
     }
     
     public void fanClickNext()
@@ -46,5 +46,6 @@ public class NextPage : MonoBehaviour
     public void startClickClose()
     {
         startUI.SetActive(false);
+        tutoralManagement.stage1();
     }
 }

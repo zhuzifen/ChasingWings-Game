@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4358.4873, g: 3181.6328, b: 3332.4102, a: 1}
+  m_IndirectSpecularColor: {r: 3999.1338, g: 2746.8574, b: 2432.0078, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 138483277}
   - component: {fileID: 138483276}
   m_Layer: 5
-  m_Name: next
+  m_Name: close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec6e4180d6851714e9b59bba12ee5d47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7371030cc6001049a7c84ca1768c996, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1686,14 +1686,14 @@ RectTransform:
   m_GameObject: {fileID: 427707343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4901066, y: 1.1678723, z: 1.5071459}
+  m_LocalScale: {x: 3, y: 1.2, z: 1.5071459}
   m_Children: []
   m_Father: {fileID: 598455265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 2}
+  m_AnchoredPosition: {x: -30, y: 2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427707345
@@ -4528,7 +4528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 142, y: -6}
+  m_AnchoredPosition: {x: 128.2, y: -6}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1450458655
@@ -5952,7 +5952,7 @@ MonoBehaviour:
   fanTutUI: {fileID: 313253448}
   rotateUI: {fileID: 0}
   deleteUI: {fileID: 0}
-  startUI: {fileID: 0}
+  startUI: {fileID: 598455264}
 --- !u!114 &1839443807
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeTempRemoved: 0
   normal: {fileID: 2100000, guid: 181c556c17d5500428f7617c61873ba2, type: 2}
-  selected: {fileID: 2100000, guid: 661266b8810986349b3b4774fbfa9dc8, type: 2}
+  outline: {fileID: 2100000, guid: b503c43d593c25143bf2eeb730995c85, type: 2}
   ToBeSwitchedRenderers:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}

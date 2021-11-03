@@ -9,7 +9,7 @@ namespace script.Level_Items_Script
     {
         public bool MeTempRemoved = false;
         public Material normal;
-        public Material selected;
+        public Material outline;
 
         public List<Renderer> ToBeSwitchedRenderers;
 
@@ -30,7 +30,10 @@ namespace script.Level_Items_Script
         {
             foreach (Renderer rdr in ToBeSwitchedRenderers)
             {
-                rdr.material = selected;
+                Material[] temp = new Material[2];
+                temp[0] = normal;
+                temp[1] = outline;
+                rdr.materials = temp;
             }
         }
         
@@ -38,7 +41,9 @@ namespace script.Level_Items_Script
         {
             foreach (Renderer rdr in ToBeSwitchedRenderers)
             {
-                rdr.material = normal;
+                Material[] temp = new Material[1];
+                temp[0] = normal;
+                rdr.materials = temp;
             }
         }
 

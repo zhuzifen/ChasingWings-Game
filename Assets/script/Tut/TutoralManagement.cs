@@ -38,7 +38,7 @@ public class TutoralManagement : MonoBehaviour
         Time.timeScale = 1f;
         characterMove.setPause();
         shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 0, 1), Quaternion.identity);
-        shadowPlatformNow = GameObject.Instantiate(shadowSpring, new Vector3(0, 0, 7), Quaternion.identity);
+        shadowPlatformNow = GameObject.Instantiate(shadowSpring, new Vector3(0, 0, 5), Quaternion.identity);
     }
 
     public void shadowCheckPoint1()

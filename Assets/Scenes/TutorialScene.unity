@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 8889.111, g: 6256.426, b: 6117.0312, a: 1}
+  m_IndirectSpecularColor: {r: 4363.1094, g: 3183.4023, b: 3310.4922, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4747,7 +4747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowChar: {fileID: 3680341823913924908, guid: 001caf3d38efb4c48b5ae8522b11450e, type: 3}
-  shadowSpring: {fileID: 1032573403298640363, guid: 5b051340aa1662d41b31aa7a2486fad6, type: 3}
+  shadowSpring: {fileID: 1032573403298640363, guid: 9b1295d7112df6746a3ca161217145c1, type: 3}
   shadowFan: {fileID: 786603614354729134, guid: 0a4e381f7b340c744b7e7b9a1d7ac589, type: 3}
   cp1: {fileID: 2137912293}
   fanTutUI: {fileID: 313253448}

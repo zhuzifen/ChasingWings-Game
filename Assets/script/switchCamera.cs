@@ -17,6 +17,11 @@ public class switchCamera : MonoBehaviour
 
     public void startGameCamera()
     {
+        Animation ANM;
+        if (setupCamera.TryGetComponent(out ANM))
+        {
+            Destroy(ANM);
+        }
         setupCamera.SetActive(false);
         mainCamera.SetActive(true);
     }

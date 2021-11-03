@@ -11,5 +11,11 @@ namespace script.Level_Items_Script
             uc.springCount -= 1;
             Destroy(this.gameObject);
         }
+
+        protected override void Update()
+        {
+            base.Update();
+            this.transform.eulerAngles = Vector3.zero;
+        }
     }
 }

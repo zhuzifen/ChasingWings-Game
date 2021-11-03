@@ -39,6 +39,7 @@ namespace script.User_Control
             characterMove = GameObject.FindObjectOfType<characterMove>();
             cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
             goal = GameObject.FindObjectOfType<goal>();
+            Time.timeScale = 1;
         }
 
         void Update()

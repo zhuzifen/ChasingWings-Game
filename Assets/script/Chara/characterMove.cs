@@ -91,7 +91,7 @@ public class characterMove : MonoBehaviour
                 restart();
             }
         }
-        if (transform.position.y < -30)
+        if (transform.position.y < -12)
         {
             restart();
         }

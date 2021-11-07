@@ -17,9 +17,29 @@ namespace script.Level_Items_Script
 
         public Vector3 TempLocalScale;
 
+        /// <summary>
+        /// This is for bound detection of the platforms for deployment.
+        /// This collider can (and probably should) be disabled
+        /// This collider should contain all part of the platform
+        /// </summary>
+        public Collider OuterFrame;
+
+        public Vector3 targetLerpToPosition;
+
+
+        private Vector3 tempPos = Vector3.one;
+
+        private bool JustMoved = false;
+
+        private float LerpMultiplier = 0.2f;
+        
+
         protected virtual void Start()
         {
             TempLocalScale = this.transform.localScale;
+            Debug.Assert(OuterFrame != null, $"THE OUTER FRAME IS NULL FOR {this.gameObject.name}");
+            tempPos = this.transform.position;
+            targetLerpToPosition = this.transform.position;
         }
         public virtual void SetControl(UserControl uc)
         {
@@ -55,6 +75,7 @@ namespace script.Level_Items_Script
 
         protected virtual void Update()
         {
+            this.transform.position = Vector3.Lerp(this.transform.position, targetLerpToPosition, LerpMultiplier);
             if (control && control.characterMove.characterMode == CharaStates.Stop)
             {
                 if (MeTempRemoved)
@@ -68,7 +89,6 @@ namespace script.Level_Items_Script
                     {
                         cldr.enabled = true;
                     }
-
                     this.transform.localScale = TempLocalScale;
                 }
             }
@@ -76,6 +96,30 @@ namespace script.Level_Items_Script
             if (control && control.nowSelected != this)
             {
                 this.DisHighlightMe();
+            }
+            
+            CheckPositionAvailable();
+        }
+
+        protected virtual void CheckPositionAvailable()
+        {
+            if (JustMoved)
+            {
+                JustMoved = false;
+            }
+            else
+            {
+                foreach (var other in control.LevelItemList)
+                {
+                    if (this.OuterFrame.bounds.Intersects(other.OuterFrame.bounds) && (other.gameObject != this.gameObject))
+                    {
+                        targetLerpToPosition = this.tempPos;
+                        JustMoved = true;
+                        return;
+                    }
+                }
+
+                this.tempPos = targetLerpToPosition;
             }
         }
 
@@ -96,7 +140,15 @@ namespace script.Level_Items_Script
 
         public virtual void SetMyPos(Vector3 pos)
         {
-            this.transform.position = new Vector3((int) pos.x, (int) pos.y, (int) pos.z);
+            if (JustMoved)
+            {
+                JustMoved = false;
+            }
+            else
+            {
+                targetLerpToPosition = new Vector3((int) pos.x, (int) pos.y, (int) pos.z);
+                JustMoved = true;
+            }
         }
 
         public virtual void RotateOnce()

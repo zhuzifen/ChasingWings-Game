@@ -78,6 +78,7 @@ namespace script.User_Control
                         DraggingOffset = nowSelected.transform.position - MouseWorldPosOnXZero;
                     }
 
+                    DraggingOffset = Vector3.zero;
                     nowSelected.SetMyPos(MouseWorldPosOnXZero + DraggingOffset);
                 }
                 else if (isDragging == true)

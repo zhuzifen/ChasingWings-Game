@@ -283,6 +283,8 @@ MonoBehaviour:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}
   TempLocalScale: {x: 0, y: 0, z: 0}
+  OuterFrame: {fileID: 4467919817750833624}
+  targetLerpToPosition: {x: 0, y: 0, z: 0}
   ForceStrength: 15
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
@@ -310,8 +312,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07513614, y: 0.036572784, z: 0.08104128}
-  m_Center: {x: 0, y: -0.004009371, z: 0}
+  m_Size: {x: 0.07513614, y: 0.02981318, z: 0.08104128}
+  m_Center: {x: 0, y: -0.0073891818, z: 0}
 --- !u!1 &2326462579319743709
 GameObject:
   m_ObjectHideFlags: 0

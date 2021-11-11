@@ -8,8 +8,8 @@ public class charSimulate : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
-    public const float jumpForce = 5f;
-    public const float movementSpeed = 5;
+    public const float jumpForce = 3.5f;
+    public const float movementSpeed = 3;
 
     public GameObject shadowPlatform;
 

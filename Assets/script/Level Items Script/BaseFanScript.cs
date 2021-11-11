@@ -7,7 +7,7 @@ namespace script.Level_Items_Script
 {
     public class BaseFanScript : BaseLevelItemScript
     {
-        public float ForceStrength = 10;
+        public float ForceStrength = 4;
         public Vector3 ManualGravity = new Vector3(0, -2, 0); 
         public float ManualDrag = 0.995f;
         public Dictionary<Rigidbody, Vector3> EnterDirections = new Dictionary<Rigidbody, Vector3>();

@@ -8,13 +8,13 @@ public class EnvironmentControl : MonoBehaviour
     public GameObject memoryPiece;
     public GameObject door;
 
-    private Vector3 keyPosition = new Vector3(0, -2, 24);
+    private Vector3 keyPosition = new Vector3(0, -0.8f, 9.5f);
     private Vector3 keyRoation = new Vector3(0, 50, 0);
 
-    private Vector3 memoryPiecePosition = new Vector3(0, 11, 21);
+    private Vector3 memoryPiecePosition = new Vector3(0, 3.8f, 10);
     private Vector3 memoryPieceRotation = new Vector3(37, 0, 0);
 
-    private Vector3 doorPosition = new Vector3(0, 3.9f, 49);
+    private Vector3 doorPosition = new Vector3(0, 1.55f, 20);
     private Vector3 doorRotation = new Vector3(0, 90, 0);
 
     private GameObject keyNow;

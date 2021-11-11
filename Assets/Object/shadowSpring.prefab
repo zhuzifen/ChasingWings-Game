@@ -126,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 1032573403298640363}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.3684173, y: 2.9796438, z: -6.2518063}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 848750052236672327}
   - {fileID: 1570102185470305679}
@@ -172,6 +172,8 @@ MonoBehaviour:
   - {fileID: 7987980055782812327}
   control: {fileID: 0}
   TempLocalScale: {x: 0, y: 0, z: 0}
+  OuterFrame: {fileID: 0}
+  targetLerpToPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &5618772003237022843
 BoxCollider:
   m_ObjectHideFlags: 0

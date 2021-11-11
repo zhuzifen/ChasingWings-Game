@@ -107,7 +107,7 @@ namespace script.Level_Items_Script
             {
                 JustMoved = false;
             }
-            else
+            else if (control)
             {
                 foreach (var other in control.LevelItemList)
                 {

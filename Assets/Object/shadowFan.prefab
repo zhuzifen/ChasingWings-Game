@@ -127,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 786603614354729134}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.1095233, y: -0.19706678, z: 7.9474797}
-  m_LocalScale: {x: 30, y: 30, z: 30}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 342314507201627520}
   - {fileID: 97114937841119111}
@@ -283,6 +283,8 @@ MonoBehaviour:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}
   TempLocalScale: {x: 0, y: 0, z: 0}
+  OuterFrame: {fileID: 0}
+  targetLerpToPosition: {x: 0, y: 0, z: 0}
   ForceStrength: 15
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
@@ -420,8 +422,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
     - target: {fileID: 1704276095149149373, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704276095149149373, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2594665400416932380, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
       propertyPath: m_LocalScale.x
@@ -434,6 +440,18 @@ PrefabInstance:
     - target: {fileID: 2594665400416932380, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594665400416932380, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594665400416932380, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594665400416932380, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 3546936299959655090, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
       propertyPath: m_RootOrder
@@ -527,7 +545,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Fan
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4893716104104310959, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f854824a63634704091eb1b6cc3b35d3, type: 3}
 --- !u!4 &4816713121991132965 stripped
 Transform:

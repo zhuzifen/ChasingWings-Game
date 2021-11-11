@@ -37,8 +37,8 @@ public class TutoralManagement : MonoBehaviour
     {
         Time.timeScale = 1f;
         characterMove.setPause();
-        shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 0, 1), Quaternion.identity);
-        shadowPlatformNow = GameObject.Instantiate(shadowSpring, new Vector3(0, 0, 5), Quaternion.identity);
+        shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 0, 0.5f), Quaternion.identity);
+        shadowPlatformNow = GameObject.Instantiate(shadowSpring, new Vector3(0, 0, 2), Quaternion.identity);
     }
 
     public void shadowCheckPoint1()
@@ -53,7 +53,7 @@ public class TutoralManagement : MonoBehaviour
         GameObject.Destroy(cp1);
         switchCamera.setGameCamera();
         Time.timeScale = 0f;
-        setupCameraLogic.moveCamera(new Vector3(15, 2, 20));
+        setupCameraLogic.moveCamera(new Vector3(6, 1.5f, 9));
         characterMove.setPause();
         fanTutUI.SetActive(true);
     }
@@ -62,8 +62,8 @@ public class TutoralManagement : MonoBehaviour
     {
         Time.timeScale = 1f;
         characterMove.setPause();
-        shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 3.2f, 16), Quaternion.identity);
-        shadowPlatformNow = GameObject.Instantiate(shadowFan, new Vector3(0, 1, 30), Quaternion.Euler(-90, 0, 0));
+        shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 1.5f, 7), Quaternion.identity);
+        shadowPlatformNow = GameObject.Instantiate(shadowFan, new Vector3(0, 0f, 13), Quaternion.Euler(-90, 0, 0));
     }
 
     public void shadowCheckPoint2()

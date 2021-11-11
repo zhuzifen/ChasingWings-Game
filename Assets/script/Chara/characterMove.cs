@@ -10,8 +10,8 @@ public class characterMove : MonoBehaviour
     Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
-    public const float jumpForce = 5f;
-    public const float movementSpeed = 5;
+    public const float jumpForce = 3.5f;
+    public const float movementSpeed = 3;
     private UserControl platformControl;
 
     public CharaStates characterMode = CharaStates.Stop;
@@ -24,7 +24,7 @@ public class characterMove : MonoBehaviour
     //public int remainLife;
 
     private SetupCameraLogic cameraLogic;
-    public Vector3 setCameraPos = new Vector3(15, 2, 10);
+    public Vector3 setCameraPos = new Vector3(6, 1, 4);
 
     public int bonus = 0;
 
@@ -91,7 +91,7 @@ public class characterMove : MonoBehaviour
                 restart();
             }
         }
-        if (transform.position.y < -12)
+        if (transform.position.y < -7)
         {
             restart();
         }

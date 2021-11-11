@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class SetupCameraLogic : MonoBehaviour
     public int minY = -8;
     public int maxZ = 75;
     public int minZ = -40;
+    
+    public float HoldDragFOV = 60;
+    public float NormalFOV = 48;
         
     void Update()
     {
@@ -50,10 +54,16 @@ public class SetupCameraLogic : MonoBehaviour
             float newY = Mathf.Min(Mathf.Max(trans.y, minY), maxY);
             float newZ = Mathf.Min(Mathf.Max(trans.z, minZ), maxZ);
             this.transform.position = new Vector3(trans.x, newY, newZ);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, HoldDragFOV, 0.01f);
         }                                                                                        
         else                                                                                     
         {                                                                                        
-            isDragging = false;                                                                  
+            isDragging = false;                             
+                        
+            if (Math.Abs(Camera.main.fieldOfView - NormalFOV) > 0.01f)
+            {
+                Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, NormalFOV, 0.03f);
+            }
         }                                                                                        
         
     }

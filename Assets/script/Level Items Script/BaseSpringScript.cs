@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace script.Level_Items_Script
 {
-    public class BasePlatformScript : BaseLevelItemScript
+    public class BaseSpringScript : BaseLevelItemScript
     {
         public override void RemoveMe(UserControl uc)
         {

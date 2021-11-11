@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using script.Level_Items_Script;
 using script.Level_Layout_Script;
 using UnityEngine;
@@ -32,6 +33,8 @@ namespace script.User_Control
         private Vector3 MouseWorldPosOnXZero = Vector3.zero;
 
         public goal goal;
+
+
 
         void Start()
         {
@@ -105,6 +108,7 @@ namespace script.User_Control
                     // nowSelected.RemoveMeInGame(this);
                 }
             }
+
         }
         
 

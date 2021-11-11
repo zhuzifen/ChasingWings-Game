@@ -146,7 +146,7 @@ namespace script.Level_Items_Script
             }
             else
             {
-                targetLerpToPosition = new Vector3((int) pos.x, (int) pos.y, (int) pos.z);
+                targetLerpToPosition = new Vector3((float)((int) (pos.x * 2))/2, (float)((int) (pos.y * 2))/2, (float)((int) (pos.z * 2))/2);
                 JustMoved = true;
             }
         }

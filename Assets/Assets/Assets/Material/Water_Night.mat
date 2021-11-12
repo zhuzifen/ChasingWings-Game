@@ -56,7 +56,7 @@ Material:
     - Vector1_3e60f5168d7c4c86b4ffafb119ca196e: 0.1
     - Vector1_60fd5ee24c474ecc9dcbb0661ef1e691: 0
     - Vector1_8dd069fc31fc4705adb76d0f2afdfea5: 0.01
-    - Vector1_b94f126b2de54d129f392f3cf9d8f89c: 1
+    - Vector1_b94f126b2de54d129f392f3cf9d8f89c: 1.5
     - Vector1_eedd96e2ae6c403fa2f5061899b881ee: 10000000
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
@@ -106,8 +106,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_22b081834d654b8d9a5a635fd2c8df3c: {r: 0.1882353, g: 0.59607846, b: 1.5058824, a: 0}
-    - Color_963c7805aa6c4d7ea82c0268ffa72aa2: {r: 0.16687433, g: 0.30340993, b: 0.4716981, a: 0}
+    - Color_22b081834d654b8d9a5a635fd2c8df3c: {r: 0.09411765, g: 0.28235295, b: 0.6901961, a: 0}
+    - Color_963c7805aa6c4d7ea82c0268ffa72aa2: {r: 0.080099694, g: 0.21365072, b: 0.3773585, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

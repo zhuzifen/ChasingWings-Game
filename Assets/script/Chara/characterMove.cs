@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class characterMove : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
     public const float jumpForce = 3.5f;
@@ -35,7 +35,7 @@ public class characterMove : MonoBehaviour
     private CharaFootDetect Foot;
 
     // audio
-    private AudioSource footStep;
+    public AudioSource footStep;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,13 +57,13 @@ public class characterMove : MonoBehaviour
 
     void OnCollisionStay(Collision coll)
     {
-        if (characterMode != CharaStates.Stop && coll.gameObject.tag == "Spring")
-        {
-            footStep.enabled = false;
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            animation animation = coll.gameObject.GetComponent<animation>();
-            animation.startAni();
-        }
+        // if (characterMode != CharaStates.Stop && coll.gameObject.tag == "Spring")
+        // {
+        //     footStep.enabled = false;
+        //     rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+        //     animation animation = coll.gameObject.GetComponent<animation>();
+        //     animation.startAni();
+        // }
     }
 
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4360.4834, g: 3161.3516, b: 3137.7617, a: 1}
+  m_IndirectSpecularColor: {r: 4361.199, g: 3182.0742, b: 3331.7383, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 770461156}
-  springPlatform: {fileID: 1032573403298640363, guid: c556b2ac03f58684e97bffa569be3c41, type: 3}
+  springPlatform: {fileID: 3274340025970897135, guid: 3650dd571680708419da6fb02e547e1a, type: 3}
   fanPlatform: {fileID: 786603614354729134, guid: aef870adc99cf874ab2e36713cd43b05, type: 3}
   nowSelected: {fileID: 0}
   LevelItemList: []
@@ -1234,12 +1234,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2e39a99ce544ff8a5c471ee24cff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   jump: {x: 0, y: 1, z: 0}
   move: {x: 0, y: 0, z: 1}
   characterMode: 0
   characterHasKey: 0
   setCameraPos: {x: 6, y: 1, z: 4}
   bonus: 0
+  footStep: {fileID: 0}
 --- !u!95 &770461158
 Animator:
   serializedVersion: 3
@@ -1421,6 +1423,7 @@ MonoBehaviour:
   PerRecordFrame:
     Temp: 5
     Max: 5
+  RecordPosOffset: {x: 0, y: 0.3, z: 0}
 --- !u!120 &770461165
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2933,8 +2936,16 @@ PrefabInstance:
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850805, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
+      propertyPath: MaxFOV
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731297799897850805, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: HoldDragFOV
-      value: 48
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731297799897850805, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
+      propertyPath: joystickRatio
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850809, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: m_Name

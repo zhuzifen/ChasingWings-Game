@@ -18,6 +18,8 @@ namespace script.Chara
 
         public AutoResetCounter PerRecordFrame = new AutoResetCounter(10);
 
+        public Vector3 RecordPosOffset = Vector3.up * 0.3f;
+
         private void FixedUpdate()
         {
             if (LR == null || CM == null)
@@ -49,7 +51,7 @@ namespace script.Chara
                 
                 if(PerRecordFrame.IsZeroReached(1))
                 {
-                    Recording.Enqueue(CM.transform.position);
+                    Recording.Enqueue(CM.transform.position + RecordPosOffset);
                 }
             }
         }

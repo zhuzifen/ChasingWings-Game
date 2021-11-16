@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4366.039, g: 3185.4316, b: 3333.9805, a: 1}
+  m_IndirectSpecularColor: {r: 4365.3174, g: 3185.002, b: 3333.629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3983,7 +3983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1206548000}
   springPlatform: {fileID: 3274340025970897135, guid: 3650dd571680708419da6fb02e547e1a, type: 3}
-  fanPlatform: {fileID: 786603614354729134, guid: aef870adc99cf874ab2e36713cd43b05, type: 3}
+  fanPlatform: {fileID: 786603614354729134, guid: 3e6e77e49f999d941a628b7040604a05, type: 3}
   nowSelected: {fileID: 0}
   LevelItemList: []
   characterMove: {fileID: 1206548002}
@@ -5385,7 +5385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1673911187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.34, z: 9.95}
+  m_LocalPosition: {x: 0, y: -1.34, z: 8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

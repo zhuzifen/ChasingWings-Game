@@ -68,12 +68,24 @@ namespace script.Level_Items_Script
 
         private void OnTriggerEnter(Collider other)
         {
-            if(Bounced) return;
+            if (Bounced) return;
             characterMove cm;
+            charSimulate cs;
             if (other.TryGetComponent(out cm))
             {
-                cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
+                var ITfD = this.transform.InverseTransformDirection(cm.rb.velocity);
+                var Changed = this.transform.TransformDirection(ITfD.x, ForceMultiplier, ITfD.z);
+                cm.rb.velocity = Changed;
+                // cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
                 cm.footStep.enabled = false;
+                Bounced = true;
+            }
+            if (other.TryGetComponent(out cs))
+            {
+                var ITfD = this.transform.InverseTransformDirection(cs.rb.velocity);
+                var Changed = this.transform.TransformDirection(ITfD.x, ForceMultiplier, ITfD.z);
+                cs.rb.velocity = Changed;
+                // cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
                 Bounced = true;
             }
         }

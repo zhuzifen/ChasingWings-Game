@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4361.199, g: 3182.0742, b: 3331.7383, a: 1}
+  m_IndirectSpecularColor: {r: 4365.3174, g: 3185.002, b: 3333.629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 770461156}
   springPlatform: {fileID: 3274340025970897135, guid: 3650dd571680708419da6fb02e547e1a, type: 3}
-  fanPlatform: {fileID: 786603614354729134, guid: aef870adc99cf874ab2e36713cd43b05, type: 3}
+  fanPlatform: {fileID: 786603614354729134, guid: 3e6e77e49f999d941a628b7040604a05, type: 3}
   nowSelected: {fileID: 0}
   LevelItemList: []
   characterMove: {fileID: 0}

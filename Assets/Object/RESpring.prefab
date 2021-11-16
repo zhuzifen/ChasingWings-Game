@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeTempRemoved: 0
   normal: {fileID: 2100000, guid: 181c556c17d5500428f7617c61873ba2, type: 2}
-  outline: {fileID: 2100000, guid: a2a42aee8b5e605419184f1f268833c0, type: 2}
+  outline: {fileID: 2100000, guid: 7cfb8618189c4d44f9bac80751fdc634, type: 2}
   ToBeSwitchedRenderers:
   - {fileID: 1332991402452033663}
   - {fileID: 9200493343659013487}
@@ -154,7 +154,7 @@ MonoBehaviour:
   TempLocalScale: {x: 0, y: 0, z: 0}
   OuterFrame: {fileID: 739971115289612665}
   targetLerpToPosition: {x: 0, y: 0, z: 0}
-  ForceMultiplier: 10
+  ForceMultiplier: 8
   Bounced: 0
   Spring: {fileID: 2829403285365328895}
   SpringTargetPos: {x: -0.04, y: 0, z: 0}

@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 739971115289612665}
   - component: {fileID: 7152268834242812623}
   m_Layer: 0
-  m_Name: RESpring
+  m_Name: REShadowSpring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MeTempRemoved: 0
-  normal: {fileID: 2100000, guid: 181c556c17d5500428f7617c61873ba2, type: 2}
-  outline: {fileID: 2100000, guid: 7cfb8618189c4d44f9bac80751fdc634, type: 2}
+  normal: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
+  outline: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
   ToBeSwitchedRenderers:
   - {fileID: 1332991402452033663}
   - {fileID: 9200493343659013487}
@@ -242,10 +242,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2388569052678927618, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
     - target: {fileID: 919132149155446097, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
       propertyPath: m_Name
       value: 03_Modeling_Springrevised
       objectReference: {fileID: 0}
+    - target: {fileID: 3678053823416197102, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
+    - target: {fileID: 5584948519060923472, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
+    - target: {fileID: 8512432087053743792, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d7722127fc7bf484a9dd5e546b102ed0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3785fe6a62e31f4aa2d20380b55d840, type: 3}
 --- !u!4 &5417580733678226794 stripped

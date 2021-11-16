@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4363.1094, g: 3183.418, b: 3332.4336, a: 1}
+  m_IndirectSpecularColor: {r: 4366.039, g: 3185.4316, b: 3333.9805, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2949,7 +2949,7 @@ PrefabInstance:
     - target: {fileID: 4711068190517198956, guid: 0cdaccc6200c99646aaeecd0b101ab90, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: db7200427f70c524886f790384631b5a, type: 2}
+      objectReference: {fileID: 2100000, guid: 5dc1b1eab2408e44caf99daf28770349, type: 2}
     - target: {fileID: 6388480849948255412, guid: 0cdaccc6200c99646aaeecd0b101ab90, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3831196
@@ -3090,7 +3090,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d4b4971b9a66ef7498c40eb04cb6ded5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 344a6a7a57ad2504a8f48106301bee1a, type: 2}
+      objectReference: {fileID: 2100000, guid: dc9f5d8067a55cf42acc5dfe1cd1b5a8, type: 2}
     - target: {fileID: 919132149155446097, guid: d4b4971b9a66ef7498c40eb04cb6ded5, type: 3}
       propertyPath: m_Name
       value: Modeling_PlatForm_02
@@ -3774,12 +3774,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2e39a99ce544ff8a5c471ee24cff22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   jump: {x: 0, y: 1, z: 0}
   move: {x: 0, y: 0, z: 1}
   characterMode: 0
   characterHasKey: 0
   setCameraPos: {x: 6, y: 1, z: 4}
   bonus: 0
+  footStep: {fileID: 0}
 --- !u!114 &1206548003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3980,7 +3982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1206548000}
-  springPlatform: {fileID: 1032573403298640363, guid: c556b2ac03f58684e97bffa569be3c41, type: 3}
+  springPlatform: {fileID: 3274340025970897135, guid: 3650dd571680708419da6fb02e547e1a, type: 3}
   fanPlatform: {fileID: 786603614354729134, guid: aef870adc99cf874ab2e36713cd43b05, type: 3}
   nowSelected: {fileID: 0}
   LevelItemList: []
@@ -4763,8 +4765,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shadowChar: {fileID: 3680341823913924908, guid: 001caf3d38efb4c48b5ae8522b11450e, type: 3}
-  shadowSpring: {fileID: 1032573403298640363, guid: 9b1295d7112df6746a3ca161217145c1, type: 3}
-  shadowFan: {fileID: 786603614354729134, guid: 0a4e381f7b340c744b7e7b9a1d7ac589, type: 3}
+  shadowSpring: {fileID: 3274340025970897135, guid: 93b1a3faaf2ff004da72fcf8ea8a176a, type: 3}
+  shadowFan: {fileID: 786603614354729134, guid: aef870adc99cf874ab2e36713cd43b05, type: 3}
   cp1: {fileID: 2137912293}
   fanTutUI: {fileID: 313253448}
 --- !u!4 &1500942539
@@ -5031,7 +5033,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 98827b7a1070e774caf71d4df6332a03, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 344a6a7a57ad2504a8f48106301bee1a, type: 2}
+      objectReference: {fileID: 2100000, guid: dc9f5d8067a55cf42acc5dfe1cd1b5a8, type: 2}
     - target: {fileID: 919132149155446097, guid: 98827b7a1070e774caf71d4df6332a03, type: 3}
       propertyPath: m_Name
       value: Modeling_PlatForm_01

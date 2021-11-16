@@ -34,6 +34,8 @@ namespace script.User_Control
 
         public goal goal;
 
+        public DualPurposeCursor DPCursor;
+
 
 
         void Start()
@@ -42,13 +44,14 @@ namespace script.User_Control
             characterMove = GameObject.FindObjectOfType<characterMove>();
             cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
             goal = GameObject.FindObjectOfType<goal>();
+            DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
             Time.timeScale = 1;
         }
 
         void Update()
         {
             if(goal.GameEnded) return;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(DPCursor.transform.position);
             isDragging = !(nowSelected == null) && isDragging; 
             nowSelected = isDragging ? nowSelected : null;
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
@@ -73,7 +76,7 @@ namespace script.User_Control
             // we can only add platform in stop mode
             if (characterMove.characterMode == CharaStates.Stop && (nowSelected != null))
             {
-                if (Input.GetMouseButton(0))
+                if (DPCursor.SelectPressed)
                 {
                     if (isDragging == false)
                     {
@@ -90,14 +93,14 @@ namespace script.User_Control
                     nowSelected = null;
                 }
                 
-                if (Input.GetKeyDown("r"))
+                if (DPCursor.RotatePressed)
                 {
                     nowSelected.RotateOnce();
                 }
             }
 
             // delete logic
-            if (Input.GetKeyDown("q") && (nowSelected != null) )
+            if (DPCursor.DeletePressed && (nowSelected != null) )
             {
                 if (characterMove.characterMode == CharaStates.Stop)
                 {
@@ -143,7 +146,7 @@ namespace script.User_Control
             }
         }
 
-        public void SpawnFan()
+        public BaseLevelItemScript SpawnFan()
         {
             if (fanCount != fanLimit)
             {
@@ -153,11 +156,13 @@ namespace script.User_Control
                 nowSelected.SetControl(this);
                 isDragging = true;
                 LevelItemList.Add(nowSelected);
+                return nowSelected;
             }
 
+            return null;
         }
 
-        public void SpawnSpringPlatform()
+        public BaseLevelItemScript SpawnSpringPlatform()
         {
             if (springCount != springLimit)
             {
@@ -167,7 +172,9 @@ namespace script.User_Control
                 nowSelected.SetControl(this);
                 isDragging = true;
                 LevelItemList.Add(nowSelected);
+                return nowSelected;
             }
+            return null;
         }
         
         

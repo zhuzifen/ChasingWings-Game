@@ -36,9 +36,13 @@ public class characterMove : MonoBehaviour
 
     // audio
     public AudioSource footStep;
+    
+    
+    public DualPurposeCursor DPCursor;
     // Start is called before the first frame update
     void Start()
-    {
+    {        
+
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<UserControl>();
@@ -47,6 +51,7 @@ public class characterMove : MonoBehaviour
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
         goal = GameObject.FindObjectOfType<goal>();
         Foot = GetComponentInChildren<CharaFootDetect>();
+        DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
 
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;
@@ -80,7 +85,7 @@ public class characterMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown("e") && !goal.GameEnded)
+        if (DPCursor.StartPressed && !goal.GameEnded)
         {
             if (characterMode == CharaStates.Stop)
             {

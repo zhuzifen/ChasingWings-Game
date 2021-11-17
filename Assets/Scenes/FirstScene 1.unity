@@ -1140,6 +1140,7 @@ MonoBehaviour:
   fanLimit: 3
   fanCount: 0
   goal: {fileID: 0}
+  DPCursor: {fileID: 0}
 --- !u!1001 &594073105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,6 +1243,7 @@ MonoBehaviour:
   setCameraPos: {x: 6, y: 1, z: 4}
   bonus: 0
   footStep: {fileID: 0}
+  DPCursor: {fileID: 0}
 --- !u!95 &770461158
 Animator:
   serializedVersion: 3
@@ -2505,6 +2507,10 @@ MonoBehaviour:
   DPadLeftPressed: 0
   DPadRightPressed: 0
   UC: {fileID: 560949842}
+  DeletePressed: 0
+  RotatePressed: 0
+  StartPressed: 0
+  SelectPressed: 0
 --- !u!114 &1206842040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,7 +2525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

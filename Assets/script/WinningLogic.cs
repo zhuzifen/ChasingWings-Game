@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinningLogic : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class WinningLogic : MonoBehaviour
     private void Start()
     {
         footStep = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) && hasWon)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     // Update is called once per frame

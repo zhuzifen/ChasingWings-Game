@@ -18,6 +18,8 @@ public class TutoralManagement : MonoBehaviour
     private switchCamera switchCamera;
     private SetupCameraLogic setupCameraLogic;
 
+    public string nowActive = "springTut";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,7 @@ public class TutoralManagement : MonoBehaviour
         Time.timeScale = 0f;
         setupCameraLogic.moveCamera(new Vector3(6, 1.5f, 9));
         characterMove.setPause();
+        nowActive = "fanTut";
         fanTutUI.SetActive(true);
     }
 

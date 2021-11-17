@@ -75,6 +75,7 @@ namespace script.Level_Items_Script
             {
                 var ITfD = this.transform.InverseTransformDirection(cm.rb.velocity);
                 var Changed = this.transform.TransformDirection(ITfD.x, ForceMultiplier, ITfD.z);
+                Debug.Log(Changed);
                 cm.rb.velocity = Changed;
                 // cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
                 cm.footStep.enabled = false;

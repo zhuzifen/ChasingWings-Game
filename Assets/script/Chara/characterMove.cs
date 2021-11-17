@@ -36,8 +36,9 @@ public class characterMove : MonoBehaviour
 
     // audio
     public AudioSource footStep;
-    
-    
+
+    private PauseMenu pauseMenu;
+
     public DualPurposeCursor DPCursor;
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,7 @@ public class characterMove : MonoBehaviour
         goal = GameObject.FindObjectOfType<goal>();
         Foot = GetComponentInChildren<CharaFootDetect>();
         DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
 
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;
@@ -100,10 +102,18 @@ public class characterMove : MonoBehaviour
         {
             restart();
         }
-        if (goal.GameEnded)
+        //if (goal.GameEnded)
+        //{
+        //    footStep.enabled = false;
+        //    characterMode = CharaStates.Stop;
+        //}
+        if (Input.GetKeyDown(KeyCode.Joystick1Button7) && !pauseMenu.isPaused)
         {
-            footStep.enabled = false;
-            characterMode = CharaStates.Stop;
+            pauseMenu.Pause();
+        }
+        else if (Input.GetKeyDown(KeyCode.Joystick1Button7) && pauseMenu.isPaused)
+        {
+            pauseMenu.Resume();
         }
     }
 

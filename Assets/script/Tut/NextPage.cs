@@ -19,32 +19,62 @@ public class NextPage : MonoBehaviour
         tutoralManagement = GameObject.FindObjectOfType<TutoralManagement>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0) && tutoralManagement.nowActive != "")
+        {
+            switch(tutoralManagement.nowActive)
+            {
+                case "springTut":
+                    springClickNext();
+                    break;
+                case "start":
+                    startClickClose();
+                    break;
+                case "delete":
+                    deleteClickNext();
+                    break;
+                case "fanTut":
+                    fanClickNext();
+                    break;
+                case "rotate":
+                    rotateClickNext();
+                    break;
+            }
+        }
+    }
+
     public void springClickNext()
     {
+        tutoralManagement.nowActive = "start";
         springTutUI.SetActive(false);
         startUI.SetActive(true);
     }
     
     public void fanClickNext()
     {
+        tutoralManagement.nowActive = "rotate";
         fanTutUI.SetActive(false);
         rotateUI.SetActive(true);
     }
     
     public void rotateClickNext()
     {
+        tutoralManagement.nowActive = "";
         rotateUI.SetActive(false);
         tutoralManagement.stage2();
     }
     
     public void deleteClickNext()
     {
+        tutoralManagement.nowActive = "";
         deleteUI.SetActive(false);
         tutoralManagement.stage1();
     }
     
     public void startClickClose()
     {
+        tutoralManagement.nowActive = "delete";
         startUI.SetActive(false);
         deleteUI.SetActive(true);
     }

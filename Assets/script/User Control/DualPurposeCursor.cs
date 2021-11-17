@@ -102,7 +102,8 @@ namespace script.User_Control
             {
                 StateRecorder[DeviceEnum.Fan] = DPadLeftPressed;
                 if (DPadLeftPressed == false) return;
-                var fan = UC.SpawnFan();
+                    UC.SpawnFan();
+                    var fan = UC.nowSelected;
                 if (fan != null)
                 {
                     fan.transform.position = XZeroCursorPos;
@@ -113,7 +114,8 @@ namespace script.User_Control
             {
                 StateRecorder[DeviceEnum.Spring] = DPadRightPressed;
                 if (DPadRightPressed == false) return;
-                var spring = UC.SpawnSpringPlatform();
+                UC.SpawnSpringPlatform();
+                var spring = UC.nowSelected;
                 if (spring != null)
                 {
                     spring.transform.position = XZeroCursorPos;

@@ -146,35 +146,30 @@ namespace script.User_Control
             }
         }
 
-        public BaseLevelItemScript SpawnFan()
+        public void SpawnFan()
         {
             if (fanCount != fanLimit)
             {
                 fanCount += 1;
-                GameObject newnew = Instantiate(fanPlatform, MouseWorldPosOnXZero + (Vector3.up * 3), Quaternion.identity);
+                GameObject newnew = Instantiate(fanPlatform, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);
                 nowSelected = newnew.GetComponent<BaseLevelItemScript>();
                 nowSelected.SetControl(this);
                 isDragging = true;
                 LevelItemList.Add(nowSelected);
-                return nowSelected;
             }
-
-            return null;
         }
 
-        public BaseLevelItemScript SpawnSpringPlatform()
+        public void SpawnSpringPlatform()
         {
             if (springCount != springLimit)
             {
                 springCount += 1;
-                GameObject newnew = Instantiate(springPlatform, MouseWorldPosOnXZero + (Vector3.up * 3), Quaternion.identity);
+                GameObject newnew = Instantiate(springPlatform, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);
                 nowSelected = newnew.GetComponent<BaseLevelItemScript>();
                 nowSelected.SetControl(this);
                 isDragging = true;
                 LevelItemList.Add(nowSelected);
-                return nowSelected;
             }
-            return null;
         }
         
         

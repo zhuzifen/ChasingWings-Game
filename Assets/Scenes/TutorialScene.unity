@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4324.9424, g: 3183.6602, b: 3414.918, a: 1}
+  m_IndirectSpecularColor: {r: 4365.3115, g: 3185.0059, b: 3333.629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3777,7 +3777,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   jump: {x: 0, y: 1, z: 0}
   move: {x: 0, y: 0, z: 1}
-  characterMode: 0
+  characterMode: 2
   characterHasKey: 0
   setCameraPos: {x: 6, y: 1, z: 4}
   bonus: 0

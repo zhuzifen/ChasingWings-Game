@@ -148,7 +148,7 @@ namespace script.User_Control
 
         public void SpawnFan()
         {
-            if (fanCount != fanLimit)
+            if (fanCount != fanLimit && characterMove.characterMode == CharaStates.Stop)
             {
                 fanCount += 1;
                 GameObject newnew = Instantiate(fanPlatform, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);
@@ -161,7 +161,7 @@ namespace script.User_Control
 
         public void SpawnSpringPlatform()
         {
-            if (springCount != springLimit)
+            if (springCount != springLimit && characterMove.characterMode == CharaStates.Stop)
             {
                 springCount += 1;
                 GameObject newnew = Instantiate(springPlatform, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);

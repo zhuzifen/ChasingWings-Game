@@ -19,6 +19,7 @@ public class WinningLogic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) && hasWon)
         {
+            hasWon = false;
             SceneManager.LoadScene(1);
         }
     }

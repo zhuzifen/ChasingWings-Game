@@ -10,6 +10,7 @@ public class characterMove : MonoBehaviour
     public Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
     public Vector3 move = new Vector3(0, 0, 1);
+    public int deathDepth = -7;
     // public const float jumpForce = 3.5f;
     public const float movementSpeed = 3;
     private UserControl platformControl;
@@ -98,7 +99,7 @@ public class characterMove : MonoBehaviour
                 restart();
             }
         }
-        if (transform.position.y < -7)
+        if (transform.position.y < deathDepth)
         {
             restart();
         }

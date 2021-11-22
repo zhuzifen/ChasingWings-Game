@@ -59,9 +59,9 @@ namespace script.User_Control
 
         void XYABPressCheck()
         {
-            this.DeletePressed = Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Q);
-            this.RotatePressed = Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetKeyDown(KeyCode.R);
-            this.StartPressed = Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.E);
+            this.DeletePressed = Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey(KeyCode.Q)|| Input.GetKeyDown(KeyCode.X);
+            this.RotatePressed = Input.GetKey(KeyCode.Joystick1Button2) || Input.GetKey(KeyCode.R) || Input.GetMouseButton(1);
+            this.StartPressed = Input.GetKeyDown(KeyCode.Joystick1Button3) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space);
             this.SelectPressed = Input.GetKey(KeyCode.Joystick1Button0) || Input.GetMouseButton(0);
         }
         

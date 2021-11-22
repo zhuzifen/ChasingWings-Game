@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using script.Level_Items_Script;
 using script.Level_Layout_Script;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace script.User_Control
 {
@@ -29,14 +30,13 @@ namespace script.User_Control
         
         private Vector3 DraggingOffset = Vector3.zero;
         private bool isDragging = false;
+        private bool isDraggingRotating = false;
 
         private Vector3 MouseWorldPosOnXZero = Vector3.zero;
 
         public goal goal;
 
         public DualPurposeCursor DPCursor;
-
-
 
         void Start()
         {
@@ -52,8 +52,9 @@ namespace script.User_Control
         {
             if(goal.GameEnded) return;
             Ray ray = Camera.main.ScreenPointToRay(DPCursor.transform.position);
-            isDragging = !(nowSelected == null) && isDragging; 
-            nowSelected = isDragging ? nowSelected : null;
+            isDragging = !(nowSelected == null) && isDragging;
+            isDraggingRotating = !(nowSelected == null) && isDraggingRotating;
+            nowSelected = (isDragging || isDraggingRotating) ? nowSelected : null;
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
             {
                 BaseLevelItemScript baseLevelItemScript = hitt.collider.gameObject.GetComponent<BaseLevelItemScript>();
@@ -92,10 +93,36 @@ namespace script.User_Control
                     isDragging = false;
                     nowSelected = null;
                 }
-                
-                if (DPCursor.RotatePressed)
+
+                isDraggingRotating = DPCursor.RotatePressed;
+                if (isDraggingRotating)
                 {
-                    nowSelected.RotateOnce();
+                    Vector3 RelativeDir = (MouseWorldPosOnXZero - nowSelected.transform.position).normalized;
+                    Vector3 targetDir = Vector3.right;
+                    
+                    // Yeah Ugly but I am too lazy to be graceful :P
+                    if (RelativeDir.y > 0.9f)
+                    {
+                        targetDir *= 0;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.z > 0.9f)
+                    {
+                        targetDir *= 90;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.z < -0.9f)
+                    {
+                        targetDir *= -90;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.y < -0.9f)
+                    {
+                        targetDir *= -180;
+                        nowSelected.RotateTo(targetDir);
+                    }
+
+
                 }
             }
 

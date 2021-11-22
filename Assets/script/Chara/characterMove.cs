@@ -90,14 +90,7 @@ public class characterMove : MonoBehaviour
     {
         if (DPCursor.StartPressed && !goal.GameEnded)
         {
-            if (characterMode == CharaStates.Stop)
-            {
-                startGame();
-                platformControl.startGame();
-            } else
-            {
-                restart();
-            }
+            TriggerStart();
         }
         if (transform.position.y < deathDepth)
         {
@@ -141,6 +134,18 @@ public class characterMove : MonoBehaviour
     public void UpdateKey()
     {
         characterHasKey = true;
+    }
+
+    public void TriggerStart()
+    {
+        if (characterMode == CharaStates.Stop)
+        {
+            startGame();
+            platformControl.startGame();
+        } else
+        {
+            restart();
+        }
     }
 
     // restart the game

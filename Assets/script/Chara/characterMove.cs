@@ -9,6 +9,8 @@ public class characterMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
+    public Vector3 moveDir = new Vector3(0, 0, 1);
+    [HideInInspector]
     public Vector3 move = new Vector3(0, 0, 1);
     public int deathDepth = -7;
     // public const float jumpForce = 3.5f;
@@ -17,7 +19,7 @@ public class characterMove : MonoBehaviour
 
     public CharaStates characterMode = CharaStates.Stop;
     private Animator _animator;
-    private switchCamera switchCamera;
+    
     
     public bool characterHasKey = false;
 
@@ -48,7 +50,6 @@ public class characterMove : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<UserControl>();
-        switchCamera = GameObject.FindObjectOfType<switchCamera>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
         goal = GameObject.FindObjectOfType<goal>();
@@ -81,7 +82,7 @@ public class characterMove : MonoBehaviour
         characterMode = CharaStates.Running;
         footStep.enabled = true;
         _animator.enabled = true;
-        switchCamera.startGameCamera();
+        cameraLogic.RunCam(this);
         Time.timeScale = 1;
     }
 
@@ -154,11 +155,12 @@ public class characterMove : MonoBehaviour
         footStep.enabled = false;
         _animator.Play("New State", 0, 0f);
         _animator.enabled = false;
-        transform.position = new Vector3(0, 0, 0);
-        rb.velocity = new Vector3(0, 0, 0);
+        transform.position = Vector3.zero;
+        transform.eulerAngles = Vector3.zero;
+        move = moveDir;
+        rb.velocity = Vector3.zero;
         characterMode = CharaStates.Stop;
-        cameraLogic.moveCamera(setCameraPos);
-        switchCamera.setGameCamera();
+        cameraLogic.ResetCam();
         platformControl.restart();
 
         if (environmentControl)

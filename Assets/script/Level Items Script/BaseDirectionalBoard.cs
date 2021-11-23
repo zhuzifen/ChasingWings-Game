@@ -5,22 +5,44 @@ namespace script.Level_Items_Script
 {
     public class BaseDirectionalBoard : BaseLevelItemScript
     {
+        private bool Reverted = false;
+        public AutoResetCounter ARC = new AutoResetCounter(1);
+        
+        
+        protected override void Start()
+        {
+            base.Start();
+            ARC.MaxmizeTemp();
+        }
+        
         private void OnTriggerEnter(Collider other)
         {
+            if (Reverted) return;
             characterMove cm;
             charSimulate cs;
             if (other.TryGetComponent(out cm))
             {
+                if(cm.characterMode != CharaStates.Running) return;
                 cm.move *= -1;
                 cm.transform.eulerAngles += Vector3.up * 180;
-                Destroy(this);
+                Reverted = true;
             }
             if (other.TryGetComponent(out cs))
             {
                 cs.move *= -1;
-                cm.transform.eulerAngles += Vector3.up * 180;
-                // cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
-                Destroy(this);
+                cs.transform.eulerAngles += Vector3.up * 180;
+                Reverted = true;
+            }
+        }
+        private void FixedUpdate()
+        {
+            float mul = 0.2f;
+            if (Reverted)
+            {
+                if (ARC.IsZeroReached(Time.fixedDeltaTime))
+                {
+                    Reverted = false;
+                }
             }
         }
     }

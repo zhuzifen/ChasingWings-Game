@@ -23,24 +23,61 @@ public class SetupCameraLogic : MonoBehaviour
 
     public Image CursorImage;
 
+    public characterMove Tracking;
+    private bool HoldTracking;
+
+    private Vector3 PreservePos = Vector3.zero;
+    private bool IsMovingToPreservePos = false;
+
+    public void RunCam(characterMove tracking)
+    {
+        PreservePos = this.transform.position;
+        Animation ANM;
+        if (this.TryGetComponent(out ANM))
+        {
+            Destroy(ANM);
+        }
+        Tracking = tracking;
+    }
+
+    public void ResetCam()
+    {
+        Tracking = null;
+        IsMovingToPreservePos = true;
+    }
+
     void Update()
     {
-        Vector2 mousePos = Input.mousePosition;
+        if (Tracking != null && !HoldTracking)
+        {
+            this.transform.position = Vector3.Lerp(
+                this.transform.position,
+                new Vector3(this.transform.position.x, Tracking.transform.position.y, Tracking.transform.position.z),
+                0.2f
+            );
+        }
 
+        MoveToPreservePosIfPossible();
+
+        Vector2 mousePos = Input.mousePosition;
+        HoldTracking = false;
         if (Input.GetMouseButton(2) || Mathf.Abs(Input.GetAxis("Horizontal")) > 0.01f ||
             Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f)
         {
+            HoldTracking = true;
+            IsMovingToPreservePos = false;
             if (isDragging == false)
             {
                 isDragging = true;
                 MouseStartPos = mousePos;
                 CamStartPos = this.transform.position;
             }
+
             MouseStartPos += new Vector2(
                 Input.GetAxis("Horizontal") * joystickRatio * (Input.GetKey(KeyCode.Joystick1Button8) ? joystickAmplifiedRatio : 1),
                 Input.GetAxis("Vertical") * joystickRatio * (Input.GetKey(KeyCode.Joystick1Button8) ? joystickAmplifiedRatio : 1)
             );
-            
+
             Vector3 diff = mousePos - MouseStartPos;
             var trans = CamStartPos - new Vector3(
                 0,
@@ -58,6 +95,19 @@ public class SetupCameraLogic : MonoBehaviour
 
 
         Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - Input.mouseScrollDelta.x - Input.mouseScrollDelta.y, NormalFOV, MaxFOV);
+    }
+
+    private void MoveToPreservePosIfPossible()
+    {
+        if (IsMovingToPreservePos)
+        {
+            this.transform.position = Vector3.Lerp(
+                this.transform.position,
+                PreservePos,
+                0.03f
+            );
+            if ((this.transform.position - PreservePos).sqrMagnitude < 0.0003f) IsMovingToPreservePos = false;
+        }
     }
 
     public void moveCamera(Vector3 position)

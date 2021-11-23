@@ -38,6 +38,8 @@ namespace script.Chara
                     LR.positionCount = LR.positionCount + 1;
                     LR.SetPosition(LR.positionCount-1, Recording.Dequeue());
                 }
+
+                PerRecordFrame.Temp = 15;
             }
             else if (CM.characterMode == CharaStates.Running)
             {

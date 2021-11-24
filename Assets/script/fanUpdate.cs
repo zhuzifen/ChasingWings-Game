@@ -8,22 +8,14 @@ public class fanUpdate : MonoBehaviour
 {
     Image sr;
 
-    public Sprite fan0;
-    public Sprite fan1;
-    public Sprite fan2;
-    public Sprite fan3;
-    public Sprite fan4;
-    public Sprite fan5;
-    public Sprite fan6;
-    public Sprite fan7;
-    public Sprite fan8;
-    public Sprite fan9;
-    public Sprite fan10;
+    public UpdateItemNumber updateItemNumber;
+    
     public UserControl fanLogic;
 
     void Start()
     {
         sr = this.gameObject.GetComponent<Image>();
+        updateItemNumber = FindObjectOfType<UpdateItemNumber>();
     }
 
     // Update is called once per frame
@@ -33,37 +25,37 @@ public class fanUpdate : MonoBehaviour
         switch(toSet)
         {
             case 0:
-                sr.sprite = fan0;
+                updateItemNumber.UpdateFanText(0);
                 break;
             case 1:
-                sr.sprite = fan1;
+                updateItemNumber.UpdateFanText(1);
                 break;
             case 2:
-                sr.sprite = fan2;
+                updateItemNumber.UpdateFanText(2);
                 break;
             case 3:
-                sr.sprite = fan3;
+                updateItemNumber.UpdateFanText(3);
                 break;
             case 4:
-                sr.sprite = fan4;
+                updateItemNumber.UpdateFanText(4);
                 break;
             case 5:
-                sr.sprite = fan5;
+                updateItemNumber.UpdateFanText(5);
                 break;
             case 6:
-                sr.sprite = fan6;
+                updateItemNumber.UpdateFanText(6);
                 break;
             case 7:
-                sr.sprite = fan7;
+                updateItemNumber.UpdateFanText(7);
                 break;
             case 8:
-                sr.sprite = fan8;
+                updateItemNumber.UpdateFanText(8);
                 break;
             case 9:
-                sr.sprite = fan9;
+                updateItemNumber.UpdateFanText(9);
                 break;
             default:
-                sr.sprite = fan10;
+                updateItemNumber.UpdateFanText(10);
                 break;
         }
     }

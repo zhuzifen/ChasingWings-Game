@@ -19,7 +19,7 @@ public class characterMove : MonoBehaviour
     private UserControl platformControl;
 
     public CharaStates characterMode = CharaStates.Stop;
-    private Animator _animator;
+    public Animator animator;
     
     
     public bool characterHasKey = false;
@@ -49,7 +49,7 @@ public class characterMove : MonoBehaviour
     {        
 
         rb = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<UserControl>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
@@ -61,7 +61,7 @@ public class characterMove : MonoBehaviour
         footStep = GetComponent<AudioSource>();
         footStep.enabled = false;
 
-        _animator.enabled = false;
+        animator.Play("idle");
         //remainLife = totalLife;
     }
 
@@ -82,7 +82,7 @@ public class characterMove : MonoBehaviour
     {
         characterMode = CharaStates.Running;
         footStep.enabled = true;
-        _animator.enabled = true;
+        animator.Play("running");
         cameraLogic.RunCam(this);
         Time.timeScale = 1;
     }
@@ -115,6 +115,16 @@ public class characterMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        AnimatorStateInfo stateinfo = animator.GetCurrentAnimatorStateInfo(0);
+        bool playingFalling = stateinfo.IsName("falling");
+        if (characterMode == CharaStates.Running && !Foot.IsTouchingGround && !playingFalling)
+        {
+            animator.Play("falling");
+        }
+        if (characterMode == CharaStates.Running && Foot.IsTouchingGround && playingFalling)
+        {
+            animator.Play("landing");
+        }
         footStep.enabled = Foot.IsTouchingGround;
         if (characterMode != CharaStates.Running)
         {
@@ -156,8 +166,7 @@ public class characterMove : MonoBehaviour
     void restart()
     {
         footStep.enabled = false;
-        _animator.Play("New State", 0, 0f);
-        _animator.enabled = false;
+        animator.Play("idle");
         transform.position = Vector3.zero;
         transform.eulerAngles = Vector3.zero;
         move = moveDir;
@@ -179,7 +188,7 @@ public class characterMove : MonoBehaviour
         characterMode = CharaStates.Pause;
         cameraLogic.Tracking = null;
         footStep.enabled = false;
-        _animator.enabled = false;
+        animator.enabled = false;
     }
 
     public void resumePause()

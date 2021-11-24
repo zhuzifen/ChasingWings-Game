@@ -13,7 +13,7 @@ public class charSimulate : MonoBehaviour
 
     public GameObject shadowPlatform;
 
-    private Animator _animator;
+    public Animator animator;
 
     private TutoralManagement tutoralManagement;
 
@@ -23,8 +23,8 @@ public class charSimulate : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
-        _animator.enabled = true;
+        animator = GetComponent<Animator>();
+        animator.Play("running");
 
         tutoralManagement = GameObject.FindObjectOfType<TutoralManagement>();
         Foot = GetComponentInChildren<CharaFootDetect>();

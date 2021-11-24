@@ -188,7 +188,7 @@ public class characterMove : MonoBehaviour
         characterMode = CharaStates.Pause;
         cameraLogic.Tracking = null;
         footStep.enabled = false;
-        animator.enabled = false;
+        animator.Play("idle");
     }
 
     public void resumePause()

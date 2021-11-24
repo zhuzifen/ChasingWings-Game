@@ -60,6 +60,16 @@ public class charSimulate : MonoBehaviour
 
     void FixedUpdate()
     {
+        AnimatorStateInfo stateinfo = animator.GetCurrentAnimatorStateInfo(0);
+        bool playingFalling = stateinfo.IsName("falling");
+        if (!Foot.IsTouchingGround && !playingFalling)
+        {
+            animator.Play("falling");
+        }
+        if (Foot.IsTouchingGround && playingFalling)
+        {
+            animator.Play("landing");
+        }
         if (Vector3.Dot(rb.velocity, move.normalized) < movementSpeed && Foot.IsTouchingGround)
         {
             rb.velocity += move * (movementSpeed - (Vector3.Dot(rb.velocity, move.normalized)));

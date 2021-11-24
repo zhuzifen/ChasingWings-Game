@@ -19,7 +19,10 @@ public class UpdateItemNumber : MonoBehaviour
     {
         springNumberText = springNumberObj.GetComponent<Text>();
         fanNumberText = fanNumberObj.GetComponent<Text>();
-        boardNumberText = boardNumberObj.GetComponent<Text>();
+        if (boardNumberObj)
+        {
+            boardNumberText = boardNumberObj.GetComponent<Text>();
+        }
     }
 
     public void UpdateSpringText(int num)

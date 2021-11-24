@@ -52,11 +52,11 @@ public class EnvironmentControl : MonoBehaviour
         {
             keyNow = GameObject.Instantiate(key, keyPosition, Quaternion.Euler(keyRoation));
         }
-        if (!bonus1Now)
+        if (!bonus1Now && bonus1)
         {
             bonus1Now = GameObject.Instantiate(bonus1, bonus1Position, Quaternion.Euler(bonus1Rotation));
         }
-        if (!bonus2Now)
+        if (!bonus2Now && bonus2)
         {
             bonus2Now = GameObject.Instantiate(bonus2, bonus2Position, Quaternion.Euler(bonus2Rotation));
         }

@@ -54,7 +54,7 @@ public class TutoralManagement : MonoBehaviour
     public void checkPoint1()
     {
         GameObject.Destroy(cp1);
-        switchCamera.setGameCamera();
+        // switchCamera.setGameCamera();
         Time.timeScale = 0f;
         setupCameraLogic.moveCamera(new Vector3(6, 1.5f, 9));
         characterMove.setPause();

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4328.301, g: 3184.0684, b: 3408.4805, a: 1}
+  m_IndirectSpecularColor: {r: 4363.878, g: 3183.9004, b: 3332.7695, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1717,7 +1717,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.50515366
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -2001,7 +2001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &884577181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2121,7 +2121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3125,7 +3125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1286852883}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: click
+        m_MethodName: SwitchScene2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4222,12 +4222,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 8853804767630639114, guid: d4a91e8a2509a03448f0d1b24ef6af69, type: 3}
-  memoryPiece: {fileID: 7033487572216593345, guid: bd4430dbc7838ac4b9a95aa0087058a7, type: 3}
+  bonus1: {fileID: 7033487572216593345, guid: bd4430dbc7838ac4b9a95aa0087058a7, type: 3}
+  bonus2: {fileID: 0}
   door: {fileID: 3266315964284509774, guid: 9935e3d9da2bf144a99a27d6ce9e24b1, type: 3}
   keyPosition: {x: 0, y: -0.8, z: 9.5}
   keyRoation: {x: 0, y: 50, z: 0}
-  memoryPiecePosition: {x: 0, y: 3.8, z: 10}
-  memoryPieceRotation: {x: 37, y: 0, z: 0}
+  bonus1Position: {x: 0, y: 3.8, z: 10}
+  bonus1Rotation: {x: 37, y: 0, z: 0}
+  bonus2Position: {x: 0, y: 3.8, z: 10}
+  bonus2Rotation: {x: 37, y: 0, z: 0}
   doorPosition: {x: 0, y: 1.55, z: 20}
   doorRotation: {x: 0, y: 90, z: 0}
 --- !u!4 &1596888361

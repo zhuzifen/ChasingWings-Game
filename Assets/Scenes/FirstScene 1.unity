@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4029.7285, g: 2758.7344, b: 2419.371, a: 1}
+  m_IndirectSpecularColor: {r: 3239.3613, g: 2521.9885, b: 2960.9028, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3552,7 +3552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1740624449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0c45c13a7a0a242a3020c115a723f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f2503af989f7c46d9936840edaa808de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1740624452
@@ -3600,8 +3600,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1740624451}
-        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
-        m_MethodName: Exit
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
+        m_MethodName: SwitchSceneS
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4812,6 +4812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springNumberObj: {fileID: 234997804}
   fanNumberObj: {fileID: 1977813538}
+  boardNumberObj: {fileID: 0}
 --- !u!1 &2073966723
 GameObject:
   m_ObjectHideFlags: 0

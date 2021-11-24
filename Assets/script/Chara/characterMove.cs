@@ -174,6 +174,7 @@ public class characterMove : MonoBehaviour
     public void setPause()
     {
         characterMode = CharaStates.Pause;
+        cameraLogic.Tracking = null;
         footStep.enabled = false;
         _animator.enabled = false;
     }

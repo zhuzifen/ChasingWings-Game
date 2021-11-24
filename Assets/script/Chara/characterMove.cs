@@ -170,6 +170,7 @@ public class characterMove : MonoBehaviour
         transform.position = Vector3.zero;
         transform.eulerAngles = Vector3.zero;
         move = moveDir;
+        rb.useGravity = true;
         rb.velocity = Vector3.zero;
         characterMode = CharaStates.Stop;
         cameraLogic.ResetCam();

@@ -30,7 +30,7 @@ namespace script.User_Control
         public int fanLimit = 3;
         public int fanCount = 0;
 
-        public int directionBoardLimit = 0;
+        public int directionBoardLimit = 1;
         public int directionBoardCount = 0;
 
         private Vector3 DraggingOffset = Vector3.zero;

@@ -1576,9 +1576,9 @@ Animation:
   m_GameObject: {fileID: 493613352}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: bab64f8aa05fe7f4b83fcff3fc05ec1f, type: 2}
+  m_Animation: {fileID: 7400000, guid: d0385195c88db9f4c8f5ca7d50e29e52, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: bab64f8aa05fe7f4b83fcff3fc05ec1f, type: 2}
+  - {fileID: 7400000, guid: d0385195c88db9f4c8f5ca7d50e29e52, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5516,6 +5516,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501780795692294230, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 9.48126e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 7.17e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.61e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

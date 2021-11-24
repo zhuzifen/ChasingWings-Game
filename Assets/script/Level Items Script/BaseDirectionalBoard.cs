@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using script.User_Control;
 
 namespace script.Level_Items_Script
 {
@@ -14,7 +15,14 @@ namespace script.Level_Items_Script
             base.Start();
             ARC.MaxmizeTemp();
         }
-        
+
+        public override void RemoveMe(UserControl uc)
+        {
+            uc.LevelItemList.Remove(this);
+            uc.directionBoardCount -= 1;
+            Destroy(this.gameObject);
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (Reverted) return;

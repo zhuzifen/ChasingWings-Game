@@ -13,9 +13,10 @@ namespace script.User_Control
         public GameObject character;
         public GameObject springPlatform;
         public GameObject fanPlatform;
+        public GameObject directionBoard;
 
         public BaseLevelItemScript nowSelected;
-        private int nowSelectedIndex;
+        // private int nowSelectedIndex;
 
         // a list contain all platform we make
         public List<BaseLevelItemScript> LevelItemList;
@@ -28,7 +29,10 @@ namespace script.User_Control
 
         public int fanLimit = 3;
         public int fanCount = 0;
-        
+
+        public int directionBoardLimit = 0;
+        public int directionBoardCount = 0;
+
         private Vector3 DraggingOffset = Vector3.zero;
         private bool isDragging = false;
         private bool isDraggingRotating = false;
@@ -210,7 +214,18 @@ namespace script.User_Control
             }
         }
         
-        
+        public void SpawnDirectionBoard()
+        {
+            if (directionBoardCount != directionBoardLimit && characterMove.characterMode == CharaStates.Stop)
+            {
+                directionBoardCount += 1;
+                GameObject newnew = Instantiate(directionBoard, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);
+                nowSelected = newnew.GetComponent<BaseLevelItemScript>();
+                nowSelected.SetControl(this);
+                isDragging = true;
+                LevelItemList.Add(nowSelected);
+            }
+        }
         
     }
 }

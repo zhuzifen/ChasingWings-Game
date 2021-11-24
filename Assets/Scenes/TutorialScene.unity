@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 3267.2969, g: 2530.8691, b: 2927.1387, a: 1}
+  m_IndirectSpecularColor: {r: 4309.1494, g: 3180.9844, b: 3442.5625, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3282,7 +3282,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 381547540}
         m_TargetAssemblyTypeName: script.User_Control.UserControl, Assembly-CSharp
         m_MethodName: SpawnSpringPlatform
         m_Mode: 1
@@ -6136,7 +6136,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 9386dd602661bdd40bf982e5b2f15306, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 6b31b09cda049454cb855df00513e834, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -6182,7 +6182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ec6e4180d6851714e9b59bba12ee5d47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 61b48330f686fb84bae62829c3e97e19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6739,7 +6739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 381547540}
         m_TargetAssemblyTypeName: script.User_Control.UserControl, Assembly-CSharp
         m_MethodName: SpawnFan
         m_Mode: 1

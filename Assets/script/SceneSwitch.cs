@@ -18,4 +18,12 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+    public void SwitchScene4()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void SwitchSceneS()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

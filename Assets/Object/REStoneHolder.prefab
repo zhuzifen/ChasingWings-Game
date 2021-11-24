@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8064408839521716322}
   - component: {fileID: 1176339805886186167}
   - component: {fileID: 9222235704450252859}
+  - component: {fileID: 7704632893906773027}
   m_Layer: 0
   m_Name: StoneHolder
   m_TagString: Untagged
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7704632893906773027
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919455952407789181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7375520905732552050, guid: e8d29ad2df54cbe4ea8cb52b77c3b8a6, type: 3}
 --- !u!1 &1660969412836932393
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 6966180225570763659}
   - component: {fileID: 1925666396659249049}
   - component: {fileID: 5830481288598045778}
+  - component: {fileID: 2396633771302545050}
   m_Layer: 0
   m_Name: StoneHolder_part
   m_TagString: Untagged
@@ -162,6 +178,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2396633771302545050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660969412836932393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5178241350504777170, guid: e8d29ad2df54cbe4ea8cb52b77c3b8a6, type: 3}
 --- !u!1 &3418848794331007639
 GameObject:
   m_ObjectHideFlags: 0

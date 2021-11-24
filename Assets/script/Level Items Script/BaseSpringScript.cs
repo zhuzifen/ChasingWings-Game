@@ -68,6 +68,7 @@ namespace script.Level_Items_Script
 
         private void OnTriggerEnter(Collider other)
         {
+            if(!GameStateChecker.isTheCharaMoving) return;
             if (Bounced) return;
             characterMove cm;
             charSimulate cs;

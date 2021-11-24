@@ -5119,7 +5119,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1431264512}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: SwitchScene2
+        m_MethodName: SwitchScene4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5520,15 +5520,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 9.48126e-15
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 7.17e-43
+      value: 4.5904e-41
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.61e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.z

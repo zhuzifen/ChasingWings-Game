@@ -25,6 +25,7 @@ namespace script.Level_Items_Script
 
         private void OnTriggerEnter(Collider other)
         {
+            if(!GameStateChecker.isTheCharaMoving) return;
             if (Reverted) return;
             characterMove cm;
             charSimulate cs;

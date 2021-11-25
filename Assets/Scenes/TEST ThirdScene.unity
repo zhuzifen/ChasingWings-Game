@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4364.494, g: 3182.129, b: 3326.8398, a: 1}
+  m_IndirectSpecularColor: {r: 4364.1533, g: 3184.1406, b: 3333.0117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5535,7 +5535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: {fileID: 8853804767630639114, guid: d4a91e8a2509a03448f0d1b24ef6af69, type: 3}
-  bonus1: {fileID: 7033487572216593345, guid: bd4430dbc7838ac4b9a95aa0087058a7, type: 3}
+  bonus1: {fileID: 0}
   bonus2: {fileID: 0}
   door: {fileID: 3266315964284509774, guid: 9935e3d9da2bf144a99a27d6ce9e24b1, type: 3}
   keyPosition: {x: 0, y: 8.3, z: -3}

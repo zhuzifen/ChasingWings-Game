@@ -40,6 +40,7 @@ public class characterMove : MonoBehaviour
 
     // audio
     public AudioSource footStep;
+    public AudioSource landingSound;
 
     private PauseMenu pauseMenu;
 
@@ -58,8 +59,10 @@ public class characterMove : MonoBehaviour
         DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
         pauseMenu = FindObjectOfType<PauseMenu>();
 
-        footStep = GetComponent<AudioSource>();
+        footStep = GetComponents<AudioSource>()[0];
         footStep.enabled = false;
+        landingSound = GetComponents<AudioSource>()[1];
+        landingSound.enabled = false;
 
         animator.Play("idle");
         //remainLife = totalLife;
@@ -117,15 +120,24 @@ public class characterMove : MonoBehaviour
     {
         AnimatorStateInfo stateinfo = animator.GetCurrentAnimatorStateInfo(0);
         bool playingFalling = stateinfo.IsName("falling");
+        bool playingLanding = stateinfo.IsName("landing");
         if (characterMode == CharaStates.Running && !Foot.IsTouchingGround && !playingFalling)
         {
             animator.Play("falling");
         }
         if (characterMode == CharaStates.Running && Foot.IsTouchingGround && playingFalling)
         {
+            landingSound.enabled = true;
+            landingSound.Play();
             animator.Play("landing");
         }
-        footStep.enabled = Foot.IsTouchingGround;
+        if (characterMode == CharaStates.Running && Foot.IsTouchingGround && !playingLanding)
+        {
+            footStep.enabled = true;
+        } else
+        {
+            footStep.enabled = false;
+        }
         if (characterMode != CharaStates.Running)
         {
             footStep.enabled = false;

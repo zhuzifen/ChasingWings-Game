@@ -20,11 +20,14 @@ namespace script.Level_Items_Script
         private Vector3 PlatformOrigPos;
         private Vector3 PlatformOrigScale = Vector3.one;
         public AutoResetCounter ARC = new AutoResetCounter(1);
+
+        public AudioSource springSound;
         
         
         protected override void Start()
         {
             base.Start();
+            springSound = GetComponents<AudioSource>()[1];
             SpringOrigPos = Spring.transform.localPosition;
             SpringOrigScale = Spring.transform.localScale;
             PlatformOrigPos = Platform.transform.localPosition;
@@ -80,6 +83,9 @@ namespace script.Level_Items_Script
                 // cm.rb.AddForce(this.transform.up * ForceMultiplier, ForceMode.Impulse);
                 cm.footStep.enabled = false;
                 Bounced = true;
+
+                springSound.enabled = true;
+                springSound.Play();
             }
             if (other.TryGetComponent(out cs))
             {

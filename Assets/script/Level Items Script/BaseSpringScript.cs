@@ -27,7 +27,10 @@ namespace script.Level_Items_Script
         protected override void Start()
         {
             base.Start();
-            springSound = GetComponents<AudioSource>()[1];
+            if (GetComponents<AudioSource>().Length > 1)
+            {
+                springSound = GetComponents<AudioSource>()[1];
+            }
             SpringOrigPos = Spring.transform.localPosition;
             SpringOrigScale = Spring.transform.localScale;
             PlatformOrigPos = Platform.transform.localPosition;
@@ -84,8 +87,11 @@ namespace script.Level_Items_Script
                 cm.footStep.enabled = false;
                 Bounced = true;
 
-                springSound.enabled = true;
-                springSound.Play();
+                if (springSound)
+                {
+                    springSound.enabled = true;
+                    springSound.Play();
+                }
             }
             if (other.TryGetComponent(out cs))
             {

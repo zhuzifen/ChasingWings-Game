@@ -20,6 +20,7 @@ namespace script.Level_Items_Script
 
         private void OnTriggerStay(Collider other)
         {
+            if(!GameStateChecker.isTheCharaMoving) return;
             if (other.attachedRigidbody != null)
             {
                 if (!EnterDirections.ContainsKey(other.attachedRigidbody))
@@ -36,6 +37,7 @@ namespace script.Level_Items_Script
         
         private void OnTriggerExit(Collider other)
         {
+            if(!GameStateChecker.isTheCharaMoving) return;
             if (other.attachedRigidbody != null)
             {
                 other.attachedRigidbody.useGravity = true;

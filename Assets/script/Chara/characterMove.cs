@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using script;
 using script.Chara;
 using script.User_Control;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class characterMove : MonoBehaviour
 {
     public Rigidbody rb;
     public Vector3 jump = new Vector3(0, 1, 0);
+    public Vector3 moveDir = new Vector3(0, 0, 1);
+    [HideInInspector]
     public Vector3 move = new Vector3(0, 0, 1);
     public int deathDepth = -7;
     // public const float jumpForce = 3.5f;
@@ -16,8 +19,8 @@ public class characterMove : MonoBehaviour
     private UserControl platformControl;
 
     public CharaStates characterMode = CharaStates.Stop;
-    private Animator _animator;
-    private switchCamera switchCamera;
+    public Animator animator;
+    
     
     public bool characterHasKey = false;
 
@@ -37,6 +40,7 @@ public class characterMove : MonoBehaviour
 
     // audio
     public AudioSource footStep;
+    public AudioSource landingSound;
 
     private PauseMenu pauseMenu;
 
@@ -46,9 +50,8 @@ public class characterMove : MonoBehaviour
     {        
 
         rb = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         platformControl = GameObject.FindObjectOfType<UserControl>();
-        switchCamera = GameObject.FindObjectOfType<switchCamera>();
         cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
         environmentControl = GameObject.FindObjectOfType<EnvironmentControl>();
         goal = GameObject.FindObjectOfType<goal>();
@@ -56,10 +59,12 @@ public class characterMove : MonoBehaviour
         DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
         pauseMenu = FindObjectOfType<PauseMenu>();
 
-        footStep = GetComponent<AudioSource>();
+        footStep = GetComponents<AudioSource>()[0];
         footStep.enabled = false;
+        landingSound = GetComponents<AudioSource>()[1];
+        landingSound.enabled = false;
 
-        _animator.enabled = false;
+        animator.Play("idle");
         //remainLife = totalLife;
     }
 
@@ -80,8 +85,8 @@ public class characterMove : MonoBehaviour
     {
         characterMode = CharaStates.Running;
         footStep.enabled = true;
-        _animator.enabled = true;
-        switchCamera.startGameCamera();
+        animator.Play("running");
+        cameraLogic.RunCam(this);
         Time.timeScale = 1;
     }
 
@@ -90,14 +95,7 @@ public class characterMove : MonoBehaviour
     {
         if (DPCursor.StartPressed && !goal.GameEnded)
         {
-            if (characterMode == CharaStates.Stop)
-            {
-                startGame();
-                platformControl.startGame();
-            } else
-            {
-                restart();
-            }
+            TriggerStart();
         }
         if (transform.position.y < deathDepth)
         {
@@ -120,7 +118,26 @@ public class characterMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        footStep.enabled = Foot.IsTouchingGround;
+        AnimatorStateInfo stateinfo = animator.GetCurrentAnimatorStateInfo(0);
+        bool playingFalling = stateinfo.IsName("falling");
+        bool playingLanding = stateinfo.IsName("landing");
+        if (characterMode == CharaStates.Running && !Foot.IsTouchingGround && !playingFalling)
+        {
+            animator.Play("falling");
+        }
+        if (characterMode == CharaStates.Running && Foot.IsTouchingGround && playingFalling)
+        {
+            landingSound.enabled = true;
+            landingSound.Play();
+            animator.Play("landing");
+        }
+        if (characterMode == CharaStates.Running && Foot.IsTouchingGround && !playingLanding)
+        {
+            footStep.enabled = true;
+        } else
+        {
+            footStep.enabled = false;
+        }
         if (characterMode != CharaStates.Running)
         {
             footStep.enabled = false;
@@ -136,6 +153,8 @@ public class characterMove : MonoBehaviour
             }
             // this.rb.AddForce(move * movementSpeed * Time.fixedDeltaTime * (Foot.IsTouchingGround?1:0), ForceMode.Impulse);
         }
+
+        GameStateChecker.isTheCharaMoving = characterMode != CharaStates.Stop;
     }
     
     public void UpdateKey()
@@ -143,17 +162,30 @@ public class characterMove : MonoBehaviour
         characterHasKey = true;
     }
 
+    public void TriggerStart()
+    {
+        if (characterMode == CharaStates.Stop)
+        {
+            startGame();
+            platformControl.startGame();
+        } else
+        {
+            restart();
+        }
+    }
+
     // restart the game
     void restart()
     {
         footStep.enabled = false;
-        _animator.Play("New State", 0, 0f);
-        _animator.enabled = false;
-        transform.position = new Vector3(0, 0, 0);
-        rb.velocity = new Vector3(0, 0, 0);
+        animator.Play("idle");
+        transform.position = Vector3.zero;
+        transform.eulerAngles = Vector3.zero;
+        move = moveDir;
+        rb.useGravity = true;
+        rb.velocity = Vector3.zero;
         characterMode = CharaStates.Stop;
-        cameraLogic.moveCamera(setCameraPos);
-        switchCamera.setGameCamera();
+        cameraLogic.ResetCam();
         platformControl.restart();
 
         if (environmentControl)
@@ -167,8 +199,9 @@ public class characterMove : MonoBehaviour
     public void setPause()
     {
         characterMode = CharaStates.Pause;
+        cameraLogic.Tracking = null;
         footStep.enabled = false;
-        _animator.enabled = false;
+        animator.Play("idle");
     }
 
     public void resumePause()

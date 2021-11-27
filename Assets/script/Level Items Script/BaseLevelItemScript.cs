@@ -32,7 +32,10 @@ namespace script.Level_Items_Script
         private bool JustMoved = false;
 
         private float LerpMultiplier = 0.2f;
-        
+
+        public Vector3 TargetEuler = Vector3.zero;
+
+        public Vector3 RealEuler = Vector3.zero;
 
         protected virtual void Start()
         {
@@ -99,6 +102,7 @@ namespace script.Level_Items_Script
             }
             
             CheckPositionAvailable();
+            ClampEuler();
         }
 
         protected virtual void CheckPositionAvailable()
@@ -154,6 +158,20 @@ namespace script.Level_Items_Script
         public virtual void RotateOnce()
         {
             transform.Rotate(new Vector3(-90f, 0f, 0f));
+        }
+
+        public virtual void RotateTo(Vector3 Euler)
+        {
+            // Vector3 diff = (this.transform.eulerAngles - Euler);
+            TargetEuler = Euler;
+        }
+        
+        
+        public virtual void ClampEuler()
+        {
+            Vector3 Regulated = new Vector3(((int) (TargetEuler.x / 90)) * 90, ((int) (TargetEuler.y / 90)) * 90, ((int) (TargetEuler.z / 90)) * 90);
+            RealEuler = Vector3.Lerp(RealEuler, Regulated,  0.2f);
+            this.transform.eulerAngles = RealEuler;
         }
     }
 }

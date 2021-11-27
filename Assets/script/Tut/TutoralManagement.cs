@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using script.Level_Items_Script;
 
 public class TutoralManagement : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class TutoralManagement : MonoBehaviour
     public void checkPoint1()
     {
         GameObject.Destroy(cp1);
-        switchCamera.setGameCamera();
+        // switchCamera.setGameCamera();
         Time.timeScale = 0f;
         setupCameraLogic.moveCamera(new Vector3(6, 1.5f, 9));
         characterMove.setPause();
@@ -66,7 +67,8 @@ public class TutoralManagement : MonoBehaviour
         Time.timeScale = 1f;
         characterMove.setPause();
         shadowCharNow = GameObject.Instantiate(shadowChar, new Vector3(0, 1.5f, 7), Quaternion.identity);
-        shadowPlatformNow = GameObject.Instantiate(shadowFan, new Vector3(0, 0.5f, 13), Quaternion.Euler(-90, 0, 0));
+        shadowPlatformNow = GameObject.Instantiate(shadowFan, new Vector3(0, 0.5f, 13), Quaternion.identity);
+        shadowPlatformNow.GetComponent<BaseFanScript>().RotateTo(new Vector3(-90, 0, 0));
     }
 
     public void shadowCheckPoint2()

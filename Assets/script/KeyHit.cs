@@ -13,7 +13,12 @@ public class KeyHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        OnTriggerEnter(collision.collider);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
             characterMove.UpdateKey();

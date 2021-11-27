@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using script.Level_Items_Script;
 using script.Level_Layout_Script;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace script.User_Control
 {
+    [RequireComponent(typeof(LineRenderer))]
     public class UserControl : MonoBehaviour
     {
         public GameObject character;
         public GameObject springPlatform;
         public GameObject fanPlatform;
+        public GameObject directionBoard;
 
         public BaseLevelItemScript nowSelected;
-        private int nowSelectedIndex;
+        // private int nowSelectedIndex;
 
         // a list contain all platform we make
         public List<BaseLevelItemScript> LevelItemList;
@@ -26,9 +29,13 @@ namespace script.User_Control
 
         public int fanLimit = 3;
         public int fanCount = 0;
-        
+
+        public int directionBoardLimit = 1;
+        public int directionBoardCount = 0;
+
         private Vector3 DraggingOffset = Vector3.zero;
         private bool isDragging = false;
+        private bool isDraggingRotating = false;
 
         private Vector3 MouseWorldPosOnXZero = Vector3.zero;
 
@@ -36,7 +43,7 @@ namespace script.User_Control
 
         public DualPurposeCursor DPCursor;
 
-
+        public LineRenderer LR;
 
         void Start()
         {
@@ -45,6 +52,7 @@ namespace script.User_Control
             cameraLogic = GameObject.FindObjectOfType<SetupCameraLogic>();
             goal = GameObject.FindObjectOfType<goal>();
             DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
+            LR = (LR == null)? this.gameObject.GetComponent<LineRenderer>() : LR;
             Time.timeScale = 1;
         }
 
@@ -52,12 +60,13 @@ namespace script.User_Control
         {
             if(goal.GameEnded) return;
             Ray ray = Camera.main.ScreenPointToRay(DPCursor.transform.position);
-            isDragging = !(nowSelected == null) && isDragging; 
-            nowSelected = isDragging ? nowSelected : null;
+            isDragging = !(nowSelected == null) && isDragging;
+            isDraggingRotating = !(nowSelected == null) && isDraggingRotating;
+            nowSelected = (isDragging || isDraggingRotating) ? nowSelected : null;
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
             {
                 BaseLevelItemScript baseLevelItemScript = hitt.collider.gameObject.GetComponent<BaseLevelItemScript>();
-                if (baseLevelItemScript != null && !isDragging && !hitt.collider.isTrigger)
+                if (baseLevelItemScript != null && !isDragging && !isDraggingRotating && !hitt.collider.isTrigger)
                 {
                     // DisHighLight the previous selection
                     if(nowSelected) nowSelected.DisHighlightMe();
@@ -92,13 +101,46 @@ namespace script.User_Control
                     isDragging = false;
                     nowSelected = null;
                 }
-                
-                if (DPCursor.RotatePressed)
+
+                isDraggingRotating = DPCursor.RotatePressed;
+                if (isDraggingRotating && nowSelected != null)
                 {
-                    nowSelected.RotateOnce();
+                    LR.positionCount = 2;
+                    LR.SetPosition(0, nowSelected.transform.position);
+                    LR.SetPosition(1, MouseWorldPosOnXZero);
+                    Vector3 RelativeDir = (MouseWorldPosOnXZero - nowSelected.transform.position).normalized;
+                    Vector3 targetDir = Vector3.right;
+                    
+                    // Yeah Ugly but I am too lazy to be graceful :P
+                    if (RelativeDir.y > 0.7f)
+                    {
+                        targetDir *= 0;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.z > 0.7f)
+                    {
+                        targetDir *= 90;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.z < -0.7f)
+                    {
+                        targetDir *= -90;
+                        nowSelected.RotateTo(targetDir);
+                    }
+                    else if (RelativeDir.y < -0.7f)
+                    {
+                        targetDir *= -180;
+                        nowSelected.RotateTo(targetDir);
+                    }
                 }
             }
-
+            
+            if (!isDraggingRotating && LR.positionCount != 0)
+            {
+                LR.SetPosition(1, Vector3.Lerp(LR.GetPosition(1), LR.GetPosition(0), 0.1f));
+                if((LR.GetPosition(1) - LR.GetPosition(0)).sqrMagnitude < 0.03f) LR.positionCount = 0;
+            }
+            
             // delete logic
             if (DPCursor.DeletePressed && (nowSelected != null) )
             {
@@ -172,7 +214,18 @@ namespace script.User_Control
             }
         }
         
-        
+        public void SpawnDirectionBoard()
+        {
+            if (directionBoardCount != directionBoardLimit && characterMove.characterMode == CharaStates.Stop)
+            {
+                directionBoardCount += 1;
+                GameObject newnew = Instantiate(directionBoard, MouseWorldPosOnXZero + (Vector3.up * 0), Quaternion.identity);
+                nowSelected = newnew.GetComponent<BaseLevelItemScript>();
+                nowSelected.SetControl(this);
+                isDragging = true;
+                LevelItemList.Add(nowSelected);
+            }
+        }
         
     }
 }

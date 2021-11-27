@@ -14,7 +14,10 @@ namespace script.Chara
 
         private void OnTriggerStay(Collider other)
         {
-            if(other.gameObject.CompareTag("Running") || other.gameObject.CompareTag("Spring")) ARC.MaxmizeTemp();
+            if (other.gameObject.CompareTag("Running") || other.gameObject.CompareTag("Spring"))
+            {
+                ARC.MaxmizeTemp();
+            }
         }
     }
 }

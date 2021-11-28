@@ -22,7 +22,7 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
-    public void SwitchSceneS()
+    public void SwitchSceneS() 
     {
         SceneManager.LoadScene(0);
     }

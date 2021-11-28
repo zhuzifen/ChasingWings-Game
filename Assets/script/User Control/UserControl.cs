@@ -66,7 +66,12 @@ namespace script.User_Control
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
             {
                 BaseLevelItemScript baseLevelItemScript = hitt.collider.gameObject.GetComponent<BaseLevelItemScript>();
-                if (baseLevelItemScript != null && !isDragging && !isDraggingRotating && !hitt.collider.isTrigger)
+                if (
+                    baseLevelItemScript != null 
+                    && !baseLevelItemScript.Uncontrollable 
+                    && !isDragging && !isDraggingRotating 
+                    && !hitt.collider.isTrigger
+                    )
                 {
                     // DisHighLight the previous selection
                     if(nowSelected) nowSelected.DisHighlightMe();

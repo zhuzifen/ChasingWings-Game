@@ -89,7 +89,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 666904134616134819}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0365c916d1664104ab8d1a56c3b13f08, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -257,7 +257,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786603614354729134}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0365c916d1664104ab8d1a56c3b13f08, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -282,14 +282,13 @@ MonoBehaviour:
   ToBeSwitchedRenderers:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}
-  TempLocalScale: {x: 0, y: 0, z: 0}
+  Uncontrollable: 0
   OuterFrame: {fileID: 4467919817750833624}
-  targetLerpToPosition: {x: 0, y: 0, z: 0}
-  TargetEuler: {x: 0, y: 0, z: 0}
-  RealEuler: {x: 0, y: 0, z: 0}
-  ForceStrength: 15
+  ForceStrength: 45
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
+  BlowingEffectiveRange: 3.5
+  ActualCenter: {fileID: 666904134616134819}
 --- !u!65 &7193030835731245112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,7 +309,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786603614354729134}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0365c916d1664104ab8d1a56c3b13f08, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -405,7 +404,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2326462579319743709}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 0365c916d1664104ab8d1a56c3b13f08, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

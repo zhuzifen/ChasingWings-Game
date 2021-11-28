@@ -125,14 +125,14 @@ namespace script.User_Control
             if (StateRecorder[DeviceEnum.DirectionBoard] != DPadUpPressed)
             {
                 StateRecorder[DeviceEnum.DirectionBoard] = DPadUpPressed;
-                if (DPadUpPressed = false) return;
+                if (DPadUpPressed == false) return;
                 // TODO
             }
 
             if (StateRecorder[DeviceEnum.PlaceHolder] != DPadDownPressed)
             {
                 StateRecorder[DeviceEnum.PlaceHolder] = DPadDownPressed;
-                if (DPadDownPressed = false) return;
+                if (DPadDownPressed == false) return;
                 // TODO
             }
         }

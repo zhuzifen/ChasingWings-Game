@@ -14,8 +14,10 @@ namespace script.Level_Items_Script
         public List<Renderer> ToBeSwitchedRenderers;
 
         public UserControl control;
+        
+        public bool Uncontrollable = false;
 
-        public Vector3 TempLocalScale;
+        protected Vector3 TempLocalScale;
 
         /// <summary>
         /// This is for bound detection of the platforms for deployment.
@@ -24,7 +26,7 @@ namespace script.Level_Items_Script
         /// </summary>
         public Collider OuterFrame;
 
-        public Vector3 targetLerpToPosition;
+        protected Vector3 targetLerpToPosition;
 
 
         private Vector3 tempPos = Vector3.one;
@@ -33,9 +35,9 @@ namespace script.Level_Items_Script
 
         private float LerpMultiplier = 0.2f;
 
-        public Vector3 TargetEuler = Vector3.zero;
+        protected Vector3 TargetEuler = Vector3.zero;
 
-        public Vector3 RealEuler = Vector3.zero;
+        protected Vector3 RealEuler = Vector3.zero;
 
         protected virtual void Start()
         {
@@ -43,6 +45,7 @@ namespace script.Level_Items_Script
             Debug.Assert(OuterFrame != null, $"THE OUTER FRAME IS NULL FOR {this.gameObject.name}");
             tempPos = this.transform.position;
             targetLerpToPosition = this.transform.position;
+            TargetEuler = this.transform.eulerAngles;
         }
         public virtual void SetControl(UserControl uc)
         {

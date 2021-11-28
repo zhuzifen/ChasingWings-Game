@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace script.Level_Items_Script.UglyStuff
+namespace script.Level_Layout_Script
 {
     public class DynamicCopyPaster : MonoBehaviour
     {
@@ -25,7 +24,7 @@ namespace script.Level_Items_Script.UglyStuff
             {
                 if (GameStateChecker.isTheCharaMoving)
                 {
-                    GameObject newGo = GameObject.Instantiate(this.gameObject);
+                    GameObject newGo = GameObject.Instantiate(this.gameObject,  this.transform.position,  this.transform.rotation);
                     DynamicCopyPaster childDCP = newGo.GetComponent<DynamicCopyPaster>();
                     childDCP.Parent = this;
                     childDCP.transform.parent = this.transform.parent;

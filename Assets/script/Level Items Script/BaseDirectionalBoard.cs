@@ -45,7 +45,6 @@ namespace script.Level_Items_Script
         }
         private void FixedUpdate()
         {
-            float mul = 0.2f;
             if (Reverted)
             {
                 if (ARC.IsZeroReached(Time.fixedDeltaTime))

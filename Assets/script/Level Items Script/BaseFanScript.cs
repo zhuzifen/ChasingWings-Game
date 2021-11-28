@@ -11,6 +11,28 @@ namespace script.Level_Items_Script
         public Vector3 ManualGravity = new Vector3(0, -2, 0);
         public float ManualDrag = 0.995f;
         public Dictionary<Rigidbody, Vector3> EnterDirections = new Dictionary<Rigidbody, Vector3>();
+
+        public float BlowingEffectiveRange = 3.5f;
+
+        public GameObject ActualCenter;
+
+        protected override void Start()
+        {
+            base.Start();
+            // This is for preventing culling happening for the particle systems. 
+            foreach (ParticleSystem PS in this.gameObject.GetComponentsInChildren<ParticleSystem>())
+            {
+                PS.Emit(Vector3.one * 10000, Vector3.zero, 0.001f,Mathf.Infinity,Color.white);
+                PS.Emit(Vector3.one * -10000, Vector3.zero, 0.001f,Mathf.Infinity,Color.white);
+            }
+
+            if (ActualCenter == null)
+            {
+                Debug.LogError("ACTUAL CENTER HAS NOT BEEN ASSIGNED!");
+            }
+            
+        }
+
         public override void RemoveMe(UserControl uc)
         {
             uc.LevelItemList.Remove(this);
@@ -28,7 +50,9 @@ namespace script.Level_Items_Script
                     EnterDirections.Add(other.attachedRigidbody, other.attachedRigidbody.velocity.normalized);
                 }
                 other.attachedRigidbody.useGravity = false;
-                other.attachedRigidbody.AddForce(this.transform.up * ForceStrength);
+                other.attachedRigidbody.AddForce(this.transform.up * ForceStrength *
+                                                 (1 - Mathf.Clamp01((other.transform.position - ActualCenter.transform.position).magnitude /
+                                                                    BlowingEffectiveRange)));
 
                 other.attachedRigidbody.velocity = other.attachedRigidbody.velocity * ManualDrag;
                 other.attachedRigidbody.AddForce(ManualGravity);

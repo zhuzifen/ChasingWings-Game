@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,12 @@ public class Bonus : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        OnTriggerEnter(collision.collider);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
             _characterMove.bonus += 1;

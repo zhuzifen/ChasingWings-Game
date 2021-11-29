@@ -30,7 +30,7 @@ public class Bonus : MonoBehaviour
         {
             _characterMove.bonus += 1;
             Debug.Log($"The Bonus {gameObject.name} has been collected.");
-            LUIS.MarkCollected();
+            if(LUIS != null) LUIS.MarkCollected();
             Destroy(this.gameObject);
         }
     }

@@ -285,10 +285,10 @@ MonoBehaviour:
   control: {fileID: 0}
   Uncontrollable: 0
   OuterFrame: {fileID: 4467919817750833624}
-  ForceStrength: 45
+  ForceStrength: 35
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
-  BlowingEffectiveRange: 3.5
+  BlowingEffectiveRange: 2.5
   ActualCenter: {fileID: 666904134616134819}
 --- !u!65 &7193030835731245112
 BoxCollider:
@@ -623,7 +623,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 3
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2

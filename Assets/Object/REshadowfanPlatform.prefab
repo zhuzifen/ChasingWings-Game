@@ -282,12 +282,13 @@ MonoBehaviour:
   ToBeSwitchedRenderers:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}
-  TempLocalScale: {x: 0, y: 0, z: 0}
+  Uncontrollable: 0
   OuterFrame: {fileID: 4467919817750833624}
-  targetLerpToPosition: {x: 0, y: 0, z: 0}
-  ForceStrength: 15
+  ForceStrength: 35
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
+  BlowingEffectiveRange: 2.5
+  ActualCenter: {fileID: 666904134616134819}
 --- !u!65 &7193030835731245112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -525,7 +526,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
+      scalar: 3
       minScalar: 1.5
       maxCurve:
         serializedVersion: 2

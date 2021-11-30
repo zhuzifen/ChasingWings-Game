@@ -44,6 +44,7 @@ public class characterMove : MonoBehaviour
     public AudioSource landingSound;
 
     private PauseMenu pauseMenu;
+    public GameObject stonePointer;
 
     public DualPurposeCursor DPCursor;
     // Start is called before the first frame update
@@ -89,6 +90,10 @@ public class characterMove : MonoBehaviour
         animator.Play("running");
         cameraLogic.RunCam(this);
         Time.timeScale = 1;
+        if (stonePointer)
+        {
+            // stonePointer.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -192,6 +197,10 @@ public class characterMove : MonoBehaviour
         if (environmentControl)
         {
             environmentControl.resetPosition();
+        }
+        if (stonePointer)
+        {
+            // stonePointer.SetActive(false);
         }
         characterHasKey = false;
         bonus = 0;

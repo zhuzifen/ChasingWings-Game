@@ -15,11 +15,12 @@ namespace script.UI
         public AutoResetCounter MousePressedTimer = new AutoResetCounter(1.6f);
         public Image DeleteAllProgress;
 
-        private bool isPressing;
 
         public Vector3 OrigPos;
 
-        public float VibrateRatio = 10;
+        private bool isPressing;
+        private float VibrateRatio = 10;
+        private float ItemsVibrateRatio = 0.15f;
 
         protected override void Start()
         {
@@ -70,7 +71,10 @@ namespace script.UI
                     DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
                     this.transform.position = OrigPos + Random.insideUnitSphere * DeleteAllProgress.fillAmount * VibrateRatio;
                 }
-
+                foreach (BaseLevelItemScript item in UC.LevelItemList)
+                {
+                    item.transform.position += Random.insideUnitSphere * (ItemsVibrateRatio * DeleteAllProgress.fillAmount);
+                }
                 if (MousePressedTimer.IsZeroReached(Time.fixedDeltaTime, false))
                 {
                     BaseLevelItemScript[] BLIS = new BaseLevelItemScript[UC.LevelItemList.Count];

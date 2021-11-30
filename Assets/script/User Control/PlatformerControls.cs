@@ -21,8 +21,7 @@ namespace script.User_Control
         public const string ControllerCursorMoveAxisX = "JoyCursorMoveX";
         public const string ControllerCursorMoveAxisY = "JoyCursorMoveY";
         public static float JoyScreenCursorMoveMultiplier = 1;
-        
-        
+
 
         public static float ScreenXDelta()
         {

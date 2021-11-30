@@ -18,9 +18,8 @@ namespace script.Level_Items_Script
 
         public override void RemoveMe(UserControl uc)
         {
-            uc.LevelItemList.Remove(this);
             uc.directionBoardCount -= 1;
-            Destroy(this.gameObject);
+            base.RemoveMe(uc);
         }
 
         private void OnTriggerEnter(Collider other)

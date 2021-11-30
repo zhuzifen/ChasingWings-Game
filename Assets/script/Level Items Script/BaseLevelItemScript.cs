@@ -39,6 +39,8 @@ namespace script.Level_Items_Script
 
         protected Vector3 RealEuler = Vector3.zero;
 
+        public GameObject DestoryParticleEffect;
+
         protected virtual void Start()
         {
             TempLocalScale = this.transform.localScale;
@@ -75,6 +77,11 @@ namespace script.Level_Items_Script
 
         public virtual void RemoveMe(UserControl uc)
         {
+            if (DestoryParticleEffect != null)
+            {
+                GameObject go = Instantiate(DestoryParticleEffect, this.transform.position, this.transform.rotation);
+                go.transform.parent = null;
+            }
             uc.LevelItemList.Remove(this);
             Destroy(this.gameObject);
         }

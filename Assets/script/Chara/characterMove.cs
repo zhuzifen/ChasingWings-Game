@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using script;
 using script.Chara;
+using script.UI;
 using script.User_Control;
 using UnityEngine;
 
@@ -154,7 +155,7 @@ public class characterMove : MonoBehaviour
             // this.rb.AddForce(move * movementSpeed * Time.fixedDeltaTime * (Foot.IsTouchingGround?1:0), ForceMode.Impulse);
         }
 
-        GameStateChecker.isTheCharaMoving = characterMode != CharaStates.Stop;
+        GameStateChecker.isTheCharaMoving = (characterMode != CharaStates.Stop);
     }
     
     public void UpdateKey()

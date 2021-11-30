@@ -167,6 +167,7 @@ MonoBehaviour:
   control: {fileID: 0}
   Uncontrollable: 0
   OuterFrame: {fileID: 3886642562574668313}
+  DestoryParticleEffect: {fileID: 4198378151092850545, guid: f0a589667ade4874882b139b892d85b8, type: 3}
   ARC:
     Temp: 0
     Max: 1

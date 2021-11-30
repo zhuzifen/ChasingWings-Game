@@ -157,6 +157,7 @@ MonoBehaviour:
   control: {fileID: 0}
   Uncontrollable: 0
   OuterFrame: {fileID: 739971115289612665}
+  DestoryParticleEffect: {fileID: 4198378151092850545, guid: f0a589667ade4874882b139b892d85b8, type: 3}
   ForceMultiplier: 8
   Bounced: 0
   Spring: {fileID: 2829403285365328895}

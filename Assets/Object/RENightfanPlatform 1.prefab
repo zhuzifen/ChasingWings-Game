@@ -284,6 +284,7 @@ MonoBehaviour:
   control: {fileID: 0}
   Uncontrollable: 0
   OuterFrame: {fileID: 4467919817750833624}
+  DestoryParticleEffect: {fileID: 4198378151092850545, guid: f0a589667ade4874882b139b892d85b8, type: 3}
   ForceStrength: 35
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99

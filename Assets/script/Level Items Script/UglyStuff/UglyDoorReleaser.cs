@@ -1,4 +1,5 @@
 ﻿using System;
+using script.UI;
 using UnityEngine;
 
 namespace script.Level_Items_Script.UglyStuff
@@ -7,6 +8,7 @@ namespace script.Level_Items_Script.UglyStuff
     {
         public Animation TheAnimation;
         public GameObject TargetGameObject;
+        public StonePosIndicator SPI;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -14,6 +16,11 @@ namespace script.Level_Items_Script.UglyStuff
             if (other.gameObject == TargetGameObject)
             {
                 TheAnimation.Play();
+                if (SPI != null)
+                {
+                    SPI.Check();
+                }
+                Destroy(this);
             }
         }
     }

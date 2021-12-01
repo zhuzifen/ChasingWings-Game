@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3796989214315809287}
   - component: {fileID: 7317402298561860886}
   m_Layer: 0
-  m_Name: DisappearParticleEffect
+  m_Name: NightDisappearParticleEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5524234e109b73a47920f3d8939b8224, type: 2}
+  - {fileID: 2100000, guid: 66c16c94cef7abc40b160626883df7f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

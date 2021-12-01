@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 7193030835731245112}
   - component: {fileID: 4467919817750833624}
   m_Layer: 0
-  m_Name: RENightfanPlatform 1
+  m_Name: RENightfanPlatform
   m_TagString: Fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   control: {fileID: 0}
   Uncontrollable: 0
   OuterFrame: {fileID: 4467919817750833624}
-  DestoryParticleEffect: {fileID: 4198378151092850545, guid: f0a589667ade4874882b139b892d85b8, type: 3}
+  DestoryParticleEffect: {fileID: 4198378151092850545, guid: 2d6f02cabb5592f4494e4e35d51aa280, type: 3}
   ForceStrength: 35
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99

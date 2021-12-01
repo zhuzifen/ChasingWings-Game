@@ -1235,6 +1235,11 @@ MonoBehaviour:
       m_Calls: []
   UC: {fileID: 1194450417}
   Device: {fileID: 0}
+  MousePressedTimer:
+    Temp: 0
+    Max: 1.6
+  DeleteAllProgress: {fileID: 0}
+  OrigPos: {x: 0, y: 0, z: 0}
 --- !u!114 &246512755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4053,6 +4058,7 @@ MonoBehaviour:
   bonus: 0
   footStep: {fileID: 0}
   landingSound: {fileID: 0}
+  stonePointer: {fileID: 0}
   DPCursor: {fileID: 0}
 --- !u!95 &961933810
 Animator:
@@ -4720,9 +4726,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  springPlatform: {fileID: 3274340025970897135, guid: 3650dd571680708419da6fb02e547e1a, type: 3}
+  springPlatform: {fileID: 3274340025970897135, guid: 2511a74b136603b4da3bc53c85af4d9a, type: 3}
   fanPlatform: {fileID: 786603614354729134, guid: 86684f0dc66f5cb42b10a210f62937c0, type: 3}
-  directionBoard: {fileID: 5343893966412429627, guid: 9a2947da00e1ac74dbd992e9f42c14db, type: 3}
+  directionBoard: {fileID: 5343893966412429627, guid: fe19bef294cc4b848858c5e9d5be1243, type: 3}
   nowSelected: {fileID: 0}
   LevelItemList: []
   characterMove: {fileID: 0}

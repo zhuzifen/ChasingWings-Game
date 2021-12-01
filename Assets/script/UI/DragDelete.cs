@@ -68,8 +68,8 @@ namespace script.UI
             {
                 if (DeleteAllProgress != null)
                 {
-                    DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
-                    this.transform.position = OrigPos + Random.insideUnitSphere * DeleteAllProgress.fillAmount * VibrateRatio;
+                    DeleteAllProgress.fillMethod = Image.FillMethod.Radial360;
+                    DeleteAllProgress.fillOrigin = 0;
                 }
                 foreach (BaseLevelItemScript item in UC.LevelItemList)
                 {
@@ -84,14 +84,21 @@ namespace script.UI
                         item.RemoveMe(UC);
                     }
                     isPressing = false;
+                    DeleteAllProgress.fillMethod = Image.FillMethod.Vertical;
+                    DeleteAllProgress.fillOrigin = 1;
                 }
             }
             else
             {
-                MousePressedTimer.Temp = Mathf.Lerp(MousePressedTimer.Temp, MousePressedTimer.Max + 0.1f, 0.2f);
+                MousePressedTimer.Temp = Mathf.Lerp(MousePressedTimer.Temp, MousePressedTimer.Max + 0.1f, 0.05f);
                 MousePressedTimer.Temp = Mathf.Clamp(MousePressedTimer.Temp, 0, MousePressedTimer.Max);
                 DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
-                this.transform.position = OrigPos;
+            }
+            
+            if (DeleteAllProgress != null)
+            {
+                DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
+                this.transform.position = OrigPos + Random.insideUnitSphere * DeleteAllProgress.fillAmount * VibrateRatio;
             }
         }
 

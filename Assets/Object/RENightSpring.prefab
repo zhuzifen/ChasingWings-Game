@@ -158,6 +158,7 @@ MonoBehaviour:
   Uncontrollable: 0
   OuterFrame: {fileID: 739971115289612665}
   DestoryParticleEffect: {fileID: 4198378151092850545, guid: 2d6f02cabb5592f4494e4e35d51aa280, type: 3}
+  deleteSound: {fileID: 0}
   ForceMultiplier: 8
   Bounced: 0
   Spring: {fileID: 2829403285365328895}
@@ -299,11 +300,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3274340025970897135}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2ef6f22ac9d012d4c8eee324ac3913df, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

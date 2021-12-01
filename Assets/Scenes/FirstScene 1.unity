@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4365.3115, g: 3185.0059, b: 3333.6367, a: 1}
+  m_IndirectSpecularColor: {r: 4364.8594, g: 3184.5293, b: 3333.3477, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3821,6 +3821,7 @@ GameObject:
   - component: {fileID: 1295193388}
   - component: {fileID: 1295193390}
   - component: {fileID: 1295193389}
+  - component: {fileID: 1295193391}
   m_Layer: 0
   m_Name: Bonus1(Clone)
   m_TagString: Untagged
@@ -3835,14 +3836,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295193387}
-  m_LocalRotation: {x: 0.31730464, y: -0, z: -0, w: 0.94832367}
+  m_LocalRotation: {x: 0.22495107, y: 0, z: 0, w: 0.9743701}
   m_LocalPosition: {x: 0, y: 3.8, z: 10}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1113209385}
   m_Father: {fileID: 9486735}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26, y: 0, z: 0}
 --- !u!136 &1295193389
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3870,6 +3871,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LUIS: {fileID: 0}
+--- !u!114 &1295193391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295193387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 1
+  amplitude: 0.1
+  speed: 2
 --- !u!1 &1323816040
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,6 +4293,7 @@ GameObject:
   - component: {fileID: 1584294850}
   - component: {fileID: 1584294849}
   - component: {fileID: 1584294853}
+  - component: {fileID: 1584294854}
   m_Layer: 0
   m_Name: goal
   m_TagString: Untagged
@@ -4374,6 +4391,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameEnded: 0
+--- !u!114 &1584294854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584294848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.05
+  speed: 2
 --- !u!1 &1596888359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4582,6 +4614,7 @@ GameObject:
   - component: {fileID: 1721614565}
   - component: {fileID: 1721614567}
   - component: {fileID: 1721614566}
+  - component: {fileID: 1721614568}
   m_Layer: 0
   m_Name: Keys(Clone)
   m_TagString: Untagged
@@ -4630,6 +4663,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMove: {fileID: 770461157}
+--- !u!114 &1721614568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721614564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.05
+  speed: 2
 --- !u!1 &1740624449
 GameObject:
   m_ObjectHideFlags: 0

@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 139206359}
   - component: {fileID: 139206358}
   - component: {fileID: 139206357}
+  - component: {fileID: 139206362}
   m_Layer: 0
   m_Name: goal
   m_TagString: Untagged
@@ -568,6 +569,21 @@ Transform:
   m_Father: {fileID: 2067815006}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &139206362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139206356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.05
+  speed: 2
 --- !u!1 &173455539
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +859,7 @@ GameObject:
   - component: {fileID: 205900892}
   - component: {fileID: 205900894}
   - component: {fileID: 205900893}
+  - component: {fileID: 205900895}
   m_Layer: 0
   m_Name: Bonus2(Clone)
   m_TagString: Untagged
@@ -858,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205900891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3338509, y: 1.9165825, z: -1.0134354}
+  m_LocalPosition: {x: 1.3338509, y: 1.97, z: -1.0134354}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1762664540}
@@ -892,6 +909,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LUIS: {fileID: 0}
+--- !u!114 &205900895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205900891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.1
+  speed: 2
 --- !u!1001 &220619960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1724,6 +1756,7 @@ GameObject:
   - component: {fileID: 404415792}
   - component: {fileID: 404415794}
   - component: {fileID: 404415793}
+  - component: {fileID: 404415795}
   m_Layer: 0
   m_Name: Keys(Clone)
   m_TagString: Untagged
@@ -1772,6 +1805,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMove: {fileID: 961933809}
+--- !u!114 &404415795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404415791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.05
+  speed: 2
 --- !u!1 &414581911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,6 +3610,8 @@ GameObject:
   - component: {fileID: 884233041}
   - component: {fileID: 884233043}
   - component: {fileID: 884233042}
+  - component: {fileID: 884233044}
+  - component: {fileID: 884233045}
   m_Layer: 0
   m_Name: Bonus3(Clone)
   m_TagString: Untagged
@@ -3611,6 +3661,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LUIS: {fileID: 0}
+--- !u!114 &884233044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884233040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c43c61678c6bdc40a69303bdf19301d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LUIS: {fileID: 0}
+--- !u!114 &884233045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884233040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b206a4a06e8cc524b97c054ac3f8320f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  r: 0
+  amplitude: 0.1
+  speed: 2
 --- !u!1 &901722098
 GameObject:
   m_ObjectHideFlags: 0

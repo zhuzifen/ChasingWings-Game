@@ -12,7 +12,7 @@ namespace script.UI
 
         public BaseLevelItemScript Device;
 
-        public AutoResetCounter MousePressedTimer = new AutoResetCounter(1.6f);
+        private AutoResetCounter MousePressedTimer = new AutoResetCounter(1.3f);
         public Image DeleteAllProgress;
 
 
@@ -21,6 +21,9 @@ namespace script.UI
         private bool isPressing;
         private float VibrateRatio = 10;
         private float ItemsVibrateRatio = 0.15f;
+
+        private AudioSource TheDeletingSoundEffect;
+        private AudioSource TheDeletedSoundEffect;
 
         protected override void Start()
         {
@@ -38,6 +41,8 @@ namespace script.UI
             OrigPos = this.transform.position;
 
             DeleteAllProgress = transform.GetChild(0).GetComponent<Image>();
+            TheDeletingSoundEffect = transform.GetChild(1).GetComponent<AudioSource>();
+            TheDeletedSoundEffect = transform.GetChild(2).GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -71,6 +76,11 @@ namespace script.UI
                     DeleteAllProgress.fillMethod = Image.FillMethod.Radial360;
                     DeleteAllProgress.fillOrigin = 0;
                 }
+
+                if (TheDeletingSoundEffect != null && !TheDeletingSoundEffect.isPlaying)
+                {
+                    TheDeletingSoundEffect.Play();
+                }
                 foreach (BaseLevelItemScript item in UC.LevelItemList)
                 {
                     item.transform.position += Random.insideUnitSphere * (ItemsVibrateRatio * DeleteAllProgress.fillAmount);
@@ -84,6 +94,10 @@ namespace script.UI
                         item.RemoveMe(UC);
                     }
                     isPressing = false;
+                    if (TheDeletedSoundEffect != null)
+                    {
+                        TheDeletedSoundEffect.Play();
+                    }
                     DeleteAllProgress.fillMethod = Image.FillMethod.Vertical;
                     DeleteAllProgress.fillOrigin = 1;
                 }
@@ -93,6 +107,11 @@ namespace script.UI
                 MousePressedTimer.Temp = Mathf.Lerp(MousePressedTimer.Temp, MousePressedTimer.Max + 0.1f, 0.05f);
                 MousePressedTimer.Temp = Mathf.Clamp(MousePressedTimer.Temp, 0, MousePressedTimer.Max);
                 DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
+                if (TheDeletingSoundEffect != null)
+                {
+                    TheDeletingSoundEffect.Stop();
+                    TheDeletingSoundEffect.time = DeleteAllProgress.fillAmount;
+                }
             }
             
             if (DeleteAllProgress != null)

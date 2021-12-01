@@ -121,7 +121,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f5b4ef9ce62f5e94f86a2f9d1991a599, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc2263809689afb41bc90833d34d3cb0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -253,7 +253,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17a1a757d534f9b43978bc85c1401549, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 52afbdcdc58685649a985945919aee54, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -464,8 +464,5 @@ MonoBehaviour:
       m_Calls: []
   UC: {fileID: 0}
   Device: {fileID: 0}
-  MousePressedTimer:
-    Temp: 1.6
-    Max: 1.6
   DeleteAllProgress: {fileID: 601997082578360912}
   OrigPos: {x: 1372.0983, y: 120.879, z: 0}

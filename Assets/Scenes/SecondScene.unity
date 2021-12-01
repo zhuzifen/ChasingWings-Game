@@ -140,6 +140,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2081620364}
     m_Modifications:
+    - target: {fileID: 470930387953188435, guid: 3f993fb3924ca1e4c8643b6d9eef450c, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 470930387953188435, guid: 3f993fb3924ca1e4c8643b6d9eef450c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 52afbdcdc58685649a985945919aee54, type: 3}
+    - target: {fileID: 6364594504401146257, guid: 3f993fb3924ca1e4c8643b6d9eef450c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dc2263809689afb41bc90833d34d3cb0, type: 3}
     - target: {fileID: 6502737817854790198, guid: 3f993fb3924ca1e4c8643b6d9eef450c, type: 3}
       propertyPath: m_Name
       value: DeleteZone (1)
@@ -1235,9 +1247,6 @@ MonoBehaviour:
       m_Calls: []
   UC: {fileID: 1194450417}
   Device: {fileID: 0}
-  MousePressedTimer:
-    Temp: 0
-    Max: 1.6
   DeleteAllProgress: {fileID: 0}
   OrigPos: {x: 0, y: 0, z: 0}
 --- !u!114 &246512755

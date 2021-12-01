@@ -41,6 +41,8 @@ namespace script.Level_Items_Script
 
         public GameObject DestoryParticleEffect;
 
+        public AudioSource deleteSound;
+
         protected virtual void Start()
         {
             TempLocalScale = this.transform.localScale;
@@ -48,6 +50,7 @@ namespace script.Level_Items_Script
             tempPos = this.transform.position;
             targetLerpToPosition = this.transform.position;
             TargetEuler = this.transform.eulerAngles;
+            deleteSound = GameObject.Find("DeletedSFX").GetComponent<AudioSource>();
         }
         public virtual void SetControl(UserControl uc)
         {
@@ -81,6 +84,11 @@ namespace script.Level_Items_Script
             {
                 GameObject go = Instantiate(DestoryParticleEffect, this.transform.position, this.transform.rotation);
                 go.transform.parent = null;
+            }
+            if (deleteSound)
+            {
+                deleteSound.enabled = true;
+                deleteSound.Play();
             }
             uc.LevelItemList.Remove(this);
             Destroy(this.gameObject);

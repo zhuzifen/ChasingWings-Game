@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace script
 {
-    public class LevelUIScript : MonoBehaviour
+    public class BonusAcquisitionIndicator : MonoBehaviour
     {
         public List<Sprite> CompletionSpriteLoops;
         
@@ -14,7 +14,7 @@ namespace script
         
         public List<Sprite> InProgressSpriteLoops;
 
-        private bool Collected;
+        public bool Collected = false;
 
         public Image DisplayImage;
 
@@ -43,9 +43,10 @@ namespace script
                 if (currentSpriteIndex < EnterCompleteSpriteLoops.Count)
                 {
                     spr = EnterCompleteSpriteLoops[currentSpriteIndex];
-                } else
+                } 
+                else
                 {
-                    spr = CompletionSpriteLoops[(currentSpriteIndex - EnterCompleteSpriteLoops.Count) % InProgressSpriteLoops.Count];
+                    spr = CompletionSpriteLoops[(currentSpriteIndex - EnterCompleteSpriteLoops.Count) % CompletionSpriteLoops.Count];
                 }
             }
             DisplayImage.sprite = spr;
@@ -54,6 +55,7 @@ namespace script
         public void MarkCollected()
         {
             Collected = true;
+            currentSpriteIndex = 0;
         }
     }
 }

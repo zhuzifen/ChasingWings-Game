@@ -8,7 +8,7 @@ public class Bonus : MonoBehaviour
 {
     private characterMove _characterMove;
 
-    public LevelUIScript LUIS;
+    public BonusAcquisitionIndicator LUIS;
     // Start is called before the first frame update
     void Start()
     {

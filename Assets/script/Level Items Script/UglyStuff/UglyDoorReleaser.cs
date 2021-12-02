@@ -15,12 +15,12 @@ namespace script.Level_Items_Script.UglyStuff
             if(!GameStateChecker.isTheCharaMoving) return;
             if (other.gameObject == TargetGameObject)
             {
-                TheAnimation.Play();
+                if(!TheAnimation.isPlaying) TheAnimation.Play();
                 if (SPI != null)
                 {
                     SPI.Check();
                 }
-                Destroy(this);
+                // Destroy(this);
             }
         }
     }

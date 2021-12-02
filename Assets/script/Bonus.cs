@@ -15,7 +15,7 @@ public class Bonus : MonoBehaviour
         _characterMove = GameObject.FindObjectOfType<characterMove>();
         if (LUIS == null)
         {
-            Debug.LogError("LUIS HAS NOT BEEN ASSIGNED!");
+            Debug.LogError("LUIS HAS NOT BEEN ASSIGNED FOR" + this.name);
         }
     }
 

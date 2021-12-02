@@ -68,6 +68,7 @@ public class characterMove : MonoBehaviour
 
         animator.Play("idle");
         //remainLife = totalLife;
+        GameStateChecker.RespawnCount = 0;
     }
 
     void OnCollisionStay(Collision coll)
@@ -183,6 +184,7 @@ public class characterMove : MonoBehaviour
     // restart the game
     void restart()
     {
+        GameStateChecker.RespawnCount += 1;
         footStep.enabled = false;
         animator.Play("idle");
         transform.position = Vector3.zero;

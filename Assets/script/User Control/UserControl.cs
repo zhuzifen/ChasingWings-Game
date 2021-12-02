@@ -37,7 +37,7 @@ namespace script.User_Control
         private Vector3 DraggingOffset = Vector3.zero;
         private bool isDragging = false;
         private bool isDraggingRotating = false;
-        public AutoResetCounter DraggingRotationMinTimeRequiredForHolding = new AutoResetCounter(0.2f);
+        public AutoResetCounter DraggingRotationMinTimeRequiredForHolding = new AutoResetCounter(0.1f);
 
         private Vector3 MouseWorldPosOnXZero = Vector3.zero;
 

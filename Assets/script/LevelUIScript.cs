@@ -17,8 +17,15 @@ namespace script
 
         public Image DisplayImage;
 
+        private int inProgPosition = 0;
+
+        private int enterCompPosition = 0;
+
+        private int compPosition = 0;
+
         private void FixedUpdate()
         {
+            Time.fixedDeltaTime = 1 / 60;
             GoThroughSprites();
         }
         
@@ -29,8 +36,25 @@ namespace script
         // You can make any fields and methods as you want
         void GoThroughSprites()
         {
-
-            
+            Sprite spr;
+            if (!Collected)
+            {
+                spr = InProgressSpriteLoops[inProgPosition];
+                inProgPosition = inProgPosition % InProgressSpriteLoops.Count;
+            }
+            else
+            {
+                if (enterCompPosition < EnterCompleteSpriteLoops.Count)
+                {
+                    spr = EnterCompleteSpriteLoops[enterCompPosition];
+                    enterCompPosition++;
+                } else
+                {
+                    spr = CompletionSpriteLoops[compPosition];
+                    compPosition = compPosition % CompletionSpriteLoops.Count;
+                }
+            }
+            DisplayImage.sprite = spr;
         }
         // You can modify this method if you want 
         public void MarkCollected()

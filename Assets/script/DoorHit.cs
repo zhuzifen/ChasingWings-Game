@@ -5,16 +5,17 @@ using UnityEngine;
 public class DoorHit : MonoBehaviour
 {
     public characterMove characterMove;
+    public Animator doorOpen;
     private void Start()
     {
         characterMove = FindObjectOfType<characterMove>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.CompareTag("Player") & characterMove.characterHasKey)
+        if (other.gameObject.CompareTag("Player") & characterMove.characterHasKey)
         {
-            Destroy(this.gameObject);
+            doorOpen.enabled = true;
         }
     }
 }

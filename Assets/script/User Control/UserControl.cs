@@ -37,6 +37,7 @@ namespace script.User_Control
         private Vector3 DraggingOffset = Vector3.zero;
         private bool isDragging = false;
         private bool isDraggingRotating = false;
+        public AutoResetCounter DraggingRotationMinTimeRequiredForHolding = new AutoResetCounter(0.2f);
 
         private Vector3 MouseWorldPosOnXZero = Vector3.zero;
 
@@ -55,6 +56,7 @@ namespace script.User_Control
             DPCursor = GameObject.FindObjectOfType<DualPurposeCursor>();
             LR = (LR == null)? this.gameObject.GetComponent<LineRenderer>() : LR;
             Time.timeScale = 1;
+            DraggingRotationMinTimeRequiredForHolding.MaxmizeTemp();
         }
 
         void Update()
@@ -108,37 +110,50 @@ namespace script.User_Control
                     nowSelected = null;
                 }
 
-                isDraggingRotating = DPCursor.RotatePressed;
-                if (isDraggingRotating && nowSelected != null)
+                if (nowSelected != null)
                 {
-                    LR.positionCount = 2;
-                    LR.SetPosition(0, nowSelected.transform.position);
-                    LR.SetPosition(1, MouseWorldPosOnXZero);
-                    Vector3 RelativeDir = (MouseWorldPosOnXZero - nowSelected.transform.position).normalized;
-                    Vector3 targetDir = Vector3.right;
+
+                    if ( (!isDraggingRotating) && DPCursor.RotatePressed)
+                    {
+                        nowSelected.RotateOnce();
+                        DraggingRotationMinTimeRequiredForHolding.MaxmizeTemp();
+                    }
+                    else if(isDraggingRotating)
+                    {
+                        LR.positionCount = 2;
+                        LR.SetPosition(0, nowSelected.transform.position);
+                        LR.SetPosition(1, MouseWorldPosOnXZero);
+                        Vector3 RelativeDir = (MouseWorldPosOnXZero - nowSelected.transform.position).normalized;
+                        Vector3 targetDir = Vector3.right;
+                        if (DraggingRotationMinTimeRequiredForHolding.IsZeroReached(Time.deltaTime, false))
+                        {
                     
-                    // Yeah Ugly but I am too lazy to be graceful :P
-                    if (RelativeDir.y > 0.7f)
-                    {
-                        targetDir *= 0;
-                        nowSelected.RotateTo(targetDir);
-                    }
-                    else if (RelativeDir.z > 0.7f)
-                    {
-                        targetDir *= 90;
-                        nowSelected.RotateTo(targetDir);
-                    }
-                    else if (RelativeDir.z < -0.7f)
-                    {
-                        targetDir *= -90;
-                        nowSelected.RotateTo(targetDir);
-                    }
-                    else if (RelativeDir.y < -0.7f)
-                    {
-                        targetDir *= -180;
-                        nowSelected.RotateTo(targetDir);
+                            // Yeah Ugly but I am too lazy to be graceful :P
+                            if (RelativeDir.y > 0.7f)
+                            {
+                                targetDir *= 0;
+                                nowSelected.RotateTo(targetDir);
+                            }
+                            else if (RelativeDir.z > 0.7f)
+                            {
+                                targetDir *= 90;
+                                nowSelected.RotateTo(targetDir);
+                            }
+                            else if (RelativeDir.z < -0.7f)
+                            {
+                                targetDir *= -90;
+                                nowSelected.RotateTo(targetDir);
+                            }
+                            else if (RelativeDir.y < -0.7f)
+                            {
+                                targetDir *= -180;
+                                nowSelected.RotateTo(targetDir);
+                            }
+                        }
+                        
                     }
                 }
+                isDraggingRotating = DPCursor.RotatePressed;
             }
             
             if (!isDraggingRotating && LR.positionCount != 0)
@@ -153,10 +168,6 @@ namespace script.User_Control
                 if (characterMove.characterMode == CharaStates.Stop)
                 {
                     nowSelected.RemoveMe(this);
-                }
-                else
-                {
-                    // nowSelected.RemoveMeInGame(this);
                 }
             }
 

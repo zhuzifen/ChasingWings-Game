@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace script
 {
@@ -17,41 +18,34 @@ namespace script
 
         public Image DisplayImage;
 
-        private int inProgPosition = 0;
+        private int currentSpriteIndex;
 
-        private int enterCompPosition = 0;
-
-        private int compPosition = 0;
+        private void Start()
+        {
+            currentSpriteIndex += Random.Range(0, InProgressSpriteLoops.Count);
+        }
 
         private void FixedUpdate()
         {
-            Time.fixedDeltaTime = 1 / 60;
             GoThroughSprites();
         }
         
-        // TODO:
-        // When Collected is false, go through and loop the InProgressSpriteLoops in 60 fps and make sure it follows the actual game time
-        // When it's true (or MarkCollected has been called), go through EnterCompleteSpriteLoops once first and then loop with CompletionSpriteLoops
-        // The target is DisplayImage.sprite
-        // You can make any fields and methods as you want
         void GoThroughSprites()
         {
+            currentSpriteIndex += (int)(Time.fixedDeltaTime * 60);
             Sprite spr;
             if (!Collected)
             {
-                spr = InProgressSpriteLoops[inProgPosition];
-                inProgPosition = inProgPosition % InProgressSpriteLoops.Count;
+                spr = InProgressSpriteLoops[currentSpriteIndex % InProgressSpriteLoops.Count];
             }
             else
             {
-                if (enterCompPosition < EnterCompleteSpriteLoops.Count)
+                if (currentSpriteIndex < EnterCompleteSpriteLoops.Count)
                 {
-                    spr = EnterCompleteSpriteLoops[enterCompPosition];
-                    enterCompPosition++;
+                    spr = EnterCompleteSpriteLoops[currentSpriteIndex];
                 } else
                 {
-                    spr = CompletionSpriteLoops[compPosition];
-                    compPosition = compPosition % CompletionSpriteLoops.Count;
+                    spr = CompletionSpriteLoops[(currentSpriteIndex - EnterCompleteSpriteLoops.Count) % InProgressSpriteLoops.Count];
                 }
             }
             DisplayImage.sprite = spr;

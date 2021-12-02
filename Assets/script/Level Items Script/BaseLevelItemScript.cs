@@ -175,12 +175,15 @@ namespace script.Level_Items_Script
 
         public virtual void RotateOnce()
         {
-            transform.Rotate(new Vector3(-90f, 0f, 0f));
+            TargetEuler += (new Vector3(-90f, 0f, 0f));
+            if (TargetEuler.x < -360)
+            {
+                TargetEuler += Vector3.right * 360;
+            }
         }
 
         public virtual void RotateTo(Vector3 Euler)
         {
-            // Vector3 diff = (this.transform.eulerAngles - Euler);
             TargetEuler = Euler;
         }
         

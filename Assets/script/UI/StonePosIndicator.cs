@@ -51,7 +51,8 @@ namespace script.UI
 
             if (StoneIndicator != null)
             {
-                StoneIndicator.transform.eulerAngles -= Vector3.forward * (ActualStone.GetComponent<Rigidbody>().angularVelocity.magnitude);
+                Vector3 rolled = StoneIndicator.transform.eulerAngles - Vector3.forward * (ActualStone.GetComponent<Rigidbody>().angularVelocity.magnitude);
+                StoneIndicator.transform.eulerAngles = chekk?Vector3.zero:rolled;
                 StoneIndicator.sprite = chekk ? CheckImage : StoneImage;
             }
 

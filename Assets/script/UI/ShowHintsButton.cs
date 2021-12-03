@@ -40,7 +40,7 @@ namespace script.UI
             }
             thisImage.color = Color.Lerp(thisImage.color, new Color(1, 1, 1, SelfAlpha), 0.05f);
             
-            alpha = Mathf.Lerp(alpha, alpha + (this.IsPressed() ? 1f : -1f), 0.2f);
+            alpha = Mathf.Lerp(alpha, alpha + (this.IsPressed() ? 1f : -1f), 0.1f);
             alpha = Mathf.Clamp01(alpha);
             if (HintGO == null)
             {

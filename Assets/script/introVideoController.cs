@@ -15,9 +15,18 @@ public class introVideoController : MonoBehaviour
     public GameObject level1;
     public GameObject level2;
 
+    bool playing = true;
+
     // Update is called once per frame
     void Update()
     {
+        if (playing && Input.GetMouseButton(1))
+        {
+            vpStart.playbackSpeed = 5;
+        } else if (playing)
+        {
+            vpStart.playbackSpeed = 1;
+        }
         if (vpStart.clip.length - vpStart.time <= 0.1)
         {
             img.texture = vpLoop.texture;
@@ -26,6 +35,8 @@ public class introVideoController : MonoBehaviour
             tutLevel.SetActive(true);
             level1.SetActive(true);
             level2.SetActive(true);
+
+            playing = false;
         } else
         {
             img.texture = vpStart.texture;

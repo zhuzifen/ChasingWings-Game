@@ -527,12 +527,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716084409090220675, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 565.6622
+      value: 346
       objectReference: {fileID: 0}
     - target: {fileID: 1716084409090220675, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 266.86987
+      value: 241
       objectReference: {fileID: 0}
+    - target: {fileID: 5558865157088790633, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1ceed7cef456ec45946e95f7a78116f, type: 3}
     - target: {fileID: 7270868408956324066, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_Name
       value: Bonus Icon
@@ -4661,11 +4665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6758,12 +6762,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716084409090220675, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 565.6622
+      value: 346.00006
       objectReference: {fileID: 0}
     - target: {fileID: 1716084409090220675, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 186
+      value: 160.13004
       objectReference: {fileID: 0}
+    - target: {fileID: 5558865157088790633, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec3cdcd903a15f74cbb03dc143634e38, type: 3}
     - target: {fileID: 7270868408956324066, guid: 56bd0abcb3bca9c4fb5e190006f35c18, type: 3}
       propertyPath: m_Name
       value: Bonus Icon (1)
@@ -8145,7 +8153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 255, g: 255, b: 255, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

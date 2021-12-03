@@ -73,12 +73,17 @@ public class SetupCameraLogic : MonoBehaviour
                 CamStartPos = this.transform.position;
             }
 
+            if (!Input.GetMouseButton(2))
+            {
+                CamStartPos = this.transform.position;
+                MouseStartPos = mousePos;
+            }
+
             MouseStartPos += new Vector2(
                 Input.GetAxis("Horizontal") * joystickRatio * (Input.GetKey(KeyCode.Joystick1Button8) ? joystickAmplifiedRatio : 1),
                 Input.GetAxis("Vertical") * joystickRatio * (Input.GetKey(KeyCode.Joystick1Button8) ? joystickAmplifiedRatio : 1)
             );
-
-            Vector3 diff = mousePos - MouseStartPos;
+            Vector3 diff = (mousePos) - MouseStartPos;
             var trans = CamStartPos - new Vector3(
                 0,
                 diff.y * Ratio,

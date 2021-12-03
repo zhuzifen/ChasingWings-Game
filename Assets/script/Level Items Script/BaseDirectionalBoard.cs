@@ -18,6 +18,7 @@ namespace script.Level_Items_Script
 
         public override void RemoveMe(UserControl uc)
         {
+            if(Uncontrollable) return;
             uc.directionBoardCount -= 1;
             base.RemoveMe(uc);
         }

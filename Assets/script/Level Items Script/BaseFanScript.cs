@@ -35,6 +35,7 @@ namespace script.Level_Items_Script
 
         public override void RemoveMe(UserControl uc)
         {
+            if(Uncontrollable) return;
             uc.fanCount -= 1;
             base.RemoveMe(uc);
         }

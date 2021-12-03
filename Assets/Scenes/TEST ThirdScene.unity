@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4363.1094, g: 3183.4238, b: 3332.457, a: 1}
+  m_IndirectSpecularColor: {r: 4361.5117, g: 3182.1582, b: 3331.6914, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1387,6 +1387,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
 --- !u!4 &413516969 stripped
@@ -1868,6 +1880,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ec0d653a613e02448be9e2c2c14e633, type: 3}
 --- !u!4 &555586075 stripped
@@ -2182,6 +2206,18 @@ PrefabInstance:
     - target: {fileID: 6927511112613491936, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
@@ -5266,6 +5302,18 @@ PrefabInstance:
     - target: {fileID: 6927511112613491936, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
@@ -11442,7 +11490,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1124593088}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
@@ -11813,10 +11861,13 @@ MonoBehaviour:
   - {fileID: 590371569}
   - {fileID: 819667569}
   control: {fileID: 560949842}
-  Uncontrollable: 0
+  Uncontrollable: 1
   OuterFrame: {fileID: 1549981144}
   DestoryParticleEffect: {fileID: 0}
   deleteSound: {fileID: 0}
+  ShakeyProgress:
+    Temp: 0
+    Max: 1
   ForceMultiplier: 8
   Bounced: 0
   Spring: {fileID: 787315642}
@@ -13286,7 +13337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1124593088}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Pause
         m_Mode: 1
@@ -13802,6 +13853,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: e8c306d70222c9a43abda947b19bee16, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: e8c306d70222c9a43abda947b19bee16, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: e8c306d70222c9a43abda947b19bee16, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c306d70222c9a43abda947b19bee16, type: 3}
 --- !u!4 &1929387628 stripped
@@ -14293,6 +14356,18 @@ PrefabInstance:
     - target: {fileID: 6927511112613491936, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351584796329434892, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3e-45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fae50b5490f6f4a48aafc031b272363d, type: 3}

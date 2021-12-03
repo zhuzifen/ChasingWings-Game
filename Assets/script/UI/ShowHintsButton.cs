@@ -40,7 +40,7 @@ namespace script.UI
             }
             thisImage.color = Color.Lerp(thisImage.color, new Color(1, 1, 1, SelfAlpha), 0.05f);
             
-            alpha = Mathf.Lerp(alpha, alpha + (this.IsPressed() ? 1f : -1f), 0.1f);
+            alpha = Mathf.Lerp(alpha, (this.IsPressed()?1:0), 0.1f);
             alpha = Mathf.Clamp01(alpha);
             if (HintGO == null)
             {
@@ -48,7 +48,8 @@ namespace script.UI
             }
             foreach (Renderer rdr in HintGO.GetComponentsInChildren<Renderer>())
             {
-                rdr.sharedMaterial.color = new Color(1.3f, 1.3f, 1.3f, alpha);
+                 rdr.sharedMaterial.color = new Color(1.3f, 1.3f, 1.3f, alpha);
+                rdr.transform.localScale = Vector3.Lerp(rdr.transform.localScale, Vector3.one * (this.IsPressed() ? 0.05f : 0), 0.2f);
             }
         }
         

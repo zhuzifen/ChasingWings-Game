@@ -100,6 +100,7 @@ namespace script.UI
                     }
                     DeleteAllProgress.fillMethod = Image.FillMethod.Vertical;
                     DeleteAllProgress.fillOrigin = 1;
+                    MousePressedTimer.Temp = -0.3f;
                 }
             }
             else

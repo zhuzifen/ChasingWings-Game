@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using script.UI;
 using script.User_Control;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace script.Level_Items_Script
 {
@@ -43,6 +45,8 @@ namespace script.Level_Items_Script
 
         public AudioSource deleteSound;
 
+        public AutoResetCounter ShakeyProgress = new AutoResetCounter(0.25f);
+
         protected virtual void Start()
         {
             TempLocalScale = this.transform.localScale;
@@ -59,6 +63,7 @@ namespace script.Level_Items_Script
         
         public virtual void HighlightMe()
         {
+            if(Uncontrollable) return;
             foreach (Renderer rdr in ToBeSwitchedRenderers)
             {
                 Material[] temp = new Material[2];
@@ -70,6 +75,7 @@ namespace script.Level_Items_Script
         
         public virtual void DisHighlightMe()
         {
+            if(Uncontrollable) return;
             foreach (Renderer rdr in ToBeSwitchedRenderers)
             {
                 Material[] temp = new Material[1];
@@ -80,6 +86,7 @@ namespace script.Level_Items_Script
 
         public virtual void RemoveMe(UserControl uc)
         {
+            if(Uncontrollable) return;
             if (DestoryParticleEffect != null)
             {
                 GameObject go = Instantiate(DestoryParticleEffect, this.transform.position, this.transform.rotation);
@@ -118,13 +125,16 @@ namespace script.Level_Items_Script
             {
                 this.DisHighlightMe();
             }
-            
+
             CheckPositionAvailable();
+            ShakeyProgress.Temp = Mathf.Clamp(ShakeyProgress.Temp + (0.5f * Time.deltaTime), -0.5f, ShakeyProgress.Max);
+
             ClampEuler();
         }
 
         protected virtual void CheckPositionAvailable()
         {
+            if(Uncontrollable) return;
             if (JustMoved)
             {
                 JustMoved = false;
@@ -135,7 +145,16 @@ namespace script.Level_Items_Script
                 {
                     if (this.OuterFrame.bounds.Intersects(other.OuterFrame.bounds) && (other.gameObject != this.gameObject))
                     {
-                        targetLerpToPosition = this.tempPos;
+                        this.transform.position = this.transform.position + 
+                                                  new Vector3(0, 
+                                                      (1-ShakeyProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f), 
+                                                      (1-ShakeyProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f)
+                                                      );
+                        if(ShakeyProgress.IsZeroReached(Time.deltaTime * 2)) RemoveMe(control);
+                        targetLerpToPosition = this.transform.position;
+                        Vector3 pos = targetLerpToPosition;
+                        targetLerpToPosition = new Vector3((float)((int) (pos.x * 2))/2, (float)((int) (pos.y * 2))/2, (float)((int) (pos.z * 2))/2);
+                        // targetLerpToPosition = this.tempPos;
                         JustMoved = true;
                         return;
                     }
@@ -147,6 +166,7 @@ namespace script.Level_Items_Script
 
         public virtual void RemoveMeInGame(UserControl uc)
         {
+            if(Uncontrollable) return;
             MeTempRemoved = true;
             foreach (Renderer rdr in this.gameObject.GetComponentsInChildren<Renderer>())
             {
@@ -162,6 +182,7 @@ namespace script.Level_Items_Script
 
         public virtual void SetMyPos(Vector3 pos)
         {
+            if(Uncontrollable) return;
             if (JustMoved)
             {
                 JustMoved = false;
@@ -175,6 +196,7 @@ namespace script.Level_Items_Script
 
         public virtual void RotateOnce()
         {
+            if(Uncontrollable) return;
             TargetEuler += (new Vector3(-90f, 0f, 0f));
             if (TargetEuler.x < -360)
             {
@@ -184,12 +206,14 @@ namespace script.Level_Items_Script
 
         public virtual void RotateTo(Vector3 Euler)
         {
+            if(Uncontrollable) return;
             TargetEuler = Euler;
         }
         
         
         public virtual void ClampEuler()
         {
+            if(Uncontrollable) return;
             Vector3 Regulated = new Vector3(((int) (TargetEuler.x / 90)) * 90, ((int) (TargetEuler.y / 90)) * 90, ((int) (TargetEuler.z / 90)) * 90);
             RealEuler = Vector3.Lerp(RealEuler, Regulated,  0.2f);
             this.transform.eulerAngles = RealEuler;

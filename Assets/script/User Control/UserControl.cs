@@ -69,11 +69,17 @@ namespace script.User_Control
             foreach (RaycastHit hitt in Physics.RaycastAll(ray, 1500))
             {
                 BaseLevelItemScript baseLevelItemScript = hitt.collider.gameObject.GetComponent<BaseLevelItemScript>();
+                bool HasMouseOn = false;
+                foreach (DragDeployment DD in FindObjectsOfType<DragDeployment>())
+                {
+                    HasMouseOn = DD.MouseOnMe() || HasMouseOn;
+                }
                 if (
                     baseLevelItemScript != null 
                     && !baseLevelItemScript.Uncontrollable 
                     && !isDragging && !isDraggingRotating 
                     && !hitt.collider.isTrigger
+                    && !HasMouseOn
                     )
                 {
                     // DisHighLight the previous selection

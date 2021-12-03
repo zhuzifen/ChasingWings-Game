@@ -137,7 +137,7 @@ namespace script.UI
             }
         }
 
-        private Vector3 GetXZeroMousePos()
+        public Vector3 GetXZeroMousePos()
         {
             var MouseWorldPosOnXZero = Vector3.zero;
             Ray ray = Camera.main.ScreenPointToRay(this.transform.position);

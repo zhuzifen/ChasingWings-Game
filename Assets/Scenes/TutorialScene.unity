@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4301.6553, g: 3179.252, b: 3454.2188, a: 1}
+  m_IndirectSpecularColor: {r: 3238.0537, g: 2521.512, b: 2962.4087, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -610,7 +610,7 @@ MonoBehaviour:
   UC: {fileID: 381547540}
   Device: {fileID: 0}
   DeleteAllProgress: {fileID: 2120876019}
-  OrigPos: {x: 1139.5483, y: 94.14902, z: 0}
+  OrigPos: {x: 929.5475, y: 83.3085, z: 0}
 --- !u!114 &107747486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6449,7 +6449,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hold down right-click to rotate object.
+  m_Text: Hold down right-click to rotate objects.
 --- !u!222 &1804958350
 CanvasRenderer:
   m_ObjectHideFlags: 0

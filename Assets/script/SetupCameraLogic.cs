@@ -52,7 +52,7 @@ public class SetupCameraLogic : MonoBehaviour
         {
             this.transform.position = Vector3.Lerp(
                 this.transform.position,
-                new Vector3(this.transform.position.x, Tracking.transform.position.y, Tracking.transform.position.z),
+                new Vector3(this.transform.position.x, Tracking.transform.position.y + 1, Tracking.transform.position.z),
                 0.2f
             );
         }

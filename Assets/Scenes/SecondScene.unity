@@ -5667,7 +5667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850805, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: maxZ
-      value: 32
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8731297799897850805, guid: 9cf4636a057be24449d2d57527383dd2, type: 3}
       propertyPath: minY

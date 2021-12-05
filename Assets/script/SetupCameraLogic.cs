@@ -26,7 +26,7 @@ public class SetupCameraLogic : MonoBehaviour
     public characterMove Tracking;
     private bool HoldTracking;
 
-    private Vector3 PreservePos = Vector3.zero;
+    private Vector3 PreservePos = new Vector3(6,1,4);
     private bool IsMovingToPreservePos = false;
 
     public void RunCam(characterMove tracking)

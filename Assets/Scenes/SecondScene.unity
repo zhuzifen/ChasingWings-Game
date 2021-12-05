@@ -6173,7 +6173,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370767435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -7558,11 +7558,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.0729067e-13
+      value: 1.1913105e-16
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 6.07e-43
+      value: 8.91e-43
       objectReference: {fileID: 0}
     - target: {fileID: 9121679002384156488, guid: 541dea1a15908d845b603ca32ac60fd2, type: 3}
       propertyPath: m_BoundingSphereOverride.y

@@ -141,6 +141,15 @@ public class AutoResetCounter
     {
         Temp = Max;
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns>The ratio of Temp / Max. If Max == 0 then 0 is returned. </returns>
+    public float Ratio()
+    {
+        if (Max == 0) return 0;
+        return Temp / Max;
+    }
 }
 
 [Serializable]

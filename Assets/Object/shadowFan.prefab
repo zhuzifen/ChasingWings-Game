@@ -282,12 +282,13 @@ MonoBehaviour:
   ToBeSwitchedRenderers:
   - {fileID: 2718152522599799094}
   control: {fileID: 0}
-  TempLocalScale: {x: 0, y: 0, z: 0}
+  Uncontrollable: 0
   OuterFrame: {fileID: 0}
-  targetLerpToPosition: {x: 0, y: 0, z: 0}
   ForceStrength: 15
   ManualGravity: {x: 0, y: -2, z: 0}
   ManualDrag: 0.99
+  BlowingEffectiveRange: 3.5
+  ActualCenter: {fileID: 666904134616134819}
 --- !u!65 &7193030835731245112
 BoxCollider:
   m_ObjectHideFlags: 0

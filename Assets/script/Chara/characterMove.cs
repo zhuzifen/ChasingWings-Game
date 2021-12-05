@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using script;
 using script.Chara;
+using script.UI;
 using script.User_Control;
 using UnityEngine;
 
@@ -43,6 +44,7 @@ public class characterMove : MonoBehaviour
     public AudioSource landingSound;
 
     private PauseMenu pauseMenu;
+    public GameObject stonePointer;
 
     public DualPurposeCursor DPCursor;
     // Start is called before the first frame update
@@ -66,6 +68,7 @@ public class characterMove : MonoBehaviour
 
         animator.Play("idle");
         //remainLife = totalLife;
+        GameStateChecker.RespawnCount = 0;
     }
 
     void OnCollisionStay(Collision coll)
@@ -88,6 +91,10 @@ public class characterMove : MonoBehaviour
         animator.Play("running");
         cameraLogic.RunCam(this);
         Time.timeScale = 1;
+        if (stonePointer)
+        {
+            // stonePointer.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -154,7 +161,7 @@ public class characterMove : MonoBehaviour
             // this.rb.AddForce(move * movementSpeed * Time.fixedDeltaTime * (Foot.IsTouchingGround?1:0), ForceMode.Impulse);
         }
 
-        GameStateChecker.isTheCharaMoving = characterMode != CharaStates.Stop;
+        GameStateChecker.isTheCharaMoving = (characterMode != CharaStates.Stop);
     }
     
     public void UpdateKey()
@@ -177,6 +184,7 @@ public class characterMove : MonoBehaviour
     // restart the game
     void restart()
     {
+        GameStateChecker.RespawnCount += 1;
         footStep.enabled = false;
         animator.Play("idle");
         transform.position = Vector3.zero;
@@ -191,6 +199,10 @@ public class characterMove : MonoBehaviour
         if (environmentControl)
         {
             environmentControl.resetPosition();
+        }
+        if (stonePointer)
+        {
+            // stonePointer.SetActive(false);
         }
         characterHasKey = false;
         bonus = 0;

@@ -1,0 +1,156 @@
+﻿using script.Level_Items_Script;
+using script.User_Control;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
+namespace script.UI
+{
+    public class DragDelete : Button
+    {
+        public UserControl UC;
+
+        public BaseLevelItemScript Device;
+
+        private AutoResetCounter MousePressedTimer = new AutoResetCounter(1.3f);
+        public Image DeleteAllProgress;
+
+
+        public Vector3 OrigPos;
+
+        private bool isPressing;
+        private float VibrateRatio = 10;
+        private float ItemsVibrateRatio = 0.15f;
+
+        private AudioSource TheDeletingSoundEffect;
+        private AudioSource TheDeletedSoundEffect;
+
+        protected override void Start()
+        {
+            base.Start();
+            MousePressedTimer.MaxmizeTemp();
+            if (UC == null)
+            {
+                UC = FindObjectOfType<UserControl>();
+                if (UC == null)
+                {
+                    Debug.LogError("CANNOT FIND USER CONTROL!!!!!");
+                }
+            }
+
+            OrigPos = this.transform.position;
+
+            DeleteAllProgress = transform.GetChild(0).GetComponent<Image>();
+            TheDeletingSoundEffect = transform.GetChild(1).GetComponent<AudioSource>();
+            TheDeletedSoundEffect = transform.GetChild(2).GetComponent<AudioSource>();
+        }
+
+        private void Update()
+        {
+            if(UC == null || UC.characterMove == null) return;
+            if (Input.GetMouseButtonUp(0))
+            {
+                if(!Device) return;
+                Device.RemoveMe(UC);
+                Device = null;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            if(UC == null || UC.characterMove == null) return;
+
+            if (UC.characterMove.characterMode == CharaStates.Running)
+            {
+                this.image.color = Color.Lerp(this.image.color, new Color(1, 1, 1, 0), 0.2f);
+            }
+            else
+            {
+                this.image.color = Color.Lerp(this.image.color, new Color(1, 1, 1, 1), 0.2f);
+            }
+
+            if (isPressing)
+            {
+                if (DeleteAllProgress != null)
+                {
+                    DeleteAllProgress.fillMethod = Image.FillMethod.Radial360;
+                    DeleteAllProgress.fillOrigin = 0;
+                }
+
+                if (TheDeletingSoundEffect != null && !TheDeletingSoundEffect.isPlaying)
+                {
+                    TheDeletingSoundEffect.Play();
+                }
+                foreach (BaseLevelItemScript item in UC.LevelItemList)
+                {
+                    item.transform.position += Random.insideUnitSphere * (ItemsVibrateRatio * DeleteAllProgress.fillAmount);
+                }
+                if (MousePressedTimer.IsZeroReached(Time.fixedDeltaTime, false))
+                {
+                    BaseLevelItemScript[] BLIS = new BaseLevelItemScript[UC.LevelItemList.Count];
+                    UC.LevelItemList.CopyTo(BLIS);
+                    foreach (BaseLevelItemScript item in BLIS)
+                    {
+                        item.RemoveMe(UC);
+                    }
+                    isPressing = false;
+                    if (TheDeletedSoundEffect != null)
+                    {
+                        TheDeletedSoundEffect.Play();
+                    }
+                    DeleteAllProgress.fillMethod = Image.FillMethod.Vertical;
+                    DeleteAllProgress.fillOrigin = 1;
+                    MousePressedTimer.Temp = -0.3f;
+                }
+            }
+            else
+            {
+                MousePressedTimer.Temp = Mathf.Lerp(MousePressedTimer.Temp, MousePressedTimer.Max + 0.1f, 0.05f);
+                MousePressedTimer.Temp = Mathf.Clamp(MousePressedTimer.Temp, 0, MousePressedTimer.Max);
+                DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
+                if (TheDeletingSoundEffect != null)
+                {
+                    TheDeletingSoundEffect.Stop();
+                    TheDeletingSoundEffect.time = DeleteAllProgress.fillAmount;
+                }
+            }
+            
+            if (DeleteAllProgress != null)
+            {
+                DeleteAllProgress.fillAmount = 1 - MousePressedTimer.Ratio();
+                this.transform.position = OrigPos + Random.insideUnitSphere * DeleteAllProgress.fillAmount * VibrateRatio;
+            }
+        }
+
+        public override void OnPointerEnter(PointerEventData eventData)
+        {
+            base.OnPointerEnter(eventData);
+            if (UC.nowSelected != null && UC.DPCursor.SelectPressed)
+            {
+                Device = UC.nowSelected;
+            }
+        }
+
+        public override void OnPointerExit(PointerEventData eventData)
+        {
+            base.OnPointerExit(eventData);
+            Device = null;
+            isPressing = false;
+        }
+
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            base.OnPointerDown(eventData);
+            isPressing = true;
+        }
+
+        public override void OnPointerUp(PointerEventData eventData)
+        {
+            base.OnPointerUp(eventData);
+            isPressing = false;
+            if(!Device) return;
+            Device.RemoveMe(UC);
+            Device = null;
+        }
+    }
+}

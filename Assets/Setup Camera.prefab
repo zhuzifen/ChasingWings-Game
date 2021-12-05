@@ -71,7 +71,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   MouseStartPos: {x: 0, y: 0}
   CamStartPos: {x: 0, y: 0, z: 0}
   Ratio: 0.01
-  joystickRatio: 1
+  joystickRatio: 6
   joystickAmplifiedRatio: 3
   isDragging: 0
   maxY: 20

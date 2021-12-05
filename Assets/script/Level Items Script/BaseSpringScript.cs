@@ -105,9 +105,9 @@ namespace script.Level_Items_Script
 
         public override void RemoveMe(UserControl uc)
         {
-            uc.LevelItemList.Remove(this);
+            if(Uncontrollable) return;
             uc.springCount -= 1;
-            Destroy(this.gameObject);
+            base.RemoveMe(uc);
         }
 
     }

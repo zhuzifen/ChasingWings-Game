@@ -11,6 +11,8 @@ TagManager:
   - SpringPlatform
   - springUI
   - fanUI
+  - Stone
+  - HINT
   layers:
   - Default
   - TransparentFX

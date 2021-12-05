@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4321.533, g: 3182.8574, b: 3420.8828, a: 1}
+  m_IndirectSpecularColor: {r: 4366.039, g: 3185.4336, b: 3333.9805, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1374,7 +1374,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 9386dd602661bdd40bf982e5b2f15306, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9aa0cc4c9539601489e7a59ea3acf987, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:

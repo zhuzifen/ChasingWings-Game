@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4364.918, g: 3184.8525, b: 3332.8904, a: 1}
+  m_IndirectSpecularColor: {r: 4362.4785, g: 3182.8438, b: 3332.0117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369628751}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -11284,7 +11284,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1539398521}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: SwitchScene4
+        m_MethodName: SwitchSceneS
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11524,7 +11524,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1545918956}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: SwitchSceneS
+        m_MethodName: SwitchScene4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

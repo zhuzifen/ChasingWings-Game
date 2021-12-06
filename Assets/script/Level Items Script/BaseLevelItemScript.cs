@@ -45,7 +45,7 @@ namespace script.Level_Items_Script
 
         public AudioSource deleteSound;
 
-        public AutoResetCounter ShakeyProgress = new AutoResetCounter(0.25f);
+        public AutoResetCounter ShakyAutoRemoveProgress = new AutoResetCounter(2f);
 
         protected virtual void Start()
         {
@@ -55,6 +55,7 @@ namespace script.Level_Items_Script
             targetLerpToPosition = this.transform.position;
             TargetEuler = this.transform.eulerAngles;
             deleteSound = GameObject.Find("DeletedSFX").GetComponent<AudioSource>();
+            ShakyAutoRemoveProgress.MaxmizeTemp();
         }
         public virtual void SetControl(UserControl uc)
         {
@@ -127,7 +128,7 @@ namespace script.Level_Items_Script
             }
 
             CheckPositionAvailable();
-            ShakeyProgress.Temp = Mathf.Clamp(ShakeyProgress.Temp + (0.5f * Time.deltaTime), -0.5f, ShakeyProgress.Max);
+            ShakyAutoRemoveProgress.Temp = Mathf.Clamp(ShakyAutoRemoveProgress.Temp + (0.5f * Time.deltaTime), 0f, ShakyAutoRemoveProgress.Max);
 
             ClampEuler();
         }
@@ -145,15 +146,12 @@ namespace script.Level_Items_Script
                 {
                     if (this.OuterFrame.bounds.Intersects(other.OuterFrame.bounds) && (other.gameObject != this.gameObject))
                     {
-                        this.transform.position = this.transform.position + 
-                                                  new Vector3(0, 
-                                                      (1-ShakeyProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f), 
-                                                      (1-ShakeyProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f)
-                                                      );
-                        if(ShakeyProgress.IsZeroReached(Time.deltaTime * 2)) RemoveMe(control);
-                        targetLerpToPosition = this.transform.position;
-                        Vector3 pos = targetLerpToPosition;
-                        targetLerpToPosition = new Vector3((float)((int) (pos.x * 2))/2, (float)((int) (pos.y * 2))/2, (float)((int) (pos.z * 2))/2);
+                        Vector3 Offset = new Vector3(0, 
+                            (1-ShakyAutoRemoveProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f), 
+                            (1-ShakyAutoRemoveProgress.Ratio()) * 0.25f * Random.Range(-0.5f, 0.5f)
+                        );
+                        this.transform.position = this.transform.position + Offset;
+                        if(ShakyAutoRemoveProgress.IsZeroReached(Time.deltaTime * 2)) RemoveMe(control);
                         // targetLerpToPosition = this.tempPos;
                         JustMoved = true;
                         return;

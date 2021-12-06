@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace script.UI
@@ -7,8 +8,8 @@ namespace script.UI
     {
         public characterMove CM;
         public Text text;
-        public string start = "RUN";
-        public string end = "RESPAWN";
+        private string start = "RUN";
+        private string end = "RESPAWN";
         private void Start()
         {
             if (CM == null)
@@ -24,7 +25,11 @@ namespace script.UI
         public void ToggleStart()
         {
             CM.TriggerStart();
-            if (CM.characterMode == CharaStates.Running)
+        }
+
+        private void Update()
+        {
+            if (GameStateChecker.isTheCharaMoving)
             {
                 text.text = end;
             }

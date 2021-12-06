@@ -47,6 +47,8 @@ public class characterMove : MonoBehaviour
     public GameObject stonePointer;
 
     public DualPurposeCursor DPCursor;
+
+    private float LastRunTime = 0;
     // Start is called before the first frame update
     void Start()
     {        
@@ -171,6 +173,8 @@ public class characterMove : MonoBehaviour
 
     public void TriggerStart()
     {
+        if(Time.time - LastRunTime < 0.01f) return;
+        LastRunTime = Time.time;
         if (characterMode == CharaStates.Stop)
         {
             startGame();

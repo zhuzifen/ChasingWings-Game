@@ -23,5 +23,10 @@ namespace script.Level_Items_Script.UglyStuff
                 // Destroy(this);
             }
         }
+
+        private void Update()
+        {
+            TargetGameObject.GetComponent<Rigidbody>().isKinematic = !GameStateChecker.isTheCharaMoving;
+        }
     }
 }
